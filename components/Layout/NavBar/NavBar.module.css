@@ -1,0 +1,27 @@
+.headerContainer {
+  padding: 1rem 2rem;
+  border: 1px solid pink;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navLink {
+  font-size: 1.5rem;
+  margin: 0 1rem;
+}
