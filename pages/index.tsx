@@ -7,12 +7,12 @@ const Home: NextPage = () => {
   return (
     <>
       <HeadElement />
-      <div className={styles.container}>
+      <div>
         <NavBar />
-        <main className={styles.main}>
-          <h1 className={styles.title}>PlantShop</h1>
+        <main>
+          <h1>PlantShop</h1>
         </main>
-        <footer className={styles.footer}></footer>
+        <footer></footer>
       </div>
     </>
   );
