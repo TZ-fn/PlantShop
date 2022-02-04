@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import HeadElement from '../components/HeadElement/HeadElement';
 import NavBar from '../components/Layout/NavBar/NavBar';
+import Footer from '../components/Layout/Footer/Footer';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
@@ -12,7 +13,7 @@ const Home: NextPage = () => {
         <main>
           <h1>PlantShop</h1>
         </main>
-        <footer></footer>
+        <Footer />
       </div>
     </>
   );
