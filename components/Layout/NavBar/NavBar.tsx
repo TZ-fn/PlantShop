@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import MainLogo from '../../../public/mainLogo.svg';
 import LoginIcon from '../../../public/icons/loginIcon.svg';
 import EmptyBasketIcon from '../../../public/icons/emptyBasketIcon.svg';
