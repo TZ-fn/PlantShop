@@ -2,11 +2,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ReactElement } from 'react';
 import MainLogo from '../../../public/mainLogo.svg';
+import NavBar from './NavBar/NavBar';
 import LoginIcon from '../../../public/icons/loginIcon.svg';
 import EmptyBasketIcon from '../../../public/icons/emptyBasketIcon.svg';
 import FullBasketIcon from '../../../public/icons/fullBasketIcon.svg';
 import WishlistIcon from '../../../public/icons/wishlistIcon.svg';
-import styles from './NavBar.module.scss';
+import styles from './Header.module.scss';
 
 export default function Header(): ReactElement {
   return (
@@ -16,20 +17,7 @@ export default function Header(): ReactElement {
           <Image src={MainLogo.src} width={80} height={80} />
           <h1>PlantShop</h1>
         </div>
-        <nav className={styles.navContainer}>
-          <Link href={''}>
-            <a className={styles.navLink}>Home</a>
-          </Link>
-          <Link href={''}>
-            <a className={styles.navLink}>About</a>
-          </Link>
-          <Link href={''}>
-            <a className={styles.navLink}>Products</a>
-          </Link>
-          <Link href={''}>
-            <a className={styles.navLink}>Contact</a>
-          </Link>
-        </nav>
+        <NavBar />
         <div className={styles.userControlPanel}>
           <div>
             <Image src={WishlistIcon.src} width={40} height={40} />

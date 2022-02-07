@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import HeadElement from '../components/HeadElement/HeadElement';
-import NavBar from '../components/Layout/NavBar/NavBar';
+import Header from '../components/Layout/Header/Header';
 import Footer from '../components/Layout/Footer/Footer';
 import styles from '../styles/Home.module.css';
 
@@ -9,7 +9,7 @@ const Home: NextPage = () => {
     <>
       <HeadElement />
       <div>
-        <NavBar />
+        <Header />
         <main>
           <h1>PlantShop</h1>
         </main>
