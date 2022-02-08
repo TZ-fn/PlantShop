@@ -4,8 +4,10 @@ import styles from './SearchBar.module.scss';
 export default function SearchBar(): ReactElement {
   return (
     <div className={styles.searchContainer}>
-      <input type='text' />
-      <button type='button'>Search</button>
+      <input placeholder='Search for products...' className={styles.searchInput} type='text' />
+      <button className={styles.searchButton} type='button'>
+        Search
+      </button>
     </div>
   );
 }
