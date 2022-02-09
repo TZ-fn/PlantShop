@@ -6,8 +6,9 @@
 }
 
 .searchInput {
-  width: 12rem;
-  padding: 0.3rem 0.5rem;
+  width: 15rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.3rem;
 
   &:focus {
     outline: 2px solid var(--accent-color);
@@ -17,8 +18,14 @@
 .searchButton {
   margin-left: 3px;
   padding: 0.3rem 0.5rem;
+  background-color: hsl(60deg 100% 97%);
+  border: 1px solid #333333;
+  font-size: 1.3rem;
+  cursor: pointer;
 
   &:hover {
     outline: 3px solid var(--accent-color);
+    background-color: #333333;
+    color: hsl(60deg 100% 97%);
   }
 }
