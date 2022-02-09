@@ -8,6 +8,7 @@
 .searchInput {
   width: 12rem;
   padding: 0.3rem 0.5rem;
+
   &:focus {
     outline: 2px solid var(--accent-color);
   }
@@ -16,6 +17,7 @@
 .searchButton {
   margin-left: 3px;
   padding: 0.3rem 0.5rem;
+
   &:hover {
     outline: 3px solid var(--accent-color);
   }
