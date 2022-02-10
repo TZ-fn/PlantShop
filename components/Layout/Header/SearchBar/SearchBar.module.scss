@@ -18,14 +18,13 @@
 .searchButton {
   margin-left: 3px;
   padding: 0.3rem 0.5rem;
-  background-color: hsl(60deg 100% 97%);
-  border: 1px solid #333333;
+  border: 1px solid var(--black);
   font-size: 1.3rem;
   cursor: pointer;
 
   &:hover {
     outline: 3px solid var(--accent-color);
-    background-color: #333333;
-    color: hsl(60deg 100% 97%);
+    background-color: var(--black);
+    color: var(--white);
   }
 }
