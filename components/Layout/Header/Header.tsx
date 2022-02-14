@@ -14,7 +14,7 @@ export default function Header(): ReactElement {
     <header>
       <div className={styles.headerContainer}>
         <div className={styles.logoContainer}>
-          <Image src={MainLogo.src} width={80} height={80} />
+          <Image src={MainLogo.src} width={120} height={120} />
           <h1>PlantShop</h1>
         </div>
         <NavBar />
