@@ -8,7 +8,10 @@
   padding: 1rem 0.5rem;
   margin: 1rem 0.5rem;
   border: 1px solid var(--accent-color);
-  background-image: var(--background-gradient-reversed);
+  background-image: linear-gradient(
+    var(--background-gradient-angle-reversed),
+    var(--background-gradient)
+  );
 }
 
 .name {

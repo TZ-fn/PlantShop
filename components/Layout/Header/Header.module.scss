@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border-color);
-  background-image: var(--background-gradient);
+  background-image: linear-gradient(var(--background-gradient-angle), var(--background-gradient));
   box-shadow: var(--shadow-elevation-medium);
 }
 

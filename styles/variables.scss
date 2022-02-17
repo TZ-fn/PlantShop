@@ -4,16 +4,13 @@
   --black: hsl(120deg 56% 4%);
   --accent-color: hsl(156deg 99% 39%);
   --border-color: hsla(0, 0%, 0%, 40%);
-  --background-gradient: linear-gradient(
-    45deg,
-    hsl(0deg 0% 100%) 1%,
-    hsl(158deg 100% 98%) 60%,
-    hsl(155deg 100% 96%) 79%,
-    hsl(156deg 100% 94%) 90%,
-    hsl(156deg 100% 92%) 97%,
-    hsl(156deg 100% 89%) 101%,
-    hsl(156deg 100% 87%) 101%
-  );
+
+  // gradients
+  --background-gradient: hsl(0deg 0% 100%) 1%, hsl(158deg 100% 98%) 60%, hsl(155deg 100% 96%) 79%,
+    hsl(156deg 100% 94%) 90%, hsl(156deg 100% 92%) 97%, hsl(156deg 100% 89%) 101%,
+    hsl(156deg 100% 87%) 101%;
+  --background-gradient-angle: 45deg;
+  --background-gradient-angle-reversed: 225deg;
 
   // shadows
   --shadow-color: 0deg 0% 63%;
