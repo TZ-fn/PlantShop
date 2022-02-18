@@ -10,9 +10,17 @@ interface CardProps {
 export default function Card({ name, image, description }: CardProps): ReactElement {
   return (
     <div className={styles.cardContainer}>
-      <p className={styles.name}>{name}</p>
-      <img className={styles.image} src={image} alt='' />
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+      <div className={styles.cardContent}>
+        <div className={styles.cardFront}>
+          <p className={styles.name}>{name}</p>
+          <img className={styles.image} src={image} alt='' />
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div className={styles.cardBack}>
+          <p>Back dolor sit amet</p>
+        </div>
+      </div>
     </div>
   );
 }
+``;
