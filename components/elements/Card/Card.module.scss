@@ -6,9 +6,7 @@
   position: relative;
   height: 30rem;
   width: 20rem;
-  padding: 1rem 0.5rem;
-  margin: 1rem 0.5rem;
-  border: 1px solid var(--accent-color);
+  margin: 1rem 1rem;
 
   &:hover .cardContent {
     transform: rotateY(180deg);
@@ -19,7 +17,8 @@
   height: 100%;
   width: 100%;
   transform-style: preserve-3d;
-  transition: transform 0.8s;
+  transition: transform 1s;
+  border: 1px solid var(--accent-color);
 }
 
 .cardFront,
