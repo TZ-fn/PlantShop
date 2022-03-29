@@ -1,5 +1,5 @@
 # PlantShop
-
+Work in progress.
 ## About
 
 ## Usage
