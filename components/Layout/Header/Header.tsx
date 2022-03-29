@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { ReactElement } from 'react';
+import Image from 'next/image';
 import MainLogo from '../../../public/mainLogo.svg';
 import NavBar from './NavBar/NavBar';
 import SearchBar from './SearchBar/SearchBar';

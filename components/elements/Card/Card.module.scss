@@ -18,7 +18,8 @@
   width: 100%;
   transform-style: preserve-3d;
   transition: transform 1s;
-  border: 1px solid var(--accent-color);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-elevation-high);
 }
 
 .cardFront,
@@ -44,8 +45,14 @@
   );
 }
 
+.turnIconContainer {
+  position: absolute;
+  bottom: 3px;
+  left: 7px;
+}
+
 .cardBack {
-  background-color: salmon;
+  background-image: linear-gradient(var(--background-gradient-angle), var(--background-gradient));
   transform: rotateY(180deg);
 }
 
