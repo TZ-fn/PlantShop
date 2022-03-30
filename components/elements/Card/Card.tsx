@@ -5,7 +5,7 @@ import turnAroundIcon from '../../../public/icons/turnAroundArrowIcon.svg';
 
 interface CardProps {
   name: string;
-  image: string;
+  image: StaticImageData;
   description?: string;
 }
 
@@ -15,8 +15,17 @@ export default function Card({ name, image, description }: CardProps): ReactElem
       <div className={styles.cardContent}>
         <div className={styles.cardFront}>
           <p className={styles.name}>{name}</p>
-          <img className={styles.image} src={image} alt='' />
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+          <Image
+            className={styles.image}
+            width={200}
+            height={300}
+            src={image.src}
+            alt=''
+            layout='fixed'
+          />
+          <p className={styles.description}>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </p>
           <div className={styles.turnIconContainer}>
             <Image src={turnAroundIcon.src} width={25} height={25} alt='' />
           </div>
