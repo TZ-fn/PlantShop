@@ -6,14 +6,14 @@ import styles from './CardContainer.module.scss';
 export default function CardContainer(): ReactElement {
   return (
     <div className={styles.cardContainer}>
-      <Card name='Zamioculcas' image={ZamioImage.src} />
-      <Card name='Zamioculcas' image={ZamioImage.src} />
-      <Card name='Zamioculcas' image={ZamioImage.src} />
-      <Card name='Zamioculcas' image={ZamioImage.src} />
-      <Card name='Zamioculcas' image={ZamioImage.src} />
-      <Card name='Zamioculcas' image={ZamioImage.src} />
-      <Card name='Zamioculcas' image={ZamioImage.src} />
-      <Card name='Zamioculcas' image={ZamioImage.src} />
+      <Card name='Zamioculcas' image={ZamioImage} />
+      <Card name='Zamioculcas' image={ZamioImage} />
+      <Card name='Zamioculcas' image={ZamioImage} />
+      <Card name='Zamioculcas' image={ZamioImage} />
+      <Card name='Zamioculcas' image={ZamioImage} />
+      <Card name='Zamioculcas' image={ZamioImage} />
+      <Card name='Zamioculcas' image={ZamioImage} />
+      <Card name='Zamioculcas' image={ZamioImage} />
     </div>
   );
 }
