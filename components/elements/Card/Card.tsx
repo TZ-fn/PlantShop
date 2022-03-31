@@ -17,21 +17,21 @@ export default function Card({ name, image, description }: CardProps): ReactElem
           <p className={styles.name}>{name}</p>
           <Image
             className={styles.image}
-            width={200}
-            height={300}
+            width={100}
+            height={100}
             src={image.src}
             alt=''
-            layout='fixed'
+            layout='fill'
           />
-          <p className={styles.description}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          </p>
           <div className={styles.turnIconContainer}>
             <Image src={turnAroundIcon.src} width={25} height={25} alt='' />
           </div>
         </div>
         <div className={styles.cardBack}>
-          <p>Back dolor sit amet</p>
+          <p className={styles.description}>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet
+            consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </p>
         </div>
       </div>
     </div>

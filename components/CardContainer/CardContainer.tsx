@@ -14,6 +14,8 @@ export default function CardContainer(): ReactElement {
       <Card name='Zamioculcas' image={ZamioImage} />
       <Card name='Zamioculcas' image={ZamioImage} />
       <Card name='Zamioculcas' image={ZamioImage} />
+      <Card name='Zamioculcas' image={ZamioImage} />
+      <Card name='Zamioculcas' image={ZamioImage} />
     </div>
   );
 }
