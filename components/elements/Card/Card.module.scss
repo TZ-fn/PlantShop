@@ -4,9 +4,9 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  height: 23.5rem;
-  width: 18rem;
-  margin: 1rem 2rem;
+  height: 46rem;
+  width: 32rem;
+  margin: 2rem 2rem;
 
   &:hover .cardContent {
     transform: rotateY(180deg);
@@ -17,7 +17,7 @@
   height: 100%;
   width: 100%;
   transform-style: preserve-3d;
-  transition: transform 1.5s;
+  transition: transform 1s;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-elevation-medium);
