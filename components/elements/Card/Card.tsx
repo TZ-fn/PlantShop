@@ -17,7 +17,7 @@ export default function Card({ name, image, description }: CardProps): ReactElem
           <p className={styles.name}>{name}</p>
           <Image className={styles.image} src={image.src} alt='' layout='fill' />
           <div className={styles.turnIconContainer}>
-            <Image src={turnAroundIcon.src} width={25} height={25} alt='' />
+            <Image src={turnAroundIcon.src} width={35} height={35} alt='' />
           </div>
         </div>
         <div className={styles.cardBack}>
