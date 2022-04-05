@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  height: 46rem;
-  width: 32rem;
+  height: 40rem;
+  width: 25rem;
   margin: 2rem 2rem;
 
   &:hover .cardContent {
@@ -60,9 +60,11 @@
 }
 
 .name {
-  padding: 0.5rem 1.5rem;
+  width: 95%;
+  padding: 2rem 1.5rem;
   z-index: 1;
-  font-size: 2.5rem;
+  font-size: 2.7rem;
+  text-align: center;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   -webkit-backdrop-filter: blur(5px);
