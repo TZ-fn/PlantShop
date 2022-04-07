@@ -4,9 +4,9 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  height: 40rem;
-  width: 25rem;
-  margin: 2rem 2rem;
+  height: 35rem;
+  width: 22rem;
+  margin: 1rem 3rem;
 
   &:hover .cardContent {
     transform: rotateY(180deg);
@@ -60,7 +60,7 @@
 }
 
 .name {
-  width: 95%;
+  width: 100%;
   padding: 2rem 1.5rem;
   z-index: 1;
   font-size: 2.7rem;
