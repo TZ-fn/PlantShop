@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 import Image from 'next/image';
 import styles from './Card.module.scss';
 import turnAroundIcon from '../../../public/icons/turnAroundArrowIcon.svg';
+import addToBasketIcon from '../../../public/icons/addToBasketIcon.svg';
 
 interface CardProps {
   name: string;
@@ -25,6 +26,21 @@ export default function Card({ name, image, description }: CardProps): ReactElem
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet
             consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           </p>
+          <div className={styles.buttonContainer}>
+            <button type='button' className={styles.addToBasketButton}>
+              <div className={styles.imageContainer}>
+                <Image
+                  className={styles.addToBasketIcon}
+                  src={addToBasketIcon.src}
+                  width={'40px'}
+                  height={'40'}
+                  alt=''
+                  layout='fixed'
+                />
+              </div>
+              Add to basket
+            </button>
+          </div>
         </div>
       </div>
     </div>
