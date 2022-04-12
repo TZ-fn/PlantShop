@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 import Card from '../elements/Card/Card';
+
 import ZamioImage from '../../public/images/severin-candrian-cLaaxa4DSnc-unsplash.jpg';
 import FortunePlantImage from '../../public/images/rumman-amin-xrYzcMivDSY-unsplash.jpg';
 import ZebraPlantImage from '../../public/images/kari-shea-tcgMBsW4zlU-unsplash.jpg';
