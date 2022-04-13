@@ -11,8 +11,11 @@ import DwarfBananaImage from '../../public/images/severin-candrian-rOfBozD9pOE-u
 import CalatheaImage from '../../public/images/severin-candrian-KU-lo3dR-K4-unsplash.jpg';
 
 import styles from './CardContainer.module.scss';
+import { useFetch } from '../../hooks/useFetch';
 
 export default function CardContainer(): ReactElement {
+  const data = useFetch('/api/plants');
+
   return (
     <div className={styles.cardContainer}>
       <Card name='Zamioculcas' image={ZamioImage} />
