@@ -10,7 +10,14 @@ export default function CardContainer(): ReactElement {
     <div className={styles.cardContainer}>
       {data !== undefined
         ? data.map((plant: Plant) => {
-            return <Card name={plant.name} image={plant.image} description={plant.description} />;
+            return (
+              <Card
+                key={plant.name}
+                name={plant.name}
+                image={plant.image}
+                description={plant.description}
+              />
+            );
           })
         : 'Loading'}
     </div>

@@ -6,13 +6,13 @@ import addToBasketIcon from '../../../public/icons/addToBasketIcon.svg';
 
 interface CardProps {
   name: string;
-  image: StaticImageData;
+  image: string;
   description?: string;
 }
 
 export default function Card({ name, image, description }: CardProps): ReactElement {
   return (
-    <div className={styles.cardContainer}>
+    <div className={styles.cardWrapper}>
       <div className={styles.cardContent}>
         <div className={styles.cardFront}>
           <p className={styles.name}>{name}</p>

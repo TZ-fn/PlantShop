@@ -1,6 +1,6 @@
 export interface Plant {
   name: string;
-  image: StaticImageData;
+  image: string;
   description: string;
 }
 
