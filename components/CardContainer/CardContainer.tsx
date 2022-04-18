@@ -2,10 +2,10 @@ import { ReactElement } from 'react';
 import Card from '../elements/Card/Card';
 import styles from './CardContainer.module.scss';
 import { useFetch } from '../../hooks/useFetch';
-import { Plant, PlantData } from '../../types/types';
+import { Plant, PlantsData } from '../../types/types';
 
 export default function CardContainer(): ReactElement {
-  const data: PlantData = useFetch('/api/plants');
+  const data: PlantsData = useFetch('/api/plants');
   return (
     <div className={styles.cardContainer}>
       {data !== undefined

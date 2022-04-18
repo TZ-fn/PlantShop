@@ -4,4 +4,4 @@ export interface Plant {
   description: string;
 }
 
-export type PlantData = Plant[];
+export type PlantsData = Plant[];
