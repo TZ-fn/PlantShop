@@ -1,0 +1,27 @@
+.productContainer {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 1rem;
+}
+
+.productName {
+}
+
+.countMinus,
+.countPlus {
+  height: 2rem;
+  width: 2rem;
+}
+
+.count {
+  width: 3rem;
+}
+
+.price {
+}
+
+.removeButton {
+  height: 2rem;
+  width: 2rem;
+}
