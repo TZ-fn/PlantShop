@@ -2,10 +2,18 @@
   display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  align-items: center;
   margin: 1rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .productName {
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .countMinus,
@@ -15,6 +23,7 @@
 }
 
 .count {
+  height: 2rem;
   width: 3rem;
 }
 
