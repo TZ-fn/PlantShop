@@ -5,6 +5,10 @@ const nextConfig = {
     locales: ['en'],
     defaultLocale: 'en',
   },
+  sassOptions: {
+    includePaths: ['./styles'],
+    prependData: `@import "styles/mixins.scss";`,
+  },
 };
 
 module.exports = nextConfig;
