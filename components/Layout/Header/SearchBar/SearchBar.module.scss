@@ -18,16 +18,5 @@
 }
 
 .searchButton {
-  margin-left: 3px;
-  padding: 0.3rem 0.5rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  font-size: 1.3rem;
-  cursor: pointer;
-
-  &:hover {
-    outline: 2px solid var(--accent-color);
-    background-color: var(--black);
-    color: var(--white);
-  }
+  @include button-standard;
 }
