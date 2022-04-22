@@ -4,6 +4,7 @@ import HeadElement from '../components/HeadElement/HeadElement';
 import Header from '../components/Layout/Header/Header';
 import Footer from '../components/Layout/Footer/Footer';
 import ProductsList from '../components/ProductsList/ProductsList';
+import BasketAside from '../components/BasketAside/BasketAside';
 
 const Basket: NextPage = () => {
   return (
@@ -13,10 +14,7 @@ const Basket: NextPage = () => {
         <Header />
         <div className={styles.container}>
           <ProductsList />
-          <aside>
-            <button type='button'>Checkout and pay</button>
-            <button type='button'>Continue shopping</button>
-          </aside>
+          <BasketAside />
         </div>
         {/* <Footer /> */}
       </div>
