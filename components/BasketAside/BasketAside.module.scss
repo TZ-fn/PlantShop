@@ -1,0 +1,6 @@
+.asideContainer {
+}
+.checkoutButton,
+.continueButton {
+  @include button-standard;
+}
