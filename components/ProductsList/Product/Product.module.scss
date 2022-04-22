@@ -4,10 +4,13 @@
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
   margin: 1rem;
-  border-bottom: 1px solid var(--border-color);
 }
 
-.productName {
+.productName,
+.price {
+  text-align: center;
+  padding: 0.7rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .counter {
@@ -17,20 +20,17 @@
 }
 
 .countMinus,
-.countPlus {
-  height: 2rem;
-  width: 2rem;
-}
-
-.count {
-  height: 2rem;
+.countPlus,
+.removeButton {
+  @include button-standard;
+  height: 3rem;
   width: 3rem;
 }
 
-.price {
-}
-
-.removeButton {
-  height: 2rem;
-  width: 2rem;
+.count {
+  height: 3rem;
+  width: 4rem;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 1.3rem;
 }
