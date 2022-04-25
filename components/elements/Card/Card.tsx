@@ -30,10 +30,9 @@ export default function Card({ name, image, description }: CardProps): ReactElem
             <button type='button' className={styles.addToBasketButton}>
               <div className={styles.imageContainer}>
                 <Image
-                  className={styles.addToBasketIcon}
                   src={addToBasketIcon.src}
-                  width={'40px'}
-                  height={'40'}
+                  width={'50px'}
+                  height={'50px'}
                   alt=''
                   layout='fixed'
                 />
