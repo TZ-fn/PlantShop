@@ -1,4 +1,6 @@
 import { ReactElement } from 'react';
+import Image from 'next/image';
+import BinIcon from '../../../public/icons/binIcon.svg';
 import styles from './Product.module.scss';
 
 export default function Product(): ReactElement {
@@ -26,6 +28,7 @@ export default function Product(): ReactElement {
       <p className={styles.price}>123123</p>
       <button type='button' className={styles.removeButton}>
         <span className='visually-hidden'>Remove item from the basket</span>
+        <Image src={BinIcon.src} width={'40px'} height={'40px'} alt='' layout='fixed' />
       </button>
     </li>
   );
