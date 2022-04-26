@@ -1,4 +1,7 @@
 .list {
   padding: 1rem 2rem;
   list-style-type: none;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-elevation-low);
 }

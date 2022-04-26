@@ -1,9 +1,11 @@
 :root {
   // colors
   --white: hsl(0deg 0% 98%);
+  --white-darker: rgb(218, 218, 218);
   --black: hsl(120deg 56% 4%);
   --accent-color: hsl(156deg 99% 39%);
   --accent-color-lighter: rgb(1, 255, 153);
+  --accent-color-secondary: rgba(1, 255, 153, 0.3);
   --border-color: hsla(0, 0%, 0%, 20%);
 
   // gradients
