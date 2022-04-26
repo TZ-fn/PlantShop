@@ -1,12 +1,11 @@
 .container {
   margin: 1rem;
-  padding: 1rem;
+  padding: 5rem 2rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 2fr 1fr;
   grid-template-columns: 2fr 1fr;
-
-  & > * {
-    border: 1px solid salmon;
-  }
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-elevation-medium);
 }
