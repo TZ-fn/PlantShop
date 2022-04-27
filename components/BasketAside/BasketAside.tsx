@@ -1,10 +1,11 @@
 import { ReactElement } from 'react';
 import styles from './BasketAside.module.scss';
+import { formatCurrency } from '../../utils/formatNumber';
 
 export default function BasketAside(): ReactElement {
   return (
     <aside className={styles.asideContainer}>
-      <p className={styles.totalContainer}>Total: 123123$</p>
+      <p className={styles.totalContainer}>Total: {formatCurrency(123123.12)}</p>
       <button type='button' className={styles.checkoutButton}>
         Checkout and pay
       </button>
