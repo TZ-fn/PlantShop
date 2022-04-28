@@ -3,14 +3,21 @@ import Image from 'next/image';
 import styles from './Card.module.scss';
 import turnAroundIcon from '../../../public/icons/turnAroundArrowIcon.svg';
 import addToBasketIcon from '../../../public/icons/addToBasketIcon.svg';
+import { formatCurrency } from '../../../utils/formatNumber';
 
 interface CardProps {
+  id: string;
   name: string;
   image: string;
+  count: number;
   description?: string;
+  price: {
+    integer: number;
+    fraction: number;
+  };
 }
 
-export default function Card({ name, image, description }: CardProps): ReactElement {
+export default function Card({ name, image, description, price }: CardProps): ReactElement {
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.cardContent}>
@@ -26,6 +33,7 @@ export default function Card({ name, image, description }: CardProps): ReactElem
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet
             consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           </p>
+          <p className={styles.priceContainer}>{formatCurrency(12.23)}</p>
           <div className={styles.buttonContainer}>
             <button type='button' className={styles.addToBasketButton}>
               <div className={styles.imageContainer}>
