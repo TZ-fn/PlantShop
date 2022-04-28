@@ -3,8 +3,9 @@ import styles from './Product.module.scss';
 import Image from 'next/image';
 import BinIcon from '../../../public/icons/binIcon.svg';
 import { formatCurrency } from '../../../utils/formatNumber';
+import { IProductProps } from '../../../types/types';
 
-export default function Product(): ReactElement {
+export default function Product({ id, name, count, price }: IProductProps): ReactElement {
   return (
     <li className={styles.productContainer}>
       <p className={styles.productName}>Lorem ipsum dolor sit amet</p>
