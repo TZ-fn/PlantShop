@@ -31,14 +31,14 @@ const plants = [
     name: 'Epipremnum',
     image: '/images/severin-candrian-PKQHPDetrtc-unsplash.jpg',
     description: '',
-    price: { integer: 8, fraction: 00 },
+    price: { integer: 8, fraction: 0 },
     currency: 'USD',
   },
   {
     name: 'Dwarf banana',
     image: '/images/severin-candrian-rOfBozD9pOE-unsplash.jpg',
     description: '',
-    price: { integer: 25, fraction: 05 },
+    price: { integer: 25, fraction: 5 },
     currency: 'USD',
   },
   {
