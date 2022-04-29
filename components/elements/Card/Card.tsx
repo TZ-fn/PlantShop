@@ -22,7 +22,7 @@ export default function Card({ id, name, image, description, price }: Plant): Re
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet
             consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           </p>
-          <p className={styles.priceContainer}>{formatCurrency(12.23)}</p>
+          <p className={styles.priceContainer}>Price: {formatCurrency(12.23)}</p>
           <div className={styles.buttonContainer}>
             <button type='button' className={styles.addToBasketButton}>
               <div className={styles.imageContainer}>
