@@ -12,4 +12,8 @@
   &:hover {
     background-color: var(--accent-color-lighter);
   }
+
+  &:active {
+    transform: translateY(1px);
+  }
 }
