@@ -1,17 +1,12 @@
 export interface Plant {
+  id: string;
   name: string;
   image: string;
   description: string;
-}
-
-export interface IProductProps {
-  id: string;
-  name: string;
-  count: number;
-  price: {
-    integer: number;
-    fraction: number;
-  };
+  price: { integer: number; fraction: number; currency: string };
 }
 
 export type PlantsData = Plant[];
+export interface ProductProps extends Plant {
+  count: number;
+}

@@ -4,20 +4,9 @@ import styles from './Card.module.scss';
 import turnAroundIcon from '../../../public/icons/turnAroundArrowIcon.svg';
 import addToBasketIcon from '../../../public/icons/addToBasketIcon.svg';
 import { formatCurrency } from '../../../utils/formatNumber';
+import { Plant } from '../../../types/types';
 
-interface CardProps {
-  id: string;
-  name: string;
-  image: string;
-  count: number;
-  description?: string;
-  price: {
-    integer: number;
-    fraction: number;
-  };
-}
-
-export default function Card({ name, image, description, price }: CardProps): ReactElement {
+export default function Card({ id, name, image, description, price }: Plant): ReactElement {
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.cardContent}>
