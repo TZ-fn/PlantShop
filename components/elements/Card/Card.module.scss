@@ -86,6 +86,13 @@
   text-align: center;
 }
 
+.priceContainer {
+  margin-top: auto;
+  padding: 0;
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--accent-color);
+}
+
 .buttonContainer {
   display: flex;
   flex-direction: column;
@@ -93,7 +100,7 @@
   justify-content: center;
   height: 7rem;
   width: 105%;
-  margin-top: auto;
+  margin-top: 1rem;
   border-top: 2px solid var(--accent-color);
 }
 
