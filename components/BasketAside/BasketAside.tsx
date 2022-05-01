@@ -5,7 +5,9 @@ import { formatCurrency } from '../../utils/formatNumber';
 export default function BasketAside(): ReactElement {
   return (
     <aside className={styles.asideContainer}>
-      <p className={styles.totalContainer}>Total: {formatCurrency(123123.12)}</p>
+      <p className={styles.totalContainer}>
+        <span className={styles.basketTotal}>Basket total:</span> {formatCurrency(123123.12)}
+      </p>
       <button type='button' className={styles.checkoutButton}>
         Checkout and pay
       </button>

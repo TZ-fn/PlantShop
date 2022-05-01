@@ -8,9 +8,14 @@
 
 .productName,
 .price {
-  text-align: center;
   padding: 0.7rem;
+  font-size: 1.3rem;
+  text-align: center;
   border-bottom: 1px solid var(--border-color);
+}
+
+.price {
+  font-size: 1.5rem;
 }
 
 .counter {

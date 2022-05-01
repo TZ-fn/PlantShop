@@ -20,6 +20,7 @@ export default function Product({ id, name, count, price }: ProductProps): React
             autoComplete='off'
             title=''
             type='text'
+            value={1}
             className={styles.count}
           />
         </label>
@@ -27,7 +28,7 @@ export default function Product({ id, name, count, price }: ProductProps): React
           + <span className='visually-hidden'>Add 1 of the item</span>
         </button>
       </div>
-      <p className={styles.price}>Price: {formatCurrency(123123.12)}</p>
+      <p className={styles.price}>Total: {formatCurrency(123123.12)}</p>
       <button type='button' className={styles.removeButton}>
         <span className='visually-hidden'>Remove item from the basket</span>
         <Image src={BinIcon.src} width={'40px'} height={'40px'} alt='' layout='fixed' />
