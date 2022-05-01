@@ -18,11 +18,16 @@
   text-align: center;
 }
 
+.basketTotal {
+  font-size: 1.6rem;
+}
+
 .checkoutButton,
 .continueButton {
   @include button-standard;
   margin-top: 1rem;
-  width: 15rem;
+  width: 16rem;
+  font-size: 1.4rem;
 }
 
 .continueButton {
