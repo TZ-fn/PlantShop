@@ -12,11 +12,24 @@ export default function Product({ id, name, count, price }: ProductProps): React
     setCountValue(e.target.value);
   };
 
+  const handleCountButtons = (operationType: string) => {
+    if (countValue === '0' && operationType === 'decrease') {
+      return;
+    }
+    return operationType === 'increase'
+      ? setCountValue(String(Number(countValue) + 1))
+      : setCountValue(String(Number(countValue) - 1));
+  };
+
   return (
     <li className={styles.productContainer}>
       <p className={styles.productName}>Lorem ipsum dolor sit amet</p>
       <div className={styles.counter}>
-        <button type='button' className={styles.countMinus}>
+        <button
+          type='button'
+          className={styles.countMinus}
+          onClick={() => handleCountButtons('decrease')}
+        >
           - <span className='visually-hidden'>Remove 1 of this item</span>
         </button>
         <label htmlFor='item-count'>
@@ -31,7 +44,11 @@ export default function Product({ id, name, count, price }: ProductProps): React
             className={styles.count}
           />
         </label>
-        <button type='button' className={styles.countPlus}>
+        <button
+          type='button'
+          className={styles.countPlus}
+          onClick={() => handleCountButtons('increase')}
+        >
           + <span className='visually-hidden'>Add 1 of this item</span>
         </button>
       </div>
