@@ -1,4 +1,4 @@
-import { ChangeEvent, KeyboardEvent, ReactElement, useState } from 'react';
+import { ChangeEvent, ReactElement, useState } from 'react';
 import styles from './Product.module.scss';
 import Image from 'next/image';
 import BinIcon from '../../../public/icons/binIcon.svg';
