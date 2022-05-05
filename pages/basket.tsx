@@ -1,15 +1,8 @@
 import type { NextPage } from 'next';
-import styles from './basket.module.scss';
-import ProductsList from '../components/ProductsList/ProductsList';
-import BasketAside from '../components/BasketAside/BasketAside';
+import BasketView from '../views/BasketView/BasketView';
 
 const Basket: NextPage = () => {
-  return (
-    <div className={styles.basketContainer}>
-      <ProductsList />
-      <BasketAside />
-    </div>
-  );
+  return <BasketView />;
 };
 
 export default Basket;
