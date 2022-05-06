@@ -17,7 +17,7 @@ export default function Header(): ReactElement {
         <Link href={'/'}>
           <div className={styles.logoContainer}>
             <Image src={MainLogo.src} width={100} height={100} />
-            <h1>PlantShop</h1>
+            <h1 className={styles.logoText}>PlantShop</h1>
           </div>
         </Link>
 
@@ -27,19 +27,19 @@ export default function Header(): ReactElement {
 
         <div className={styles.userControlPanel}>
           <Link href={'/wishlist'}>
-            <div>
+            <div className={styles.controlItem}>
               <Image src={WishlistIcon.src} width={40} height={40} />
               Wishlist (0)
             </div>
           </Link>
           <Link href={'/basket'}>
-            <div>
+            <div className={styles.controlItem}>
               <Image src={EmptyBasketIcon.src} width={40} height={40} />
               Basket
             </div>
           </Link>
           <Link href={'/login'}>
-            <div>
+            <div className={styles.controlItem}>
               <Image src={LoginIcon.src} width={40} height={40} />
               Login
             </div>
