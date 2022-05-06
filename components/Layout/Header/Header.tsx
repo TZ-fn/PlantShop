@@ -27,22 +27,22 @@ export default function Header(): ReactElement {
 
         <div className={styles.userControlPanel}>
           <Link href={'/wishlist'}>
-            <div className={styles.controlItem}>
+            <a className={styles.controlItem}>
               <Image src={WishlistIcon.src} width={40} height={40} />
               Wishlist (0)
-            </div>
+            </a>
           </Link>
           <Link href={'/basket'}>
-            <div className={styles.controlItem}>
+            <a className={styles.controlItem}>
               <Image src={EmptyBasketIcon.src} width={40} height={40} />
               Basket
-            </div>
+            </a>
           </Link>
           <Link href={'/login'}>
-            <div className={styles.controlItem}>
+            <a className={styles.controlItem}>
               <Image src={LoginIcon.src} width={40} height={40} />
               Login
-            </div>
+            </a>
           </Link>
         </div>
       </div>
