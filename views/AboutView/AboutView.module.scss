@@ -1,0 +1,19 @@
+.aboutContainer {
+  width: 50vw;
+  height: 60vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 5rem auto;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-elevation-medium);
+}
+
+.aboutHeader {
+  width: 20%;
+  font-size: 2rem;
+  text-align: center;
+  border-bottom: 2px solid var(--accent-color);
+}
