@@ -1,8 +1,9 @@
 import Image from 'next/image';
+import SocialIcons from '../../components/SocialIcons/SocialIcons';
 import MainLogo from '../../public/mainLogo.svg';
 import styles from './ContactView.module.scss';
 
-const ContactView = () => {
+export default function ContactView() {
   return (
     <div className={styles.contactContainer}>
       <h2 className={styles.contactHeader}>Contact</h2>
@@ -19,8 +20,7 @@ const ContactView = () => {
         <li className={styles.phone}>+44 (0)78 0410 7081</li>
         <li className={styles.country}>United Kingdom</li>
       </ul>
+      <SocialIcons />
     </div>
   );
-};
-
-export default ContactView;
+}
