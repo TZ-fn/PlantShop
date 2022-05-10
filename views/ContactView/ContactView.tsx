@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import MainLogo from '../../public/mainLogo.svg';
-import styles from './AboutView.module.scss';
+import styles from './ContactView.module.scss';
 
-const AboutView = () => {
+const ContactView = () => {
   return (
-    <div className={styles.aboutContainer}>
-      <h2 className={styles.aboutHeader}>About</h2>
+    <div className={styles.contactContainer}>
+      <h2 className={styles.contactHeader}>Contact</h2>
       <div className={styles.logoContainer}>
         <Image src={MainLogo.src} width={50} height={50} />
         <h1 className={styles.logoText}>
@@ -23,4 +23,4 @@ const AboutView = () => {
   );
 };
 
-export default AboutView;
+export default ContactView;
