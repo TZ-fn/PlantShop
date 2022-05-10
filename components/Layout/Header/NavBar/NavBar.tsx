@@ -8,9 +8,6 @@ export default function NavBar(): ReactElement {
       <Link href='/'>
         <a className={styles.navLink}>Home</a>
       </Link>
-      <Link href='/about'>
-        <a className={styles.navLink}>About</a>
-      </Link>
       <Link href='/products'>
         <a className={styles.navLink}>Products</a>
       </Link>

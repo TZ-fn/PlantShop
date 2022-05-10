@@ -1,4 +1,4 @@
-.aboutContainer {
+.contactContainer {
   width: 50vw;
   height: 60vh;
   display: flex;
@@ -13,7 +13,7 @@
   box-shadow: var(--shadow-elevation-medium);
 }
 
-.aboutHeader {
+.contactHeader {
   width: 20%;
   font-size: 2rem;
   text-align: center;
@@ -26,7 +26,7 @@
   align-items: center;
   justify-content: center;
   height: 5rem;
-  margin-top: 1.7rem;
+  margin-top: 2rem;
 
   .logoText {
     margin-left: 0.5rem;
