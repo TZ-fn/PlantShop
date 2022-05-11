@@ -1,13 +1,13 @@
 import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import MainLogo from '../../../public/mainLogo.svg';
+import MainLogo from 'public/mainLogo.svg';
 import NavBar from './NavBar/NavBar';
 import SearchBar from './SearchBar/SearchBar';
-import LoginIcon from '../../../public/icons/loginIcon.svg';
-import EmptyBasketIcon from '../../../public/icons/emptyBasketIcon.svg';
-import FullBasketIcon from '../../../public/icons/fullBasketIcon.svg';
-import WishlistIcon from '../../../public/icons/wishlistIcon.svg';
+import LoginIcon from 'public/icons/loginIcon.svg';
+import EmptyBasketIcon from 'public/icons/emptyBasketIcon.svg';
+import FullBasketIcon from 'public/icons/fullBasketIcon.svg';
+import WishlistIcon from 'public/icons/wishlistIcon.svg';
 import styles from './Header.module.scss';
 
 export default function Header(): ReactElement {

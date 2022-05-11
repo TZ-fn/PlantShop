@@ -1,9 +1,9 @@
 import { ChangeEvent, ReactElement, useState } from 'react';
 import styles from './Product.module.scss';
 import Image from 'next/image';
-import BinIcon from '../../../public/icons/binIcon.svg';
-import { formatCurrency } from '../../../utils/formatNumber';
-import { ProductProps } from '../../../types/types';
+import BinIcon from 'public/icons/binIcon.svg';
+import { formatCurrency } from 'utils/formatNumber';
+import { ProductProps } from 'types/types';
 
 export default function Product({ id, name, count, price }: ProductProps): ReactElement {
   const [countValue, setCountValue] = useState('1');
