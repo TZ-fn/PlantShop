@@ -1,8 +1,7 @@
 import Link from 'next/link';
-import { ReactElement } from 'react';
 import styles from './NavBar.module.scss';
 
-export default function NavBar(): ReactElement {
+export default function NavBar() {
   return (
     <nav className={styles.navContainer}>
       <Link href='/'>
