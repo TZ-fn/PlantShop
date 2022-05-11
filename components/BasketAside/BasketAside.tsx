@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import styles from './BasketAside.module.scss';
-import { formatCurrency } from '../../utils/formatNumber';
+import { formatCurrency } from 'utils/formatNumber';
 
 export default function BasketAside(): ReactElement {
   return (

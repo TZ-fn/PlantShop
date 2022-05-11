@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import SocialIcons from '../../components/SocialIcons/SocialIcons';
-import MainLogo from '../../public/mainLogo.svg';
+import SocialIcons from 'components/SocialIcons/SocialIcons';
+import MainLogo from 'public/mainLogo.svg';
 import styles from './ContactView.module.scss';
 
 export default function ContactView() {

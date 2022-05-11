@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import FacebookLogo from '../../public/icons/fbIcon.svg';
-import TwitterLogo from '../../public/icons/twitterIcon.svg';
+import FacebookLogo from 'public/icons/fbIcon.svg';
+import TwitterLogo from 'public/icons/twitterIcon.svg';
 import styles from './SocialIcons.module.scss';
 
 export default function SocialIcons() {

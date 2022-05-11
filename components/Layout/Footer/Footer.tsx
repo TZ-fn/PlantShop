@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import MainLogo from '../../../public/mainLogo.svg';
+import MainLogo from 'public/mainLogo.svg';
 import styles from './Footer.module.scss';
-import SocialIcons from '../../SocialIcons/SocialIcons';
+import SocialIcons from 'components/SocialIcons/SocialIcons';
 
 export default function Header() {
   return (
