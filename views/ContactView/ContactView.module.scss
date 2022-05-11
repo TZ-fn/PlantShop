@@ -1,12 +1,11 @@
 .contactContainer {
-  width: 50vw;
-  height: 60vh;
+  width: 38rem;
+  height: 35rem;
   display: flex;
   flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin: 5rem auto;
   padding: 2rem;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
@@ -14,7 +13,7 @@
 }
 
 .contactHeader {
-  width: 20%;
+  width: 10rem;
   font-size: 2rem;
   text-align: center;
   border-bottom: 2px solid var(--accent-color);
