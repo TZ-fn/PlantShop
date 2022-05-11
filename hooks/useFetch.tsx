@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { PlantData } from '../types/types';
+import { PlantsData } from 'types/types';
 
-export const useFetch = (APIurl: string): PlantData => {
+export const useFetch = (APIurl: string): PlantsData => {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
