@@ -1,0 +1,19 @@
+.mainContainer {
+  width: 38rem;
+  height: 35rem;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-elevation-medium);
+}
+
+.loginContainer {
+}
+
+.registerContainer {
+}
