@@ -13,10 +13,10 @@ export default function LoginView() {
     <div className={styles.mainContainer}>
       {!isLoginPage && (
         <div className={styles.registerContainer}>
-          <Input id='email' type='text' placeholder='email' label='E-mail' />
-          <Input id='password' type='text' placeholder='password' label='Password' />
+          <Input id='email' type='text' placeholder='Enter your email' label='E-mail' />
+          <Input id='password' type='text' placeholder='Enter your password' label='Password' />
           <button type='button' className={styles.registerButton}>
-            Register
+            Sign me up!
           </button>
         </div>
       )}
