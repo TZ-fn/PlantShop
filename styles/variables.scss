@@ -19,6 +19,9 @@
   // shadows
   --shadow-color: 0deg 0% 63%;
 
+  --shadow-elevation-lowest: 0.7px 0.7px 1.1px hsl(var(--shadow-color) / 0.36),
+    2.2px 2.2px 3.5px -0.8px hsl(var(--shadow-color) / 0.36);
+
   --shadow-elevation-low: 0.7px 0.7px 1.1px hsl(var(--shadow-color) / 0.36),
     2.2px 2.2px 3.5px -0.8px hsl(var(--shadow-color) / 0.36),
     5.4px 5.4px 8.6px -1.7px hsl(var(--shadow-color) / 0.36),

@@ -10,9 +10,10 @@ interface InputProps {
 export default function Input({ id, type, placeholder, label }: InputProps) {
   return (
     <div className={styles.inputContainer}>
-      {label}
+      <label htmlFor={id} className={styles.inputLabel}>
+        {label}
+      </label>
       <input id={id} className={styles.input} type={type} placeholder={placeholder} />
-      <label htmlFor={id}></label>
     </div>
   );
 }
