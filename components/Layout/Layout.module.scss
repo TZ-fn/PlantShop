@@ -6,4 +6,13 @@
   min-height: 78.6vh;
   margin: 0;
   padding: 0;
+  background-image: linear-gradient(
+    var(--background-gradient-angle-180),
+    var(--background-gradient)
+  );
+
+  & > * {
+    background-color: var(--white);
+    background-image: none;
+  }
 }
