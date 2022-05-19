@@ -1,16 +1,16 @@
 import ProductsList from 'components/ProductsList/ProductsList';
-import Product from 'components/ProductsList/Product/Product';
+import WishlistProduct from 'components/ProductsList/WishlistProduct/WishlistProduct';
 import styles from './WishlistView.module.scss';
 
 export default function WishlistView() {
   return (
     <div className={styles.wishlistContainer}>
       <ProductsList>
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        <WishlistProduct />
+        <WishlistProduct />
+        <WishlistProduct />
+        <WishlistProduct />
+        <WishlistProduct />
       </ProductsList>
     </div>
   );
