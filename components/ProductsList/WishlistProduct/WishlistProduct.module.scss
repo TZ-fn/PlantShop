@@ -1,0 +1,28 @@
+.productContainer {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: 1fr 1fr 5rem;
+  align-items: center;
+  margin: 1rem;
+}
+
+.productName,
+.price {
+  padding: 0.7rem;
+  font-size: 1.3rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.price {
+  font-size: 1.5rem;
+}
+
+.removeButton {
+  @include button-standard;
+  height: 3rem;
+  width: 3rem;
+  padding: 0;
+  padding-bottom: 0.5rem;
+  margin-left: 1rem;
+}
