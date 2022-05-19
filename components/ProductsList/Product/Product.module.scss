@@ -24,20 +24,6 @@
   justify-content: center;
 }
 
-.countMinus,
-.countPlus,
-.removeButton {
-  @include button-standard;
-  height: 3rem;
-  width: 3rem;
-}
-
-.removeButton {
-  padding: 0;
-  padding-bottom: 0.5rem;
-  margin-left: 1rem;
-}
-
 .count {
   height: 3rem;
   width: 4rem;
@@ -51,4 +37,18 @@
     margin: 0;
   }
   -moz-appearance: textfield;
+}
+
+.countMinus,
+.countPlus,
+.removeButton {
+  @include button-standard;
+  height: 3rem;
+  width: 3rem;
+}
+
+.removeButton {
+  padding: 0;
+  padding-bottom: 0.5rem;
+  margin-left: 1rem;
 }
