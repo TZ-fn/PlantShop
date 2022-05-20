@@ -1,11 +1,22 @@
-.basketContainer {
+.basketViewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 2.5rem 1rem;
   padding: 5rem 2rem;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 2fr 1fr;
-  grid-template-columns: 2fr 1fr;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-elevation-medium);
+}
+
+.basketContainer {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.sectionHeader {
 }
