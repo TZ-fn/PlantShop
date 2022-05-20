@@ -5,6 +5,7 @@ import styles from './WishlistView.module.scss';
 export default function WishlistView() {
   return (
     <div className={styles.wishlistContainer}>
+      <h2 className={styles.sectionHeader}>WishList</h2>
       <ProductsList>
         <WishlistProduct />
         <WishlistProduct />
