@@ -13,10 +13,8 @@
 }
 
 .contactHeader {
-  width: 10rem;
-  font-size: 2rem;
-  text-align: center;
-  border-bottom: 2px solid var(--accent-color);
+  @include section-header;
+  width: 112%;
 }
 
 .logoContainer {
