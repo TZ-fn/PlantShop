@@ -6,7 +6,7 @@ export default function BasketAside(): ReactElement {
   return (
     <aside className={styles.asideContainer}>
       <p className={styles.totalContainer}>
-        <span className={styles.basketTotal}>Basket total:</span> {formatCurrency(123123.12)}
+        <span className={styles.basketTotal}>Basket total:</span> {formatCurrency(1231.12)}
       </p>
       <button type='button' className={styles.checkoutButton}>
         Checkout and pay
