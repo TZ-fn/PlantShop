@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   margin: 2.5rem 1rem;
-  padding: 5rem 2rem;
+  padding: 5rem 2rem 2rem 2rem;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-elevation-medium);
@@ -19,4 +19,8 @@
 }
 
 .sectionHeader {
+  @include section-header;
+  width: 104.6%;
+  margin-top: -3.5rem;
+  font-size: 2.2rem;
 }
