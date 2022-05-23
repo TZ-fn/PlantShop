@@ -11,31 +11,6 @@ export default function LoginView() {
 
   return (
     <div className={styles.mainContainer}>
-      {!isLoginPage && (
-        <div className={styles.registerContainer}>
-          <Input id='email' type='text' placeholder='Enter your email...' label='E-mail' />
-          <Input id='password' type='text' placeholder='Enter your password...' label='Password' />
-          <Input
-            id='confirm-password'
-            type='text'
-            placeholder='Confirm your password...'
-            label='Confirm password'
-          />
-          <button type='button' className={styles.registerButton}>
-            Sign me up!
-          </button>
-        </div>
-      )}
-      {isLoginPage && (
-        <div className={styles.loginContainer}>
-          {' '}
-          <Input id='email' type='text' placeholder='Enter your email...' label='E-mail' />
-          <Input id='password' type='text' placeholder='Enter your password...' label='Password' />
-          <button type='button' className={styles.registerButton}>
-            Log in!
-          </button>
-        </div>
-      )}
       <div className={styles.tabsContainer}>
         <button
           id='registerTab'
@@ -54,6 +29,31 @@ export default function LoginView() {
           Login
         </button>
       </div>
+      {!isLoginPage && (
+        <div className={styles.registerContainer}>
+          <Input id='email' type='text' placeholder='Enter your email...' label='E-mail' />
+          <Input id='password' type='text' placeholder='Enter your password...' label='Password' />
+          <Input
+            id='confirm-password'
+            type='text'
+            placeholder='Confirm your password...'
+            label='Confirm password'
+          />
+          <button type='button' className={styles.loginButton}>
+            Sign me up!
+          </button>
+        </div>
+      )}
+      {isLoginPage && (
+        <div className={styles.loginContainer}>
+          {' '}
+          <Input id='email' type='text' placeholder='Enter your email...' label='E-mail' />
+          <Input id='password' type='text' placeholder='Enter your password...' label='Password' />
+          <button type='button' className={styles.loginButton}>
+            Log in!
+          </button>
+        </div>
+      )}
     </div>
   );
 }
