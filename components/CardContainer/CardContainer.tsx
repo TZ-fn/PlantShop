@@ -9,17 +9,19 @@ export default function CardContainer(): ReactElement {
   return (
     <div className={styles.cardContainer}>
       {data !== undefined
-        ? data.map((plant: Plant) => {
+        ? data.map(({ id, name, image, description, price }: Plant) => {
             return (
               <Card
-                key={plant.name}
-                name={plant.name}
-                image={plant.image}
-                description={plant.description}
+                id={id}
+                key={id}
+                name={name}
+                image={image}
+                description={description}
+                price={price}
               />
             );
           })
-        : 'Loading'}
+        : 'Loading...'}
     </div>
   );
 }
