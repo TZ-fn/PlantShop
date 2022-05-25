@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, MouseEvent } from 'react';
 import Image from 'next/image';
 import styles from './Card.module.scss';
 import turnAroundIcon from 'public/icons/turnAroundArrowIcon.svg';
@@ -7,8 +7,8 @@ import { formatCurrency } from 'utils/formatNumber';
 import { Plant } from 'types/types';
 
 export default function Card({ id, name, image, description, price }: Plant): ReactElement {
-  function addToBasket(e) {
-    console.log(e.target.dataset.id);
+  function addToBasket(e: MouseEvent<HTMLButtonElement>) {
+    console.log(e.currentTarget.dataset.id);
   }
 
   return (
