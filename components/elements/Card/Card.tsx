@@ -7,6 +7,10 @@ import { formatCurrency } from 'utils/formatNumber';
 import { Plant } from 'types/types';
 
 export default function Card({ id, name, image, description, price }: Plant): ReactElement {
+  function addToBasket(e) {
+    console.log(e.target.dataset.id);
+  }
+
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.cardContent}>
@@ -22,9 +26,14 @@ export default function Card({ id, name, image, description, price }: Plant): Re
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet
             consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           </p>
-          <p className={styles.priceContainer}>Price: {formatCurrency(12.23)}</p>
+          <p className={styles.priceContainer}>Price: {formatCurrency(price)}</p>
           <div className={styles.buttonContainer}>
-            <button type='button' className={styles.addToBasketButton}>
+            <button
+              onClick={(e) => addToBasket(e)}
+              type='button'
+              className={styles.addToBasketButton}
+              data-id={id}
+            >
               <div className={styles.imageContainer}>
                 <Image
                   src={addToBasketIcon.src}
