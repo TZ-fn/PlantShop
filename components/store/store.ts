@@ -1,18 +1,17 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { createWrapper } from 'next-redux-wrapper';
-import rootReducer from './reducers';
+import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 
-// initial states here
-const initialState = {};
+export const store = configureStore({
+  reducer: {
+    // This is where we add reducers.
+    // Since we don't have any yet, leave this empty
+  },
+});
 
-// middleware
-const middleware = [thunk];
-
-// creating store
-export const store = createStore(rootReducer, initialState, applyMiddleware(...middleware));
-
-// assigning store to next wrapper
-const makeStore = () => store;
-
-export const wrapper = createWrapper(makeStore);
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>;
