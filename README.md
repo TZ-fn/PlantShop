@@ -1,6 +1,10 @@
 # PlantShop
+
 Work in progress.
+
 ## About
+
+Work in progress...
 
 ## Usage
 
