@@ -1,5 +1,8 @@
 import { ReactElement, MouseEvent } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Image from 'next/image';
+import { RootState } from 'store/store';
+import { addToBasket } from 'features/basket/basketSlice';
 import styles from './Card.module.scss';
 import turnAroundIcon from 'public/icons/turnAroundArrowIcon.svg';
 import addToBasketIcon from 'public/icons/addToBasketIcon.svg';
@@ -7,8 +10,11 @@ import { formatCurrency } from 'utils/formatNumber';
 import { Plant } from 'types/types';
 
 export default function Card({ id, name, image, description, price }: Plant): ReactElement {
+  const count = useSelector((state: RootState) => state.basket.products);
+  const dispatch = useDispatch();
+
   function addToBasket(e: MouseEvent<HTMLButtonElement>) {
-    console.log(e.currentTarget.dataset.id);
+    dispatch(addToBasket(e.currentTarget.dataset.id));
   }
 
   return (
