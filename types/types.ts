@@ -6,7 +6,8 @@ export interface Plant {
   price: { integer: number; fraction: number; currency: string };
 }
 
-export interface Product extends Plant {
+export interface Product {
+  id: string;
   quantity: number;
 }
 
