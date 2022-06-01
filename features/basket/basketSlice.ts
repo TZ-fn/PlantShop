@@ -13,14 +13,23 @@ export const basketSlice = createSlice({
   name: 'basket',
   initialState,
   reducers: {
-    addToBasket: (state, action: PayloadAction<Product>) => {
-      state.products.push(action.payload);
+    addToBasket: ({ products }, action: PayloadAction<Product['id']>) => {
+      if (products.some((product) => product.id === action.payload)) {
+        products.filter((product) => product.id === action.payload)[0].quantity++;
+      } else {
+        products.push({ id: action.payload, quantity: 1 });
+      }
     },
 
-    removeFromBasket: (state, action: PayloadAction<Product['id']>) => {
-      state.products.filter((product) => product.id !== action.payload);
+    removeFromBasket: ({ products }, action: PayloadAction<Product['id']>) => {
+      if (products.some((product) => product.id === action.payload)) {
+        products.filter((product) => product.id === action.payload)[0].quantity--;
+      } else {
+        throw new Error('Product not found in the basket');
+      }
     },
-    changeQuantity: (state, action: PayloadAction<number>) => {
+
+    changeQuantity: ({ products }, action: PayloadAction<number>) => {
       state.value += action.payload;
     },
   },

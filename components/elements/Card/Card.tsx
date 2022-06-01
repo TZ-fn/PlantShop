@@ -1,4 +1,4 @@
-import { ReactElement, MouseEvent } from 'react';
+import { ReactElement, MouseEvent, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Image from 'next/image';
 import { RootState } from 'store/store';
@@ -10,12 +10,16 @@ import { formatCurrency } from 'utils/formatNumber';
 import { Plant } from 'types/types';
 
 export default function Card({ id, name, image, description, price }: Plant): ReactElement {
-  const count = useSelector((state: RootState) => state.basket.products);
+  const basket = useSelector((state: RootState) => state.basket.products);
   const dispatch = useDispatch();
 
-  function addToBasket(e: MouseEvent<HTMLButtonElement>) {
-    dispatch(addToBasket(e.currentTarget.dataset.id));
+  function addToBasketHandler(e: MouseEvent<HTMLButtonElement>) {
+    if (e.currentTarget.dataset.id) {
+      dispatch(addToBasket(e.currentTarget.dataset.id));
+    }
   }
+
+  console.log(basket);
 
   return (
     <div className={styles.cardWrapper}>
@@ -35,7 +39,7 @@ export default function Card({ id, name, image, description, price }: Plant): Re
           <p className={styles.priceContainer}>Price: {formatCurrency(price)}</p>
           <div className={styles.buttonContainer}>
             <button
-              onClick={(e) => addToBasket(e)}
+              onClick={(e) => addToBasketHandler(e)}
               type='button'
               className={styles.addToBasketButton}
               data-id={id}
