@@ -14,7 +14,7 @@ export const basketSlice = createSlice({
   initialState,
   reducers: {
     addToBasket: ({ products }, action: PayloadAction<Product['id']>) => {
-      if (products.some((product) => product.id === action.payload)) {
+      if (products.find((product) => product.id === action.payload) !== undefined) {
         products.filter((product) => product.id === action.payload)[0].quantity++;
       } else {
         products.push({ id: action.payload, quantity: 1 });
@@ -22,15 +22,20 @@ export const basketSlice = createSlice({
     },
 
     removeFromBasket: ({ products }, action: PayloadAction<Product['id']>) => {
-      if (products.some((product) => product.id === action.payload)) {
+      if (products.find((product) => product.id === action.payload) !== undefined) {
         products.filter((product) => product.id === action.payload)[0].quantity--;
       } else {
-        throw new Error('Product not found in the basket');
+        throw new Error('Product not found in the basket.');
       }
     },
 
-    changeQuantity: ({ products }, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    changeQuantity: ({ products }, action: PayloadAction<Product>) => {
+      let productToChange = products.find((product) => product.id === action.payload.id);
+      if (productToChange !== undefined) {
+        productToChange.quantity = action.payload.quantity;
+      } else {
+        throw new Error('Product not found in the basket.');
+      }
     },
   },
 });
