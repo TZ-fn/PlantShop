@@ -10,7 +10,6 @@ import { formatCurrency } from 'utils/formatNumber';
 import { Plant } from 'types/types';
 
 export default function Card({ id, name, image, description, price }: Plant): ReactElement {
-  const basket = useSelector((state: RootState) => state.basket.products);
   const dispatch = useDispatch();
 
   function addToBasketHandler(e: MouseEvent<HTMLButtonElement>) {
@@ -18,8 +17,6 @@ export default function Card({ id, name, image, description, price }: Plant): Re
       dispatch(addToBasket(e.currentTarget.dataset.id));
     }
   }
-
-  console.log(basket);
 
   return (
     <div className={styles.cardWrapper}>
