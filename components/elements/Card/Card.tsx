@@ -1,7 +1,6 @@
 import { ReactElement, MouseEvent, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Image from 'next/image';
-import { RootState } from 'store/store';
 import { addToBasket } from 'features/basket/basketSlice';
 import styles from './Card.module.scss';
 import turnAroundIcon from 'public/icons/turnAroundArrowIcon.svg';
