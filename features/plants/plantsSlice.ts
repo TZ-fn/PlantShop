@@ -13,9 +13,9 @@ export const plantsSlice = createSlice({
   name: 'plants',
   initialState,
   reducers: {
-    updatePlantsData: async ({ plantsData }, action: PayloadAction<PlantsData>) => {
-      console.log(await action.payload);
-      plantsData = await action.payload;
+    updatePlantsData: (state, action: PayloadAction<PlantsData>) => {
+      // console.log(action.payload);
+      state.plantsData = action.payload;
     },
   },
 });
