@@ -12,9 +12,10 @@ export default function CardContainer(): ReactElement {
   const data = useFetch('/api/plants');
   dispatch(updatePlantsData(data));
   const plants = useSelector((state: RootState) => state.plants.plantsData);
+  console.log(plants);
   return (
     <div className={styles.cardContainer}>
-      {plants !== undefined
+      {plants.length > 0
         ? plants.map(({ id, name, image, description, price }: Plant) => {
             return (
               <Card
