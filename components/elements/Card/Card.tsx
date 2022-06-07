@@ -5,7 +5,7 @@ import { addToBasket } from 'features/basket/basketSlice';
 import styles from './Card.module.scss';
 import turnAroundIcon from 'public/icons/turnAroundArrowIcon.svg';
 import addToBasketIcon from 'public/icons/addToBasketIcon.svg';
-import { formatCurrency } from 'utils/formatNumber';
+import { formatCurrency } from 'utils/formatCurrency';
 import { Plant } from 'types/types';
 
 export default function Card({ id, name, image, description, price }: Plant): ReactElement {
