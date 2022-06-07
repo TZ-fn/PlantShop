@@ -1,4 +1,4 @@
-import { ReactElement, MouseEvent, useState } from 'react';
+import { ReactElement, MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import Image from 'next/image';
 import { addToBasket } from 'features/basket/basketSlice';
