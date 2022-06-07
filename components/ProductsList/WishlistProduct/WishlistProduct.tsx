@@ -2,7 +2,7 @@ import { ChangeEvent, ReactElement, useState } from 'react';
 import styles from './WishlistProduct.module.scss';
 import Image from 'next/image';
 import BinIcon from 'public/icons/binIcon.svg';
-import { formatCurrency } from 'utils/formatNumber';
+import { formatCurrency } from 'utils/formatCurrency';
 import { ProductProps } from 'types/types';
 
 export default function WishlistProduct({ id, name, price }: ProductProps): ReactElement {
