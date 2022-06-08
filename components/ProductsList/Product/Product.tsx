@@ -6,7 +6,7 @@ import { formatCurrency } from 'utils/formatCurrency';
 import { ProductProps } from 'types/types';
 
 export default function Product({ id, name, count, price }: ProductProps): ReactElement {
-  const [countValue, setCountValue] = useState('1');
+  const [countValue, setCountValue] = useState(`${count}`);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCountValue(e.target.value);
