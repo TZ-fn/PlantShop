@@ -1,5 +1,5 @@
 export function formatCurrency(
-  { integer, fraction, currency = 'USD' }: { integer: number; fraction: number; currency: string },
+  { integer, fraction, currency = 'USD' }: { integer: number; fraction: number; currency?: string },
   locale: string = 'en-US',
   count: number = 1,
 ) {
