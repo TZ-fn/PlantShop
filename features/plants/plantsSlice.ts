@@ -14,7 +14,6 @@ export const plantsSlice = createSlice({
   initialState,
   reducers: {
     updatePlantsData: (state, action: PayloadAction<PlantsData>) => {
-      // console.log(action.payload);
       state.plantsData = action.payload;
     },
   },
