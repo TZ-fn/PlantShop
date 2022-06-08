@@ -9,11 +9,23 @@ const BasketView = () => {
   const plants = useSelector((state: RootState) => state.plants.plantsData);
   const basket = useSelector((state: RootState) => state.basket.products);
 
-  const basketTotal = plants.filter((plant) => basket.find((product) => product.id === plant.id));
-  // .reduce((product, total) => {
+  const basketTotal = plants
+    .filter((plant) => basket.find((product) => product.id === plant.id))
+    .reduce(
+      (total, plant) => {
+        total.integer +=
+          plant.price.integer * basket.find((product) => product.id === plant.id)?.quantity;
+        total.fraction +=
+          plant.price.fraction * basket.find((product) => product.id === plant.id)?.quantity;
+        console.log(
+          plant.price.integer * basket.find((product) => product.id === plant.id)?.quantity,
+        );
+        return total;
+      },
+      { integer: 0, fraction: 0 },
+    );
 
-  // }, 0);
-  console.log(basketTotal);
+  // console.log(basketTotal);
   return (
     <div className={styles.basketViewContainer}>
       <h2 className={styles.sectionHeader}>Basket</h2>
@@ -37,7 +49,7 @@ const BasketView = () => {
                 })
             : 'Your basket is empty. :('}
         </ProductsList>
-        <BasketAside />
+        <BasketAside basketTotal={basketTotal} />
       </div>
     </div>
   );
