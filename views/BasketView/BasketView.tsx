@@ -31,23 +31,25 @@ const BasketView = () => {
       <h2 className={styles.sectionHeader}>Basket</h2>
       <div className={styles.basketContainer}>
         <ProductsList>
-          {basket.length > 0
-            ? plants
-                .filter((plant) => basket.find((product) => product.id === plant.id))
-                .map(({ id, name, image, description, price }: Plant) => {
-                  return (
-                    <Product
-                      id={id}
-                      key={id}
-                      name={name}
-                      image={image}
-                      description={description}
-                      price={price}
-                      count={basket.filter((product) => product.id === id)[0].quantity}
-                    />
-                  );
-                })
-            : 'Your basket is empty. :('}
+          {basket.length > 0 ? (
+            plants
+              .filter((plant) => basket.find((product) => product.id === plant.id))
+              .map(({ id, name, image, description, price }: Plant) => {
+                return (
+                  <Product
+                    id={id}
+                    key={id}
+                    name={name}
+                    image={image}
+                    description={description}
+                    price={price}
+                    count={basket.filter((product) => product.id === id)[0].quantity}
+                  />
+                );
+              })
+          ) : (
+            <p className={styles.emptyBasket}>Your basket is empty. ☹️</p>
+          )}
         </ProductsList>
         <BasketAside basketTotal={basketTotal} />
       </div>
