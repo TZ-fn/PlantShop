@@ -1,11 +1,11 @@
 import { ChangeEvent, ReactElement, useState } from 'react';
-import { changeQuantity } from 'features/basket/basketSlice';
-import styles from './Product.module.scss';
 import Image from 'next/image';
+import { useDispatch } from 'react-redux';
+import { changeQuantity, removeFromBasket } from 'features/basket/basketSlice';
+import styles from './Product.module.scss';
 import BinIcon from 'public/icons/binIcon.svg';
 import { formatCurrency } from 'utils/formatCurrency';
 import { ProductProps } from 'types/types';
-import { useDispatch } from 'react-redux';
 
 export default function Product({ id, name, count, price }: ProductProps): ReactElement {
   const [countValue, setCountValue] = useState(`${count}`);
@@ -28,6 +28,8 @@ export default function Product({ id, name, count, price }: ProductProps): React
       : (setCountValue(String(Number(countValue) - 1)),
         dispatch(changeQuantity({ productId: id, count: count - 1 })));
   };
+
+  const handleRemovingFromBasket = () => dispatch(removeFromBasket(id));
 
   return (
     <li className={styles.productContainer}>
@@ -61,7 +63,7 @@ export default function Product({ id, name, count, price }: ProductProps): React
         </button>
       </div>
       <p className={styles.price}>Total: {formatCurrency(price, 'en-US', count)}</p>
-      <button type='button' className={styles.removeButton}>
+      <button type='button' className={styles.removeButton} onClick={handleRemovingFromBasket}>
         <span className='visually-hidden'>Remove item from the basket</span>
         <Image src={BinIcon.src} width={'40px'} height={'40px'} alt='' layout='fixed' />
       </button>
