@@ -12,6 +12,7 @@ export interface Product {
 }
 
 export type PlantsData = Plant[];
+
 export interface ProductProps extends Plant {
   count: number;
 }
