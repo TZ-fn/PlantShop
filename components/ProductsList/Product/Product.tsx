@@ -1,24 +1,32 @@
 import { ChangeEvent, ReactElement, useState } from 'react';
+import { changeQuantity } from 'features/basket/basketSlice';
 import styles from './Product.module.scss';
 import Image from 'next/image';
 import BinIcon from 'public/icons/binIcon.svg';
 import { formatCurrency } from 'utils/formatCurrency';
 import { ProductProps } from 'types/types';
+import { useDispatch } from 'react-redux';
 
 export default function Product({ id, name, count, price }: ProductProps): ReactElement {
   const [countValue, setCountValue] = useState(`${count}`);
+  const dispatch = useDispatch();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCountValue(e.target.value);
+    console.log(e.target.value);
+    dispatch(changeQuantity({ productId: id, count: Number(e.target.value) }));
   };
 
   const handleCountButtons = (operationType: string) => {
     if (countValue === '0' && operationType === 'decrease') {
       return;
     }
+
     return operationType === 'increase'
-      ? setCountValue(String(Number(countValue) + 1))
-      : setCountValue(String(Number(countValue) - 1));
+      ? (setCountValue(String(Number(countValue) + 1)),
+        dispatch(changeQuantity({ productId: id, count: count + 1 })))
+      : (setCountValue(String(Number(countValue) - 1)),
+        dispatch(changeQuantity({ productId: id, count: count - 1 })));
   };
 
   return (

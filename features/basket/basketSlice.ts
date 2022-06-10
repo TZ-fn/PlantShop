@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, current } from '@reduxjs/toolkit';
 import { Product } from 'types/types';
 
 export interface BasketState {
@@ -29,10 +29,12 @@ export const basketSlice = createSlice({
       }
     },
 
-    changeQuantity: ({ products }, action: PayloadAction<Product>) => {
-      let productToChange = products.find((product) => product.id === action.payload.id);
-      if (productToChange !== undefined) {
-        productToChange.quantity = action.payload.quantity;
+    changeQuantity: (state, action: PayloadAction<{ productId: string; count: number }>) => {
+      if (state.products.find((product) => product.id === action.payload.productId)) {
+        let productToChange = state.products.find(
+          (product) => product.id === action.payload.productId,
+        );
+        productToChange!.quantity = action.payload.count;
       } else {
         throw new Error('Product not found in the basket.');
       }
