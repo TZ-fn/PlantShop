@@ -25,7 +25,6 @@ const BasketView = () => {
       { integer: 0, fraction: 0 },
     );
 
-  // console.log(basketTotal);
   return (
     <div className={styles.basketViewContainer}>
       <h2 className={styles.sectionHeader}>Basket</h2>
