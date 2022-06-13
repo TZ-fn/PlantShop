@@ -13,7 +13,6 @@ export default function Product({ id, name, count, price }: ProductProps): React
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCountValue(e.target.value);
-    console.log(e.target.value);
     dispatch(changeQuantity({ productId: id, count: Number(e.target.value) }));
   };
 
