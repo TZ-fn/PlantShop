@@ -1,8 +1,10 @@
 .productContainer {
   display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr) 5rem;
+  width: 100%;
+  grid-template-columns: 35% 1fr 1fr 5rem;
   align-items: center;
+  justify-content: flex-start;
   margin: 1rem;
 }
 
