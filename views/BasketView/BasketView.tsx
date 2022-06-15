@@ -4,6 +4,7 @@ import ProductsList from 'components/ProductsList/ProductsList';
 import Product from 'components/ProductsList/Product/Product';
 import BasketAside from 'components/BasketAside/BasketAside';
 import styles from './BasketView.module.scss';
+import { Plant } from 'types/types';
 
 const BasketView = () => {
   const plants = useSelector((state: RootState) => state.plants.plantsData);
