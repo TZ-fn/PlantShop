@@ -2,18 +2,19 @@
   display: -ms-grid;
   display: grid;
   width: 100%;
-  grid-template-columns: 35% 1fr 1fr 5rem;
-  align-items: center;
+  grid-template-columns: 5rem 35% 1fr 1fr 5rem;
+  place-items: center;
   justify-content: flex-start;
   margin: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .productName,
 .price {
-  padding: 0.7rem;
+  padding: 0.3rem;
   font-size: 1.3rem;
   text-align: center;
-  border-bottom: 1px solid var(--border-color);
 }
 
 .price {
