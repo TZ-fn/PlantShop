@@ -2,12 +2,13 @@ import { ChangeEvent, ReactElement, useState } from 'react';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 import { changeQuantity, removeFromBasket } from 'features/basket/basketSlice';
+import { ProductProps } from 'types/types';
+import ProductMiniature from 'components/elements/ProductMiniature/ProductMiniature';
 import styles from './Product.module.scss';
 import BinIcon from 'public/icons/binIcon.svg';
 import { formatCurrency } from 'utils/formatCurrency';
-import { ProductProps } from 'types/types';
 
-export default function Product({ id, name, count, price }: ProductProps): ReactElement {
+export default function Product({ id, name, image, count, price }: ProductProps): ReactElement {
   const [countValue, setCountValue] = useState(`${count}`);
   const dispatch = useDispatch();
 
@@ -32,6 +33,7 @@ export default function Product({ id, name, count, price }: ProductProps): React
 
   return (
     <li className={styles.productContainer}>
+      <ProductMiniature source={image} />
       <p className={styles.productName}>{name}</p>
       <div className={styles.counter}>
         <button
