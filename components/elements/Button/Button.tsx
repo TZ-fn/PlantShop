@@ -11,19 +11,15 @@ interface ButtonProps {
 
 export default function Button({
   children,
-  className,
+  className = styles.buttonDefault,
+
   type = 'button',
   ariaLabel,
   onClick,
 }: ButtonProps): ReactElement {
   return (
-    <Button
-      className={styles[`${className ? className : 'buttonDefault'}`]}
-      aria-label={ariaLabel}
-      type={type}
-      onClick={onClick}
-    >
+    <button className={className} aria-label={ariaLabel} type={type} onClick={onClick}>
       {children}
-    </Button>
+    </button>
   );
 }
