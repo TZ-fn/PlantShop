@@ -17,7 +17,12 @@ export default function Button({
   onClick,
 }: ButtonProps): ReactElement {
   return (
-    <Button className={styles.buttonDefault} aria-label={ariaLabel} type={type} onClick={onClick}>
+    <Button
+      className={styles[`${className ? className : 'buttonDefault'}`]}
+      aria-label={ariaLabel}
+      type={type}
+      onClick={onClick}
+    >
       {children}
     </Button>
   );
