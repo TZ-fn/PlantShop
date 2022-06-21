@@ -7,6 +7,7 @@ import turnAroundIcon from 'public/icons/turnAroundArrowIcon.svg';
 import addToBasketIcon from 'public/icons/addToBasketIcon.svg';
 import { formatCurrency } from 'utils/formatCurrency';
 import { Plant } from 'types/types';
+import FavouritesButton from '../FavouritesButton/FavouritesButton';
 
 export default function Card({ id, name, image, description, price }: Plant): ReactElement {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ export default function Card({ id, name, image, description, price }: Plant): Re
           </div>
         </div>
         <div className={styles.cardBack}>
+          <FavouritesButton />
           <p className={styles.description}>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet
             consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
