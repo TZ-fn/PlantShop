@@ -10,6 +10,7 @@ import LoginIcon from 'public/icons/loginIcon.svg';
 import EmptyBasketIcon from 'public/icons/emptyBasketIcon.svg';
 import FullBasketIcon from 'public/icons/fullBasketIcon.svg';
 import WishlistIcon from 'public/icons/wishlistIcon.svg';
+import WishlistIconEmpty from 'public/icons/wishlistIconEmpty.svg';
 import styles from './Header.module.scss';
 import BasketBadge from 'components/elements/BasketBadge/BasketBadge';
 
@@ -34,7 +35,11 @@ export default function Header(): ReactElement {
         <div className={styles.userControlPanel}>
           <Link href={'/wishlist'}>
             <a className={styles.controlItem}>
-              <Image src={WishlistIcon.src} width={40} height={40} />
+              {basket.length === 0 ? (
+                <Image src={WishlistIconEmpty.src} width={40} height={40} />
+              ) : (
+                <Image src={WishlistIcon.src} width={40} height={40} />
+              )}
               Wishlist (0)
             </a>
           </Link>
