@@ -3,10 +3,10 @@ import Button from '../Button/Button';
 import styles from './FavouritesButton.module.scss';
 
 interface FavouritesButtonProps {
-  isEmpty: boolean;
+  isWishlisted: boolean;
 }
 
-export default function FavouritesButton({ isEmpty }: FavouritesButtonProps): ReactElement {
+export default function FavouritesButton({ isWishlisted }: FavouritesButtonProps): ReactElement {
   function handleAddingToFavourites() {}
 
   return (
@@ -17,7 +17,7 @@ export default function FavouritesButton({ isEmpty }: FavouritesButtonProps): Re
         type='button'
         onClick={handleAddingToFavourites}
       >
-        {isEmpty ? 'empty' : 'notempty'}
+        {isWishlisted ? true : false}
       </Button>
     </div>
   );
