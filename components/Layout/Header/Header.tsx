@@ -16,6 +16,7 @@ import BasketBadge from 'components/elements/BasketBadge/BasketBadge';
 
 export default function Header(): ReactElement {
   const basket = useSelector((state: RootState) => state.basket.products);
+  const wishlist = useSelector((state: RootState) => state.wishlist.products);
   const productsInBasket = basket.reduce((count, product) => (count += product.quantity), 0);
 
   return (
@@ -35,12 +36,12 @@ export default function Header(): ReactElement {
         <div className={styles.userControlPanel}>
           <Link href={'/wishlist'}>
             <a className={styles.controlItem}>
-              {basket.length === 0 ? (
+              {wishlist.length === 0 ? (
                 <Image src={WishlistIconEmpty.src} width={40} height={40} />
               ) : (
                 <Image src={WishlistIcon.src} width={40} height={40} />
               )}
-              Wishlist (0)
+              Wishlist ({wishlist.length})
             </a>
           </Link>
           <Link href={'/basket'}>
