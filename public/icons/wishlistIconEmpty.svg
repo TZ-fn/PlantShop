@@ -8,7 +8,7 @@ viewBox="0 0 2048 2048"
   <style type="text/css">
    <![CDATA[
     .fill2 {fill:none}
-    .fill1 {fill:transparent}
+    .fill1 {fill:#fafafa;}
     .fill0 {fill:#333333;fill-rule:nonzero}
    ]]>
   </style>
