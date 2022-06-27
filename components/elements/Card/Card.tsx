@@ -29,7 +29,7 @@ export default function Card({ id, name, image, description, price }: Plant): Re
           </div>
         </div>
         <div className={styles.cardBack}>
-          <FavouritesButton isWishlisted={true} />
+          <FavouritesButton id={id} />
           <p className={styles.description}>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet
             consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit.

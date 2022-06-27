@@ -1,16 +1,33 @@
-import { ReactElement } from 'react';
+import { ReactElement, MouseEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
+import { RootState } from 'store/store';
+import { addToWishlist, removeFromWishlist } from 'features/wishlist/wishlistSlice';
 import WishlistIcon from 'public/icons/wishlistIcon.svg';
 import WishlistIconEmpty from 'public/icons/wishlistIconEmpty.svg';
 import Button from '../Button/Button';
 import styles from './FavouritesButton.module.scss';
+import { Product } from 'types/types';
 
 interface FavouritesButtonProps {
-  isWishlisted: boolean;
+  id: string;
 }
 
-export default function FavouritesButton({ isWishlisted }: FavouritesButtonProps): ReactElement {
-  function handleAddingToFavourites() {}
+export default function FavouritesButton({ id }: FavouritesButtonProps): ReactElement {
+  const dispatch = useDispatch();
+  const wishlistItems = useSelector((state: RootState) => state.wishlist.products);
+
+  const isWishlisted = wishlistItems.find((product: Product) => product.id === id) !== undefined;
+
+  function handleAddingToFavourites(e: MouseEvent<HTMLButtonElement>) {
+    if (e.currentTarget.dataset.id) {
+      if (!isWishlisted) {
+        dispatch(addToWishlist(e.currentTarget.dataset.id));
+      } else {
+        dispatch(removeFromWishlist(e.currentTarget.dataset.id));
+      }
+    }
+  }
 
   return (
     <div className={styles.buttonContainer}>
@@ -18,7 +35,7 @@ export default function FavouritesButton({ isWishlisted }: FavouritesButtonProps
         className={styles.innerButton}
         aria-label='Add this product to favourites'
         type='button'
-        onClick={handleAddingToFavourites}
+        onClick={(e) => handleAddingToFavourites(e)}
       >
         {isWishlisted ? (
           <span>
