@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Product } from 'types/types';
 
 export interface WishlistState {
-  products: Product[];
+  products: Product['id'][];
 }
 
 const initialState: WishlistState = {
@@ -14,16 +14,16 @@ export const wishlistSlice = createSlice({
   initialState,
   reducers: {
     addToWishlist: (state, action: PayloadAction<Product['id']>) => {
-      if (state.products.find((product) => product.id === action.payload) !== undefined) {
-        state.products.filter((product) => product.id === action.payload)[0].quantity++;
+      if (state.products.find((id) => id === action.payload) !== undefined) {
+        throw new Error('Product is already in the wishlist.');
       } else {
-        state.products.push({ id: action.payload, quantity: 1 });
+        state.products.push(action.payload);
       }
     },
 
     removeFromWishlist: (state, action: PayloadAction<Product['id']>) => {
-      if (state.products.find((product) => product.id === action.payload) !== undefined) {
-        state.products = state.products.filter((product) => product.id !== action.payload);
+      if (state.products.find((id) => id === action.payload) !== undefined) {
+        state.products = state.products.filter((id) => id !== action.payload);
       } else {
         throw new Error('Product not found in the wishlist.');
       }

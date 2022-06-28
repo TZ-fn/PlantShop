@@ -17,9 +17,11 @@ export default function FavouritesButton({ id }: FavouritesButtonProps): ReactEl
   const dispatch = useDispatch();
   const wishlistItems = useSelector((state: RootState) => state.wishlist.products);
 
-  const isWishlisted = wishlistItems.find((product: Product) => product.id === id) !== undefined;
+  const isWishlisted =
+    wishlistItems.find((productID: Product['id']) => productID === id) !== undefined;
 
   function handleAddingToFavourites(e: MouseEvent<HTMLButtonElement>) {
+    console.log(e.currentTarget);
     if (e.currentTarget.dataset.id) {
       if (!isWishlisted) {
         dispatch(addToWishlist(e.currentTarget.dataset.id));
@@ -30,12 +32,15 @@ export default function FavouritesButton({ id }: FavouritesButtonProps): ReactEl
   }
 
   return (
-    <div className={styles.buttonContainer}>
+    <div
+      className={styles.buttonContainer}
+      data-id={id}
+      onClick={(e) => handleAddingToFavourites(e)}
+    >
       <Button
         className={styles.innerButton}
         aria-label='Add this product to favourites'
         type='button'
-        onClick={(e) => handleAddingToFavourites(e)}
       >
         {isWishlisted ? (
           <span>
