@@ -1,0 +1,25 @@
+.badgeContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 50%;
+  background-color: var(--white);
+
+  &.basket {
+    top: -0.8rem;
+    left: 1.8rem;
+  }
+
+  &.wishlist {
+    top: -0.8rem;
+    left: 2rem;
+  }
+}

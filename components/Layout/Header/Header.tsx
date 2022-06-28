@@ -12,12 +12,13 @@ import FullBasketIcon from 'public/icons/fullBasketIcon.svg';
 import WishlistIcon from 'public/icons/wishlistIcon.svg';
 import WishlistIconEmpty from 'public/icons/wishlistIconEmpty.svg';
 import styles from './Header.module.scss';
-import BasketBadge from 'components/elements/BasketBadge/BasketBadge';
+import ProductCountBadge from 'components/elements/ProductCountBadge/ProductCountBadge';
 
 export default function Header(): ReactElement {
   const basket = useSelector((state: RootState) => state.basket.products);
   const wishlist = useSelector((state: RootState) => state.wishlist.products);
   const productsInBasket = basket.reduce((count, product) => (count += product.quantity), 0);
+  const productsInWishlist = wishlist.length;
 
   return (
     <header>
@@ -36,17 +37,18 @@ export default function Header(): ReactElement {
         <div className={styles.userControlPanel}>
           <Link href={'/wishlist'}>
             <a className={styles.controlItem}>
+              <ProductCountBadge quantity={productsInWishlist} type='wishlist' />
               {wishlist.length === 0 ? (
                 <Image src={WishlistIconEmpty.src} width={40} height={40} />
               ) : (
                 <Image src={WishlistIcon.src} width={40} height={40} />
               )}
-              Wishlist ({wishlist.length})
+              Wishlist
             </a>
           </Link>
           <Link href={'/basket'}>
             <a className={styles.controlItem}>
-              <BasketBadge quantity={productsInBasket} />
+              <ProductCountBadge quantity={productsInBasket} type='basket' />
               {basket.length === 0 ? (
                 <Image src={EmptyBasketIcon.src} width={40} height={40} />
               ) : (
