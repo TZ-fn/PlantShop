@@ -37,7 +37,9 @@ export default function Header(): ReactElement {
         <div className={styles.userControlPanel}>
           <Link href={'/wishlist'}>
             <a className={styles.controlItem}>
-              <ProductCountBadge quantity={productsInWishlist} type='wishlist' />
+              {productsInWishlist > 0 && (
+                <ProductCountBadge quantity={productsInWishlist} type='wishlist' />
+              )}
               {wishlist.length === 0 ? (
                 <Image src={WishlistIconEmpty.src} width={40} height={40} />
               ) : (
@@ -48,7 +50,9 @@ export default function Header(): ReactElement {
           </Link>
           <Link href={'/basket'}>
             <a className={styles.controlItem}>
-              <ProductCountBadge quantity={productsInBasket} type='basket' />
+              {productsInBasket > 0 && (
+                <ProductCountBadge quantity={productsInBasket} type='basket' />
+              )}
               {basket.length === 0 ? (
                 <Image src={EmptyBasketIcon.src} width={40} height={40} />
               ) : (
