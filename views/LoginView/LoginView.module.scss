@@ -40,7 +40,7 @@
   height: 4rem;
   margin-top: 0;
   margin-bottom: auto;
-  border: none;
+  border-bottom: 3px solid var(--accent-color);
 
   .tab,
   .tab.active {
