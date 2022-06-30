@@ -1,9 +1,13 @@
 .productContainer {
   display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 1fr 5rem;
-  align-items: center;
+  grid-template-columns: repeat(3, 1fr) 5rem;
+  place-items: center;
+  justify-content: flex-start;
+  width: 100%;
   margin: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .productName,
@@ -12,7 +16,6 @@
   font-size: 1.3rem;
   text-align: center;
   margin: 0 0.5rem;
-  border-bottom: 1px solid var(--border-color);
 }
 
 .price {
