@@ -12,7 +12,6 @@ interface ButtonProps {
 export default function Button({
   children,
   className = styles.buttonDefault,
-
   type = 'button',
   ariaLabel,
   onClick,

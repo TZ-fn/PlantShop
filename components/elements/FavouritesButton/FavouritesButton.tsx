@@ -21,7 +21,6 @@ export default function FavouritesButton({ id }: FavouritesButtonProps): ReactEl
     wishlistItems.find((productID: Product['id']) => productID === id) !== undefined;
 
   function handleAddingToFavourites(e: MouseEvent<HTMLButtonElement>) {
-    console.log(e.currentTarget);
     if (e.currentTarget.dataset.id) {
       if (!isWishlisted) {
         dispatch(addToWishlist(e.currentTarget.dataset.id));
