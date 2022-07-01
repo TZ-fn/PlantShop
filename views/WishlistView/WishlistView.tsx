@@ -13,11 +13,15 @@ export default function WishlistView() {
     <div className={styles.wishlistContainer}>
       <h2 className={styles.sectionHeader}>WishList</h2>
       <ProductsList>
-        {plants
-          .filter((plant) => wishlist.includes(plant.id))
-          .map(({ name, image, price }) => {
-            return <WishlistProduct name={name} image={image} price={price} />;
-          })}
+        {wishlist.length > 0 ? (
+          plants
+            .filter((plant) => wishlist.includes(plant.id))
+            .map(({ name, image, price }) => {
+              return <WishlistProduct name={name} image={image} price={price} />;
+            })
+        ) : (
+          <p className={styles.emptyWishlist}>Your wishlist is empty. ☹️</p>
+        )}
       </ProductsList>
     </div>
   );
