@@ -30,10 +30,7 @@ export default function Card({ id, name, image, description, price }: Plant): Re
         </div>
         <div className={styles.cardBack}>
           <FavouritesButton id={id} />
-          <p className={styles.description}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet
-            consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          </p>
+          <p className={styles.description}>{description}</p>
           <p className={styles.priceContainer}>Price: {formatCurrency(price)}</p>
           <div className={styles.buttonContainer}>
             <button
