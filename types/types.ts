@@ -16,3 +16,10 @@ export type PlantsData = Plant[];
 export interface ProductProps extends Plant {
   count: number;
 }
+
+export interface WishlistProductProps {
+  id: string;
+  name: string;
+  image: string;
+  price: { integer: number; fraction: number; currency: string };
+}
