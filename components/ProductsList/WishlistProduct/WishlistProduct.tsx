@@ -5,10 +5,15 @@ import { removeFromWishlist } from 'features/wishlist/wishlistSlice';
 import BinIcon from 'public/icons/binIcon.svg';
 import ProductMiniature from 'components/elements/ProductMiniature/ProductMiniature';
 import { formatCurrency } from 'utils/formatCurrency';
-import { ProductProps } from 'types/types';
+import { WishlistProductProps } from 'types/types';
 import styles from './WishlistProduct.module.scss';
 
-export default function WishlistProduct({ id, name, image, price }: ProductProps): ReactElement {
+export default function WishlistProduct({
+  id,
+  name,
+  image,
+  price,
+}: WishlistProductProps): ReactElement {
   const dispatch = useDispatch();
   const handleRemovingFromFavourites = (id: string | undefined) => {
     if (id !== undefined) {
