@@ -30,7 +30,7 @@ const plants: PlantsData = [
     name: 'Sansevieria',
     image: '/images/severin-candrian-NlY6jBS3taA-unsplash.jpg',
     description:
-      'Dracaena trifasciata, commonly known as the snake plant, is one of the most popular and hardy species of houseplants. Up until 2017, it was botanically classified as Sansevieria trifasciata, but its commonalities with Dracaena species were too many to overlook. The plant features stiff, sword-like leaves and can range anywhere from six inches to eight feet tall. Snake plants can vary in color although many have green-banded leaves and commonly feature a yellow border.',
+      'Dracaena trifasciata, commonly known as the snake plant, is one of the most popular and hardy species of houseplants. The plant features stiff, sword-like leaves and can range anywhere from six inches to eight feet tall. Snake plants can vary in color although many have green-banded leaves and commonly feature a yellow border.',
     price: { integer: 20, fraction: 90, currency: 'USD' },
   },
   {

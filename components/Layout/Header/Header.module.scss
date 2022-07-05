@@ -20,10 +20,25 @@
   margin-right: 2rem;
   cursor: pointer;
 
+  .innerLogoContainer {
+    height: 6vw;
+    width: 6vw;
+  }
+
   .logoText {
     margin-left: 1rem;
     font-size: 3rem;
     font-weight: 700;
+
+    @media (width < 1360px) {
+      margin-left: 0.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+
+  @media (width < 1355px) {
+    margin-left: 0;
   }
 }
 
@@ -54,5 +69,9 @@
       margin-bottom: -3px;
       border-bottom: 3px solid var(--accent-color);
     }
+  }
+
+  @media (width < 1355px) {
+    margin: 0.5rem 0 0.5rem 0;
   }
 }
