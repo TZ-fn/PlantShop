@@ -11,6 +11,10 @@
   &:hover .cardContent {
     transform: rotateY(180deg);
   }
+
+  @media (width < 600px) {
+    margin: 0.5rem;
+  }
 }
 
 .cardContent {
@@ -90,7 +94,6 @@
 }
 
 .description {
-  // margin: 3rem 2rem 1rem 2rem;
   text-align: center;
 }
 
