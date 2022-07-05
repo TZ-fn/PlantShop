@@ -25,7 +25,9 @@ export default function Header(): ReactElement {
       <div className={styles.headerContainer}>
         <Link href={'/'}>
           <div className={styles.logoContainer}>
-            <Image src={MainLogo.src} width={100} height={100} />
+            <div className={styles.innerLogoContainer}>
+              <Image src={MainLogo.src} width={100} height={100} layout='responsive' />
+            </div>
             <h1 className={styles.logoText}>PlantShop</h1>
           </div>
         </Link>

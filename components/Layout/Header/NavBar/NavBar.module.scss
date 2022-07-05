@@ -3,6 +3,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
+  @media (width < 1355px) {
+    margin: 0.5rem 0 0.5rem 0;
+  }
 }
 
 .navLink {
@@ -18,5 +22,11 @@
     width: 100%;
     margin-bottom: -3px;
     border-bottom: 3px solid var(--accent-color);
+  }
+
+  @media (width < 1555px) {
+    margin: 0 0.7rem;
+    font-size: 1.3rem;
+    font-weight: 700;
   }
 }
