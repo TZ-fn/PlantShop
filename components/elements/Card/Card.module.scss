@@ -81,8 +81,16 @@
   }
 }
 
+.descriptionHeader {
+  @include section-header;
+  width: 106%;
+  margin-top: 3rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
 .description {
-  margin: 3rem 2rem 1rem 2rem;
+  // margin: 3rem 2rem 1rem 2rem;
   text-align: center;
 }
 
