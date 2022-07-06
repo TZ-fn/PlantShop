@@ -10,7 +10,9 @@ export default function Header() {
       <div className={styles.footerContainer}>
         <Link href={'/'}>
           <div className={styles.logoContainer}>
-            <Image src={MainLogo.src} width={50} height={50} />
+            <div className={styles.logoInnerContainer}>
+              <Image src={MainLogo.src} width={50} height={50} layout='responsive' />
+            </div>
             <h1 className={styles.logoText}>PlantShop</h1>
           </div>
         </Link>

@@ -1,6 +1,6 @@
 .footerContainer {
-  height: 5rem;
-  padding: 1rem 2rem;
+  min-height: 5rem;
+  padding: 0 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -13,17 +13,29 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 5rem;
-  margin-right: 2rem;
+  min-height: 5rem;
+  margin-right: min(4vw, 2rem);
   border-right: 2px solid var(--accent-color);
-
   cursor: pointer;
+
+  .logoInnerContainer {
+    height: 4vw;
+    width: 4vw;
+    max-height: 3rem;
+    max-width: 3rem;
+  }
 
   .logoText {
     margin-left: 1rem;
     margin-right: 1rem;
     font-size: 1.3rem;
     font-weight: 700;
+
+    @media (width < 570px) {
+      margin-left: 0.3rem;
+      margin-right: 0.3;
+      font-size: 1rem;
+    }
   }
 }
 
@@ -34,5 +46,13 @@
   .nameHighlight {
     font-size: 1.2rem;
     color: var(--accent-color);
+  }
+
+  @media (width < 570px) {
+    font-size: 0.8rem;
+
+    .nameHighlight {
+      font-size: 1rem;
+    }
   }
 }
