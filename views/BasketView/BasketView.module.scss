@@ -7,21 +7,36 @@
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-elevation-medium);
+
+  @media (width < 900px) {
+    padding: 5rem 1rem 1rem 1rem;
+  }
 }
 
 .basketContainer {
   display: flex;
   flex-direction: row;
   display: flex;
+  gap: 1rem;
   align-items: flex-start;
   justify-content: center;
+
+  @media (width < 900px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .sectionHeader {
   @include section-header;
-  width: 105.8%;
+  width: 108.5%;
   margin-top: -3.5rem;
   font-size: 2.2rem;
+
+  @media (width < 900px) {
+    font-size: 1.8rem;
+    // width: 115%;
+  }
 }
 
 .emptyBasket {
