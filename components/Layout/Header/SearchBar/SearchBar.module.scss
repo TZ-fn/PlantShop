@@ -6,6 +6,11 @@
   align-items: center;
   justify-content: center;
   margin-left: 2rem;
+
+  @media (width < 430px) {
+    width: 20%;
+    min-width: 14.8rem;
+  }
 }
 
 .searchInput {
@@ -18,8 +23,16 @@
   &:focus {
     outline: 2px solid var(--accent-color);
   }
+
+  @media (width < 430px) {
+    font-size: 1rem;
+  }
 }
 
 .searchButton {
   @include button-standard;
+
+  @media (width < 430px) {
+    padding: 0.25rem 0.5rem;
+  }
 }
