@@ -1,5 +1,6 @@
 .wishlistContainer {
   display: flex;
+  width: 38rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -7,6 +8,10 @@
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-elevation-medium);
+
+  @media (width < 700px) {
+    width: auto;
+  }
 }
 
 .sectionHeader {
@@ -18,4 +23,5 @@
   margin: auto;
   font-size: 1.5rem;
   font-weight: 600;
+  min-width: none;
 }
