@@ -16,11 +16,11 @@ export default function Layout({ children }: LayoutProps) {
   const data = useFetch('/api/plants');
   dispatch(updatePlantsData(data));
   return (
-    <>
+    <div className={styles.layoutWrapper}>
       <HeadElement />
       <Header />
       <main className={styles.mainContainer}>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 }
