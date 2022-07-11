@@ -10,4 +10,8 @@
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-elevation-low);
   list-style-type: none;
+
+  @media (width < 500px) {
+    min-width: min-content;
+  }
 }
