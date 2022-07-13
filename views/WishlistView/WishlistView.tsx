@@ -15,8 +15,8 @@ export default function WishlistView() {
         {wishlist.length > 0 ? (
           plants
             .filter((plant) => wishlist.includes(plant.id))
-            .map(({ id, name, image, price }) => {
-              return <WishlistProduct key={id} id={id} name={name} image={image} price={price} />;
+            .map((product) => {
+              return <WishlistProduct key={product.id} {...product} />;
             })
         ) : (
           <p className={styles.emptyWishlist}>Your wishlist is empty. ☹️</p>
