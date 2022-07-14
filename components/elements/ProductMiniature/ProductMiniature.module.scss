@@ -3,8 +3,14 @@
   width: 5rem;
   border: 1px solid var(--border-color);
 
+  @media (width < 1030px) {
+    height: 5rem;
+    width: 4.11rem;
+  }
+
   @media (width < 520px) {
     height: 4rem;
     width: 3.35rem;
+    margin-bottom: 0.5rem;
   }
 }
