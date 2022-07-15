@@ -43,10 +43,10 @@ export default function Card({ id, name, image, description, price }: Plant): Re
               <div className={styles.imageContainer}>
                 <Image
                   src={addToBasketIcon.src}
-                  width={'50px'}
-                  height={'50px'}
+                  width={50}
+                  height={50}
                   alt=''
-                  layout='fixed'
+                  layout='responsive'
                 />
               </div>
               Add to basket

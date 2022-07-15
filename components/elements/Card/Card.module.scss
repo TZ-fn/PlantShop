@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  height: 35rem;
+  min-height: 35rem;
   width: 22rem;
   margin: 1rem 3rem;
 
@@ -14,6 +14,12 @@
 
   @media (width < 600px) {
     margin: 0.5rem;
+  }
+
+  @media (width < 410px) {
+    height: 30rem;
+    width: 19rem;
+    min-height: unset;
   }
 }
 
@@ -33,7 +39,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  min-height: 35rem;
   width: 100%;
   position: relative;
   top: 0;
@@ -44,6 +50,10 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform-style: preserve-3d;
+
+  @media (width < 410px) {
+    min-height: 30rem;
+  }
 }
 
 .cardBack {
@@ -92,17 +102,31 @@
   padding-bottom: 0.3rem;
   border-bottom: 2px solid var(--accent-color);
   font-size: 1.5rem;
+
+  @media (width < 410px) {
+    font-size: 1.1rem;
+  }
 }
 
 .description {
   text-align: center;
+  margin-bottom: auto;
+
+  @media (width < 410px) {
+    font-size: 0.9rem;
+  }
 }
 
 .priceContainer {
-  margin-top: auto;
+  margin-top: 1rem;
   padding: 0;
   font-size: 2rem;
+  font-weight: 700;
   border-bottom: 1px solid var(--accent-color);
+
+  @media (width < 410px) {
+    font-size: 1.2rem;
+  }
 }
 
 .buttonContainer {
@@ -115,6 +139,11 @@
   margin-top: 1rem;
   border-top: 2px solid var(--accent-color);
   padding-top: 1rem;
+
+  @media (width < 410px) {
+    height: 4rem;
+    padding-top: 0.5rem;
+  }
 }
 
 .addToBasketButton {
@@ -123,8 +152,18 @@
   font-size: 1.3rem;
 
   .imageContainer {
-    display: inline;
+    width: 3.15rem;
+    height: 3.15rem;
     margin-right: 0.5rem;
     border: 1px solid var(--border-color);
+
+    @media (width < 410px) {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+
+  @media (width < 410px) {
+    font-size: 1.05rem;
   }
 }
