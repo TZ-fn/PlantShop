@@ -7,11 +7,15 @@ import ItemView from 'views/ItemView/ItemView';
 
 const ItemPage: NextPage = () => {
   const router = useRouter();
-  const product = capitalize(router.query.itemPage);
+  const product = router.query.itemPage;
   const plants = useSelector((state: RootState) => state.plants.plantsData);
-  const currentPlant = plants.filter((plant) => plant.name === product)[0];
+  const currentPlant = plants.filter((plant) => {
+    if (product !== undefined && typeof product !== 'object') {
+      return plant.name === capitalize(product);
+    }
+  })[0];
 
-  return currentPlant !== undefined ? <ItemView {...currentPlant} /> : <p>Loading...</p>;
+  return currentPlant ? <ItemView {...currentPlant} /> : <p>Loading...</p>;
 };
 
 export default ItemPage;
