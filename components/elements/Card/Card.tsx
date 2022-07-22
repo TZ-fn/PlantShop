@@ -14,6 +14,7 @@ export default function Card({ id, name, image, description, price }: Plant): Re
   const dispatch = useDispatch();
 
   function addToBasketHandler(e: MouseEvent<HTMLButtonElement>) {
+    e.stopPropagation();
     if (e.currentTarget.dataset.id) {
       dispatch(addToBasket(e.currentTarget.dataset.id));
     }
