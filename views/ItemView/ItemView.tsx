@@ -5,6 +5,7 @@ import { addToBasket } from 'features/basket/basketSlice';
 import { Plant } from 'types/types';
 import { formatCurrency } from 'utils/formatCurrency';
 import addToBasketIcon from 'public/icons/addToBasketIcon.svg';
+import FavouritesButton from 'components/elements/FavouritesButton/FavouritesButton';
 import styles from './ItemView.module.scss';
 
 export default function ItemView({ id, name, image, description, price }: Plant) {
@@ -45,6 +46,9 @@ export default function ItemView({ id, name, image, description, price }: Plant)
           <Image src={addToBasketIcon.src} width={50} height={50} alt='' layout='responsive' />
         </div>
         Add to basket: {formatCurrency(price)}
+      </button>
+      <button type='button' className={styles.addToFavouritesButton}>
+        Add to favourites <FavouritesButton id={id} />
       </button>
     </div>
   );
