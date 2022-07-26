@@ -11,9 +11,13 @@ import { Product } from 'types/types';
 
 interface FavouritesButtonProps {
   id: string;
+  isBlockButton: boolean;
 }
 
-export default function FavouritesButton({ id }: FavouritesButtonProps): ReactElement {
+export default function FavouritesButton({
+  id,
+  isBlockButton,
+}: FavouritesButtonProps): ReactElement {
   const dispatch = useDispatch();
   const wishlistItems = useSelector((state: RootState) => state.wishlist.products);
 
@@ -21,6 +25,7 @@ export default function FavouritesButton({ id }: FavouritesButtonProps): ReactEl
     wishlistItems.find((productID: Product['id']) => productID === id) !== undefined;
 
   function handleAddingToFavourites(e: MouseEvent<HTMLButtonElement>) {
+    e.stopPropagation();
     if (e.currentTarget.dataset.id) {
       if (!isWishlisted) {
         dispatch(addToWishlist(e.currentTarget.dataset.id));
@@ -37,19 +42,23 @@ export default function FavouritesButton({ id }: FavouritesButtonProps): ReactEl
       onClick={(e) => handleAddingToFavourites(e)}
     >
       <Button
-        className={styles.innerButton}
+        className={isBlockButton === false ? styles.innerButtonIcon : styles.innerButtonBlock}
         aria-label='Add this product to favourites'
         type='button'
       >
         {isWishlisted ? (
-          <span>
-            <span className='visually-hidden'>Remove this item from the wishlist</span>
+          <span className={styles.buttonInnerText}>
+            <span className={isBlockButton ? '' : 'visually-hidden'}>
+              Remove this item from the wishlist
+            </span>
             <Image src={WishlistIcon.src} width={50} height={50} />
           </span>
         ) : (
-          <span>
+          <span className={styles.buttonInnerText}>
+            <span className={isBlockButton ? '' : 'visually-hidden'}>
+              Add this item to the wishlist
+            </span>
             <Image src={WishlistIconEmpty.src} width={50} height={50} />
-            <span className='visually-hidden'>Remove this item from the wishlist</span>
           </span>
         )}
       </Button>

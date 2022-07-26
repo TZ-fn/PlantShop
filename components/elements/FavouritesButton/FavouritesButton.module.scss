@@ -4,10 +4,21 @@
   right: 0.2rem;
 }
 
-.innerButton {
+.innerButtonIcon {
   margin: 0;
   padding: 0;
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.innerButtonBlock {
+  @include button-standard;
+}
+
+.buttonInnerText {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
