@@ -62,11 +62,31 @@
   width: 59.5%;
 }
 
+.imageContainer {
+  height: 20rem;
+  width: 15rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: min(2vw, 1.5rem);
+
+  @media (width < 1010px) {
+    flex-direction: column;
+  }
+}
+
 .addToBasketButton {
   @include button-standard;
 
   width: 20rem;
-  margin-top: min(2vw, 1.5rem);
   font-size: 1.3rem;
 
   .buttonImageContainer {
@@ -83,14 +103,14 @@
 }
 
 .addToFavouritesButton {
-  position: relative;
-}
+  @include button-standard;
 
-.imageContainer {
-  height: 20rem;
-  width: 15rem;
-  margin-bottom: 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  overflow: hidden;
+  position: relative;
+  width: 14rem;
+  height: 4.3rem;
+  margin-right: 2vw;
+
+  @media (width < 1010px) {
+    margin-top: 2vw;
+  }
 }

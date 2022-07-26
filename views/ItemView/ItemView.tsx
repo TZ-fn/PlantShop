@@ -36,20 +36,22 @@ export default function ItemView({ id, name, image, description, price }: Plant)
         </div>
         <div className={styles.galleryContainer}></div>
       </div>
-      <button
-        onClick={(e) => addToBasketHandler(e)}
-        type='button'
-        className={styles.addToBasketButton}
-        data-id={id}
-      >
-        <div className={styles.buttonImageContainer}>
-          <Image src={addToBasketIcon.src} width={50} height={50} alt='' layout='responsive' />
-        </div>
-        Add to basket: {formatCurrency(price)}
-      </button>
-      <button type='button' className={styles.addToFavouritesButton}>
-        Add to favourites <FavouritesButton id={id} />
-      </button>
+      <div className={styles.buttonsContainer}>
+        <button
+          onClick={(e) => addToBasketHandler(e)}
+          type='button'
+          className={styles.addToBasketButton}
+          data-id={id}
+        >
+          <div className={styles.buttonImageContainer}>
+            <Image src={addToBasketIcon.src} width={50} height={50} alt='' layout='responsive' />
+          </div>
+          Add to basket: {formatCurrency(price)}
+        </button>
+        <button type='button' className={styles.addToFavouritesButton}>
+          Add to favourites <FavouritesButton id={id} />
+        </button>
+      </div>
     </div>
   );
 }
