@@ -102,15 +102,14 @@
   }
 }
 
-.addToFavouritesButton {
-  @include button-standard;
-
+.favouritesButtonContainer {
   position: relative;
-  width: 14rem;
-  height: 4.3rem;
-  margin-right: 2vw;
+  width: 20rem;
+  padding: 0;
+  height: 4.4rem;
+  margin-left: 2vw;
 
   @media (width < 1010px) {
-    margin-top: 2vw;
+    margin-left: 0;
   }
 }
