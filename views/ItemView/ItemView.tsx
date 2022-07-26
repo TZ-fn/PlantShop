@@ -48,9 +48,9 @@ export default function ItemView({ id, name, image, description, price }: Plant)
           </div>
           Add to basket: {formatCurrency(price)}
         </button>
-        <button type='button' className={styles.addToFavouritesButton}>
-          Add to favourites <FavouritesButton id={id} />
-        </button>
+        <div className={styles.favouritesButtonContainer}>
+          <FavouritesButton isBlockButton={true} id={id} />
+        </div>
       </div>
     </div>
   );
