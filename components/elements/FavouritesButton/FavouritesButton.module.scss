@@ -14,11 +14,14 @@
 
 .innerButtonBlock {
   @include button-standard;
+  width: 22rem;
+  height: 100%;
 }
 
 .buttonInnerText {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: max-content;
 }
