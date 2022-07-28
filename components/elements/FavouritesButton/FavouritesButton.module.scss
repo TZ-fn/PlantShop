@@ -14,8 +14,14 @@
 
 .innerButtonBlock {
   @include button-standard;
-  width: 22rem;
-  height: 100%;
+  min-width: 20rem;
+  height: 4.23rem;
+  font-size: 0.9rem;
+  background-color: var(--white-darker);
+
+  &:hover {
+    background-color: var(--accent-color-secondary);
+  }
 }
 
 .buttonInnerText {
@@ -23,5 +29,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: max-content;
+  width: 100%;
+}
+
+.wishlistIconContaner {
+  margin-left: auto;
 }
