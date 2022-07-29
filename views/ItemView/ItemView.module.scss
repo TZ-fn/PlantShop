@@ -52,6 +52,10 @@
 
 .galleryContainer {
   align-self: stretch;
+
+  @media (width < 1010px) {
+    align-self: unset;
+  }
 }
 
 .cardContainer {
@@ -105,8 +109,8 @@
 .favouritesButtonContainer {
   position: relative;
   padding: 0;
-  width: 22rem;
-  height: 4.6rem;
+  width: 20rem;
+  height: 4.45rem;
   margin-left: 2vw;
 
   @media (width < 1010px) {
