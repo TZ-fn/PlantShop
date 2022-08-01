@@ -6,6 +6,7 @@ import { Plant } from 'types/types';
 import { formatCurrency } from 'utils/formatCurrency';
 import addToBasketIcon from 'public/icons/addToBasketIcon.svg';
 import FavouritesButton from 'components/elements/FavouritesButton/FavouritesButton';
+import ItemGallery from 'components/ItemGallery/ItemGallery';
 import styles from './ItemView.module.scss';
 
 export default function ItemView({ id, name, image, description, price }: Plant) {
@@ -34,7 +35,9 @@ export default function ItemView({ id, name, image, description, price }: Plant)
           </div>
           <p>{description}</p>
         </div>
-        <div className={styles.galleryContainer}></div>
+        <div className={styles.galleryContainer}>
+          <ItemGallery name={name} />
+        </div>
       </div>
       <div className={styles.buttonsContainer}>
         <button
