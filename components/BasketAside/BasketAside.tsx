@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
-import styles from './BasketAside.module.scss';
+import Link from 'next/link';
 import { formatCurrency } from 'utils/formatCurrency';
+import styles from './BasketAside.module.scss';
 
 interface BasketAsideProps {
   basketTotal: { integer: number; fraction: number; currency?: string };
@@ -15,9 +16,11 @@ export default function BasketAside({ basketTotal }: BasketAsideProps): ReactEle
       <button type='button' className={styles.checkoutButton}>
         Checkout and pay
       </button>
-      <button type='button' className={styles.continueButton}>
-        Continue shopping
-      </button>
+      <Link href={'/products'}>
+        <button type='button' className={styles.continueButton}>
+          Continue shopping
+        </button>
+      </Link>
     </aside>
   );
 }
