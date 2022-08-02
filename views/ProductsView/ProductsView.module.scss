@@ -9,10 +9,11 @@
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-elevation-medium);
+  overflow-x: hidden;
 }
 
 .sectionHeader {
   @include section-header;
-  width: 109.5%;
+  width: 130%;
   font-size: 2.2rem;
 }

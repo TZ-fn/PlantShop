@@ -33,6 +33,7 @@
 .sectionHeader {
   @include section-header;
   padding-bottom: 0.5rem;
+  width: 121%;
 }
 
 .cardContainer,
