@@ -112,4 +112,8 @@
   width: 20rem;
   height: 4.45rem;
   margin-left: 2vw;
+
+  @media (width < 1010px) {
+    margin-left: 5px;
+  }
 }
