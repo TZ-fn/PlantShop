@@ -10,6 +10,7 @@
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-elevation-medium);
+  overflow-x: hidden;
 
   @media (width < 700px) {
     width: auto;
@@ -18,7 +19,7 @@
 
 .contactHeader {
   @include section-header;
-  width: 112%;
+  width: 126%;
 }
 
 .logoContainer {
