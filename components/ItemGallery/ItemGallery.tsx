@@ -1,8 +1,9 @@
+import { useState } from 'react';
+import { useFetch } from 'hooks/useFetch';
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import ItemGalleryElement from './ItemGalleryElement/ItemGalleryElement';
-import { useFetch } from 'hooks/useFetch';
+import ItemGalleryModal from './ItemGalleryModal/ItemGalleryModal';
 import styles from './ItemGallery.module.scss';
-import { useState } from 'react';
 
 interface ItemGalleryProps {
   name: string;
@@ -21,7 +22,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
 
   return (
     <div className={styles.itemGalleryContainer}>
-      {isGalleryOpened && <div>modal opened</div>}
+      {isGalleryOpened && <ItemGalleryModal id={'asdfasdfasdfasdf'} />}
       {galleryData.results ? (
         ((galleryData.results.length = 9),
         galleryData.results.map(({ id, urls }) => {
