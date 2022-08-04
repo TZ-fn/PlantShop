@@ -22,7 +22,9 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
 
   return (
     <div className={styles.itemGalleryContainer}>
-      {isGalleryOpened && <ItemGalleryModal id={'asdfasdfasdfasdf'} />}
+      {isGalleryOpened && (
+        <ItemGalleryModal clickHandler={galleryOpeningHandler} id={'asdfasdfasdfasdf'} />
+      )}
       {galleryData.results ? (
         ((galleryData.results.length = 9),
         galleryData.results.map(({ id, urls }) => {
