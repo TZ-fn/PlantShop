@@ -1,9 +1,68 @@
 .modalContainer {
   position: absolute;
-  top: 5%;
-  left: 5%;
-  height: 80vh;
+  height: 85vh;
   width: 80vw;
+  top: 50%;
+  left: 50%;
   display: flex;
-  background-color: white;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+  padding: min(1.5vw, 1.5rem);
+  padding-top: 5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-elevation-medium);
+  transform: translate(-50%, -50%);
+
+  @media (width < 800px) {
+    width: 95vw;
+    padding-top: 3.5rem;
+  }
+}
+
+.closeModalButton {
+  @include button-standard;
+  position: absolute;
+  top: 2%;
+  right: 1.2%;
+  font-size: 1.5rem;
+  padding: 0.2rem 0.7rem;
+  background-color: transparent;
+
+  @media (width < 800px) {
+    font-size: 0.8rem;
+  }
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 2;
+  align-self: stretch;
+  margin: 0 1vw;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.navButton {
+  @include button-standard;
+  height: 100%;
+  font-size: 1.5rem;
+
+  &:last-child {
+    margin-left: auto;
+  }
+
+  &:first-child {
+    margin-right: auto;
+  }
+
+  @media (width < 800px) {
+    width: 1rem;
+    font-size: 0.8rem;
+  }
 }
