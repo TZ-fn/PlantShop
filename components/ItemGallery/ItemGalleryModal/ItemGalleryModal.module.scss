@@ -6,7 +6,7 @@
   height: 100%;
   width: 100%;
   backdrop-filter: blur(3px);
-  background-color: hsla(0, 0, 0, 30%);
+  background-color: hsla(0deg, 0%, 0%, 30%);
 }
 
 .modalContainer {
@@ -48,14 +48,18 @@
 }
 
 .imageContainer {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-grow: 2;
   align-self: stretch;
+  height: 100%;
+  width: 100%;
   margin: 0 1vw;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
+  background-color: hsla(0deg, 0%, 0%, 10%);
   overflow: hidden;
 }
 
