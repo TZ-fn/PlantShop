@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { MouseEvent } from 'react';
 import styles from './ItemGalleryModal.module.scss';
 
@@ -23,7 +24,7 @@ export default function ItemGalleryModal({ imageLink, clickHandler }: ItemGaller
           &lt;&lt;
         </button>
         <div className={styles.imageContainer}>
-          <img src={imageLink} alt='' />
+          <Image src={imageLink} alt='' layout='fill' objectFit='contain' />
         </div>
         <button type='button' className={styles.navButton}>
           &gt;&gt;

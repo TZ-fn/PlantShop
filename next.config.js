@@ -9,6 +9,9 @@ const nextConfig = {
     includePaths: ['./styles'],
     prependData: `@import "styles/mixins.scss";`,
   },
+  images: {
+    domains: ['images.unsplash.com'],
+  },
 };
 
 module.exports = nextConfig;
