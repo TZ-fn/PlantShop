@@ -1,11 +1,12 @@
+import { MouseEvent } from 'react';
 import styles from './ItemGalleryModal.module.scss';
 
 interface ItemGalleryModalProps {
-  id: string;
-  clickHandler: () => void;
+  imageLink: string;
+  clickHandler: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export default function ItemGalleryModal({ id, clickHandler }: ItemGalleryModalProps) {
+export default function ItemGalleryModal({ imageLink, clickHandler }: ItemGalleryModalProps) {
   return (
     <>
       <div className={styles.modalBackground}></div>
@@ -21,7 +22,9 @@ export default function ItemGalleryModal({ id, clickHandler }: ItemGalleryModalP
         <button type='button' className={styles.navButton}>
           &lt;&lt;
         </button>
-        <div className={styles.imageContainer}>{id}</div>
+        <div className={styles.imageContainer}>
+          <img src={imageLink} alt='' />
+        </div>
         <button type='button' className={styles.navButton}>
           &gt;&gt;
         </button>

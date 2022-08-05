@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 import { useFetch } from 'hooks/useFetch';
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import ItemGalleryElement from './ItemGalleryElement/ItemGalleryElement';
@@ -11,19 +11,23 @@ interface ItemGalleryProps {
 
 export default function ItemGallery({ name }: ItemGalleryProps) {
   const [isGalleryOpened, setIsGalleryOpened] = useState(false);
+  const [modalImage, setModalImage] = useState('');
   const accessKey = 'xB0jj6DN5ni0u40GPbqafQ07iJv9j7Ef2uilvntw1eM';
   const galleryData = useFetch(
     ` https://api.unsplash.com//search/photos?client_id=${accessKey}&query=${name}`,
   );
 
-  function galleryOpeningHandler() {
+  function galleryOpeningHandler(e: MouseEvent<HTMLButtonElement | HTMLImageElement>) {
+    if (e.currentTarget.dataset.fullimage) {
+      setModalImage(e.currentTarget.dataset.fullimage);
+    }
     return setIsGalleryOpened(!isGalleryOpened);
   }
 
   return (
     <div className={styles.itemGalleryContainer}>
       {isGalleryOpened && (
-        <ItemGalleryModal clickHandler={galleryOpeningHandler} id={'asdfasdfasdfasdf'} />
+        <ItemGalleryModal imageLink={modalImage} clickHandler={galleryOpeningHandler} />
       )}
       {galleryData.results ? (
         ((galleryData.results.length = 9),
@@ -32,6 +36,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
             <ItemGalleryElement
               key={id}
               id={id}
+              fullImage={urls.regular}
               clickHandler={galleryOpeningHandler}
               src={urls.thumb}
             />
