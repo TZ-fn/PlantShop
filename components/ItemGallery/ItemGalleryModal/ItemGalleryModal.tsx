@@ -24,7 +24,14 @@ export default function ItemGalleryModal({ imageLink, clickHandler }: ItemGaller
           &lt;&lt;
         </button>
         <div className={styles.imageContainer}>
-          <Image src={imageLink} alt='' layout='fill' objectFit='contain' />
+          <Image
+            placeholder='blur'
+            blurDataURL={imageLink}
+            src={imageLink}
+            alt=''
+            layout='fill'
+            objectFit='contain'
+          />
         </div>
         <button type='button' className={styles.navButton}>
           &gt;&gt;
