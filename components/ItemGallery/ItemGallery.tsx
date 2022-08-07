@@ -35,7 +35,6 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
           return (
             <ItemGalleryElement
               key={id}
-              id={id}
               fullImage={urls.regular}
               clickHandler={galleryOpeningHandler}
               src={urls.thumb}
