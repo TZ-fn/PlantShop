@@ -3,11 +3,11 @@ import { MouseEvent } from 'react';
 import styles from './ItemGalleryModal.module.scss';
 
 interface ItemGalleryModalProps {
-  imageLink: string;
+  imageID: string;
   clickHandler: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export default function ItemGalleryModal({ imageLink, clickHandler }: ItemGalleryModalProps) {
+export default function ItemGalleryModal({ imageID, clickHandler }: ItemGalleryModalProps) {
   return (
     <>
       <div className={styles.modalBackground}></div>
@@ -26,8 +26,8 @@ export default function ItemGalleryModal({ imageLink, clickHandler }: ItemGaller
         <div className={styles.imageContainer}>
           <Image
             placeholder='blur'
-            blurDataURL={imageLink}
-            src={imageLink}
+            blurDataURL={imageID}
+            src={imageID}
             alt=''
             layout='fill'
             objectFit='contain'
