@@ -5,9 +5,14 @@ import styles from './ItemGalleryModal.module.scss';
 interface ItemGalleryModalProps {
   imageID: string;
   clickHandler: (e: MouseEvent<HTMLButtonElement>) => void;
+  modalImageChanger: Function;
 }
 
-export default function ItemGalleryModal({ imageID, clickHandler }: ItemGalleryModalProps) {
+export default function ItemGalleryModal({
+  imageID,
+  clickHandler,
+  modalImageChanger,
+}: ItemGalleryModalProps) {
   return (
     <>
       <div className={styles.modalBackground}></div>
@@ -20,7 +25,11 @@ export default function ItemGalleryModal({ imageID, clickHandler }: ItemGalleryM
         >
           <span aria-hidden='true'>×</span>
         </button>
-        <button type='button' className={styles.navButton}>
+        <button
+          type='button'
+          className={styles.navButton}
+          onClick={() => modalImageChanger('left', imageID)}
+        >
           &lt;&lt;
         </button>
         <div className={styles.imageContainer}>
@@ -33,7 +42,11 @@ export default function ItemGalleryModal({ imageID, clickHandler }: ItemGalleryM
             objectFit='contain'
           />
         </div>
-        <button type='button' className={styles.navButton}>
+        <button
+          type='button'
+          className={styles.navButton}
+          onClick={() => modalImageChanger('right', imageID)}
+        >
           &gt;&gt;
         </button>
       </div>
