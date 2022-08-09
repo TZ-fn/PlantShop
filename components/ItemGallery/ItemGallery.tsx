@@ -24,30 +24,32 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
     return setIsGalleryOpened(!isGalleryOpened);
   }
 
-  function modalImageChanger(direction: string, id: string) {
+  function modalImageChanger(direction: string, currentPhotoURL: string) {
     const indexChange = direction === 'left' ? -1 : 1;
     let currentIndex;
     if (galleryData.results) {
-      currentIndex = galleryData.results.findIndex((photo) => photo.id === id);
+      currentIndex = galleryData.results.findIndex(
+        (photo) => photo.urls.regular === currentPhotoURL,
+      );
     }
     let newIndex = currentIndex + indexChange;
-    return newIndex < 0 ? 'first' : newIndex > galleryData?.results?.length ? 'last' : newIndex;
+    if (newIndex >= 0 && newIndex <= galleryData?.results?.length - 1) {
+      setImageID(galleryData.results[newIndex].urls.regular);
+    }
   }
-
-  console.log(modalImageChanger('left', '9c0J8P4qHX0'));
-  console.log(modalImageChanger('left', 'b6-tWnZBhsY'));
-  console.log(modalImageChanger('right', '9c0J8P4qHX0'));
-  console.log(modalImageChanger('left', 'kFmSOhT1fiA'));
 
   return (
     <div className={styles.itemGalleryContainer}>
       {isGalleryOpened && (
-        <ItemGalleryModal imageID={imageID} clickHandler={galleryOpeningHandler} />
+        <ItemGalleryModal
+          imageID={imageID}
+          clickHandler={galleryOpeningHandler}
+          modalImageChanger={modalImageChanger}
+        />
       )}
       {galleryData.results ? (
         ((galleryData.results.length = 9),
         galleryData.results.map(({ id, urls }) => {
-          console.log(id);
           return (
             <ItemGalleryElement
               key={id}
