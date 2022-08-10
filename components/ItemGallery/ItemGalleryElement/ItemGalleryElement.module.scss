@@ -1,5 +1,11 @@
-.ItemGalleryElement {
-  margin: 0.3rem;
+.ItemGalleryElementContainer {
+  height: 165px;
+  width: 165px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
   border: 1px solid var(--border-color);
   cursor: pointer;
+  overflow: hidden;
 }

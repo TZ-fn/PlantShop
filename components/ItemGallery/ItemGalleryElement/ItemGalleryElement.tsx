@@ -9,12 +9,14 @@ interface ItemGalleryProps {
 
 export default function ItemGalleryElement({ src, fullImage, clickHandler }: ItemGalleryProps) {
   return (
-    <img
-      onClick={clickHandler}
-      className={styles.ItemGalleryElement}
-      src={src}
-      alt=''
-      data-fullimage={fullImage}
-    />
+    <div className={styles.ItemGalleryElementContainer}>
+      <img
+        onClick={clickHandler}
+        className={styles.ItemGalleryElement}
+        src={src}
+        alt=''
+        data-fullimage={fullImage}
+      />
+    </div>
   );
 }
