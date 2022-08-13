@@ -11,24 +11,16 @@ export default function ProductsView() {
     <div className={styles.productsContainer}>
       <h2 className={styles.sectionHeader}>Products</h2>
       <ProductsList>
-        {plants.length > 0 ? (
-          plants
-            .filter((plant) => plants.find((product) => product.id === plant.id))
-            .map(({ id, name, image, description, price }: Plant) => {
-              return (
-                <Product
-                  id={id}
-                  key={id}
-                  name={name}
-                  image={image}
-                  description={description}
-                  price={price}
-                />
-              );
-            })
-        ) : (
-          <p className={styles.emptyBasket}>Your basket is empty. ☹️</p>
-        )}
+        {plants.map(({ id, name, image, description, price }: Plant) => {
+          return (
+            <p>
+              <p>{id}</p>
+              <p>{name}</p>
+              <p>{description}</p>
+              <p>{price}</p>
+            </p>
+          );
+        })}
       </ProductsList>
     </div>
   );
