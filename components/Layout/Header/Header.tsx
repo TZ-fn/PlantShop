@@ -47,7 +47,7 @@ export default function Header(): ReactElement {
               ) : (
                 <Image src={WishlistIcon.src} width={40} height={40} />
               )}
-              Wishlist
+              WishList
             </a>
           </Link>
           <Link href={'/basket'}>
