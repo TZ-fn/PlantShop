@@ -15,6 +15,7 @@ export type PlantsData = Plant[];
 
 export interface ProductProps extends Plant {
   count: number;
+  isInBasket: boolean;
 }
 
 export interface WishlistProductProps {
