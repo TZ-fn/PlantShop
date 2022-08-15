@@ -41,6 +41,7 @@ const BasketView = () => {
                     description={description}
                     price={price}
                     count={basket.filter((product) => product.id === id)[0].quantity}
+                    isInBasket={true}
                   />
                 );
               })
