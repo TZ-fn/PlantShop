@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 import { changeQuantity, removeFromBasket } from 'features/basket/basketSlice';
 import { ProductProps } from 'types/types';
 import ProductMiniature from 'components/elements/ProductMiniature/ProductMiniature';
+import styles from './Product.module.scss';
 import BinIcon from 'public/icons/binIcon.svg';
 import { formatCurrency } from 'utils/formatCurrency';
-import styles from './BasketProduct.module.scss';
 
 export default function Product({ id, name, image, count, price }: ProductProps): ReactElement {
   const [countValue, setCountValue] = useState(`${count}`);
