@@ -1,7 +1,7 @@
 import { RootState } from 'store/store';
 import { useSelector } from 'react-redux';
 import ProductsList from 'components/ProductsList/ProductsList';
-import BasketProduct from 'components/ProductsList/Product/BasketProduct';
+import Product from 'components/ProductsList/Product/Product';
 import BasketAside from 'components/BasketAside/BasketAside';
 import styles from './BasketView.module.scss';
 import { Plant } from 'types/types';
@@ -33,7 +33,7 @@ const BasketView = () => {
               .filter((plant) => basket.find((product) => product.id === plant.id))
               .map(({ id, name, image, description, price }: Plant) => {
                 return (
-                  <BasketProduct
+                  <Product
                     id={id}
                     key={id}
                     name={name}
