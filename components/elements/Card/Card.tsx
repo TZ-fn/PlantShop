@@ -1,14 +1,15 @@
 import { ReactElement, MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import Image from 'next/image';
+import Link from 'next/link';
 import { addToBasket } from 'features/basket/basketSlice';
-import styles from './Card.module.scss';
 import turnAroundIcon from 'public/icons/turnAroundArrowIcon.svg';
 import addToBasketIcon from 'public/icons/addToBasketIcon.svg';
 import { formatCurrency } from 'utils/formatCurrency';
-import { Plant } from 'types/types';
 import FavouritesButton from '../FavouritesButton/FavouritesButton';
-import Link from 'next/link';
+import RatingSystem from '../RatingSystem/RatingSystem';
+import { Plant } from 'types/types';
+import styles from './Card.module.scss';
 
 export default function Card({ id, name, image, description, price }: Plant): ReactElement {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ export default function Card({ id, name, image, description, price }: Plant): Re
             </div>
           </div>
           <div className={styles.cardBack}>
+            <RatingSystem orientation='Horizontal' />
             <FavouritesButton id={id} isBlockButton={false} />
             <h3 className={styles.descriptionHeader}>About this plant:</h3>
             <p className={styles.description}>{description}</p>

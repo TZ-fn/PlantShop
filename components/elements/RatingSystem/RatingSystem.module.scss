@@ -1,0 +1,16 @@
+.ratingContainerHorizontal,
+.ratingContainerVertical {
+  position: absolute;
+  top: 2%;
+  left: 5%;
+}
+
+.ratingContainerHorizontal {
+  height: 1rem;
+  width: 5rem;
+}
+
+.ratingContainerVertical {
+  width: 1rem;
+  height: 5rem;
+}
