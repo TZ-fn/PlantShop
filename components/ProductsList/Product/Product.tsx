@@ -7,6 +7,7 @@ import ProductMiniature from 'components/elements/ProductMiniature/ProductMiniat
 import BinIcon from 'public/icons/binIcon.svg';
 import { formatCurrency } from 'utils/formatCurrency';
 import styles from './Product.module.scss';
+import Link from 'next/link';
 
 export default function Product({
   id,
@@ -39,48 +40,50 @@ export default function Product({
   const handleRemovingFromBasket = () => dispatch(removeFromBasket(id));
 
   return (
-    <li className={styles.productContainer}>
-      <ProductMiniature source={image} />
-      <p className={styles.productName}>{name}</p>
-      {isInBasket && (
-        <div className={styles.counter}>
-          <button
-            type='button'
-            className={styles.countMinus}
-            onClick={() => handleCountButtons('decrease')}
-          >
-            - <span className='visually-hidden'>Remove 1 of this item</span>
+    <Link href={`product/${name.toLocaleLowerCase()}`}>
+      <li className={isInBasket ? styles.basketProductContainer : styles.productContainer}>
+        <ProductMiniature source={image} />
+        <p className={styles.productName}>{name}</p>
+        {isInBasket && (
+          <div className={styles.counter}>
+            <button
+              type='button'
+              className={styles.countMinus}
+              onClick={() => handleCountButtons('decrease')}
+            >
+              - <span className='visually-hidden'>Remove 1 of this item</span>
+            </button>
+            <label htmlFor='item-count'>
+              <span className='visually-hidden'>Count of the item</span>
+              <input
+                name='item-count'
+                autoComplete='off'
+                title=''
+                type='number'
+                value={countValue}
+                onChange={(e) => handleInputChange(e)}
+                className={styles.count}
+              />
+            </label>
+            <button
+              type='button'
+              className={styles.countPlus}
+              onClick={() => handleCountButtons('increase')}
+            >
+              + <span className='visually-hidden'>Add 1 of this item</span>
+            </button>
+          </div>
+        )}
+        <p className={styles.price}>
+          {isInBasket ? 'Total' : 'Price'}: {formatCurrency(price, 'en-US', count)}
+        </p>
+        {isInBasket && (
+          <button type='button' className={styles.removeButton} onClick={handleRemovingFromBasket}>
+            <span className='visually-hidden'>Remove item from the basket</span>
+            <Image src={BinIcon.src} width={'40px'} height={'40px'} alt='' layout='fixed' />
           </button>
-          <label htmlFor='item-count'>
-            <span className='visually-hidden'>Count of the item</span>
-            <input
-              name='item-count'
-              autoComplete='off'
-              title=''
-              type='number'
-              value={countValue}
-              onChange={(e) => handleInputChange(e)}
-              className={styles.count}
-            />
-          </label>
-          <button
-            type='button'
-            className={styles.countPlus}
-            onClick={() => handleCountButtons('increase')}
-          >
-            + <span className='visually-hidden'>Add 1 of this item</span>
-          </button>
-        </div>
-      )}
-      <p className={styles.price}>
-        {isInBasket ? 'Total' : 'Price'}: {formatCurrency(price, 'en-US', count)}
-      </p>
-      {isInBasket && (
-        <button type='button' className={styles.removeButton} onClick={handleRemovingFromBasket}>
-          <span className='visually-hidden'>Remove item from the basket</span>
-          <Image src={BinIcon.src} width={'40px'} height={'40px'} alt='' layout='fixed' />
-        </button>
-      )}
-    </li>
+        )}
+      </li>
+    </Link>
   );
 }
