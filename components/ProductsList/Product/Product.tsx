@@ -12,7 +12,7 @@ export default function Product({
   id,
   name,
   image,
-  count,
+  count = 1,
   price,
   isInBasket = false,
 }: ProductProps): ReactElement {
