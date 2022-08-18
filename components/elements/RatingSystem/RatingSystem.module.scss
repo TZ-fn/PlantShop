@@ -26,7 +26,7 @@ $star-off-color: #cccccc;
   width: ($star-size * $stars) + ($star-spacing * ($stars - 1));
   height: $star-size;
   padding: 0;
-  border: 1px solid red;
+  transform: scaleX(-1);
 
   label {
     float: right;
