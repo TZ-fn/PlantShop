@@ -33,7 +33,7 @@ export default function Card({ id, name, image, description, price }: Plant): Re
             </div>
           </div>
           <div className={styles.cardBack}>
-            <RatingSystem id={id} orientation='Horizontal' rating={1.2} />
+            <RatingSystem id={id} orientation='Horizontal' />
             <FavouritesButton id={id} isBlockButton={false} />
             <h3 className={styles.descriptionHeader}>About this plant:</h3>
             <p className={styles.description}>{description}</p>
