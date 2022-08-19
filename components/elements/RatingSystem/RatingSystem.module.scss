@@ -1,7 +1,7 @@
 .ratingContainerHorizontal,
 .ratingContainerVertical {
   position: absolute;
-  top: 0;
+  top: 1%;
   left: -1%;
 }
 
@@ -15,34 +15,28 @@
   height: 5rem;
 }
 
-$stars: 5;
-$star-size: 40px;
-$star-spacing: 2px;
-$star-on-color: #f9df4a;
-$star-off-color: #cccccc;
-
 .rating {
   display: flex;
-  width: ($star-size * $stars) + ($star-spacing * ($stars - 1));
-  height: $star-size;
+  width: (40px * 5) + (2px * (5 - 1));
+  height: 40px;
   padding: 0;
   transform: scaleX(-1);
 
   label {
     float: right;
     position: relative;
-    width: $star-size;
-    height: $star-size;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
 
     &:not(:first-of-type) {
-      padding-right: $star-spacing;
+      padding-right: 2px;
     }
 
     &:before {
       content: '\2605';
-      font-size: $star-size + 2px;
-      color: $star-off-color;
+      font-size: 40px + 2px;
+      color: #cccccc;
       line-height: 1;
     }
   }
@@ -51,9 +45,7 @@ $star-off-color: #cccccc;
     display: none;
   }
 
-  input:checked ~ label:before,
-  &:not(:checked) > label:hover:before,
-  &:not(:checked) > label:hover ~ label:before {
-    color: $star-on-color;
+  input:checked ~ label:before {
+    color: #f9df4a;
   }
 }
