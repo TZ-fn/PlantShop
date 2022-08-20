@@ -12,7 +12,7 @@ export default function CardContainer(): ReactElement {
   return (
     <div className={styles.cardContainer}>
       {plants.length > 0 ? (
-        plants.map(({ id, name, image, description, price }: Plant) => {
+        plants.map(({ id, name, image, description, price, rating }: Plant) => {
           return (
             <Card
               id={id}
@@ -21,6 +21,7 @@ export default function CardContainer(): ReactElement {
               image={image}
               description={description}
               price={price}
+              rating={rating}
             />
           );
         })

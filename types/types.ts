@@ -4,6 +4,7 @@ export interface Plant {
   image: string;
   description: string;
   price: { integer: number; fraction: number; currency: string };
+  rating: number;
 }
 
 export interface Product {
