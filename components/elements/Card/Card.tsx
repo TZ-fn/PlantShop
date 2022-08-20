@@ -11,7 +11,7 @@ import RatingSystem from '../RatingSystem/RatingSystem';
 import { Plant } from 'types/types';
 import styles from './Card.module.scss';
 
-export default function Card({ id, name, image, description, price }: Plant): ReactElement {
+export default function Card({ id, name, image, description, price, rating }: Plant): ReactElement {
   const dispatch = useDispatch();
 
   function addToBasketHandler(e: MouseEvent<HTMLButtonElement>) {
@@ -33,7 +33,7 @@ export default function Card({ id, name, image, description, price }: Plant): Re
             </div>
           </div>
           <div className={styles.cardBack}>
-            <RatingSystem id={id} orientation='Horizontal' rating={1.2} />
+            <RatingSystem id={id} orientation='Horizontal' rating={rating} />
             <FavouritesButton id={id} isBlockButton={false} />
             <h3 className={styles.descriptionHeader}>About this plant:</h3>
             <p className={styles.description}>{description}</p>
