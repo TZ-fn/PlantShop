@@ -14,7 +14,7 @@ export interface Product {
 
 export type PlantsData = Plant[];
 
-export interface ProductProps extends Plant {
+export interface ProductProps extends Partial<Plant> {
   count?: number;
   isInBasket?: boolean;
 }
