@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import ProductsList from 'components/ProductsList/ProductsList';
 import Product from 'components/ProductsList/Product/Product';
 import BasketAside from 'components/BasketAside/BasketAside';
-import styles from './BasketView.module.scss';
 import { Plant } from 'types/types';
+import styles from './BasketView.module.scss';
 
 const BasketView = () => {
   const plants = useSelector((state: RootState) => state.plants.plantsData);
@@ -15,9 +15,9 @@ const BasketView = () => {
     .reduce(
       (total, plant) => {
         total.integer +=
-          plant.price.integer * basket.find((product) => product.id === plant.id)?.quantity;
+          plant.price.integer * basket.find((product) => product.id === plant.id).quantity;
         total.fraction +=
-          plant.price.fraction * basket.find((product) => product.id === plant.id)?.quantity;
+          plant.price.fraction * basket.find((product) => product.id === plant.id).quantity;
         return total;
       },
       { integer: 0, fraction: 0 },

@@ -11,7 +11,14 @@ import RatingSystem from '../RatingSystem/RatingSystem';
 import { Plant } from 'types/types';
 import styles from './Card.module.scss';
 
-export default function Card({ id, name, image, description, price, rating }: Plant): ReactElement {
+export default function Card({
+  id,
+  name,
+  image,
+  description,
+  price,
+  rating = 0,
+}: Plant): ReactElement {
   const dispatch = useDispatch();
 
   function addToBasketHandler(e: MouseEvent<HTMLButtonElement>) {
