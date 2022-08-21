@@ -1,4 +1,4 @@
-import { ChangeEvent, ReactElement, useState } from 'react';
+import { ChangeEvent, MouseEvent, ReactElement, useState } from 'react';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 import { changeQuantity, removeFromBasket } from 'features/basket/basketSlice';
@@ -21,11 +21,14 @@ export default function Product({
   const dispatch = useDispatch();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    e.stopPropagation();
     setCountValue(e.target.value);
     dispatch(changeQuantity({ productId: id, count: Number(e.target.value) }));
   };
 
-  const handleCountButtons = (operationType: string) => {
+  const handleCountButtons = (operationType: string, e: MouseEvent) => {
+    e.stopPropagation();
+
     if (countValue === '0' && operationType === 'decrease') {
       return;
     }
@@ -37,7 +40,10 @@ export default function Product({
         dispatch(changeQuantity({ productId: id, count: count - 1 })));
   };
 
-  const handleRemovingFromBasket = () => dispatch(removeFromBasket(id));
+  const handleRemovingFromBasket = (e: MouseEvent) => {
+    e.stopPropagation();
+    dispatch(removeFromBasket(id));
+  };
 
   return (
     <Link href={`product/${name.toLocaleLowerCase()}`}>
@@ -49,7 +55,7 @@ export default function Product({
             <button
               type='button'
               className={styles.countMinus}
-              onClick={() => handleCountButtons('decrease')}
+              onClick={(e) => handleCountButtons('decrease', e)}
             >
               - <span className='visually-hidden'>Remove 1 of this item</span>
             </button>
@@ -68,7 +74,7 @@ export default function Product({
             <button
               type='button'
               className={styles.countPlus}
-              onClick={() => handleCountButtons('increase')}
+              onClick={(e) => handleCountButtons('increase', e)}
             >
               + <span className='visually-hidden'>Add 1 of this item</span>
             </button>
