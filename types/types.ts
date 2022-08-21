@@ -4,7 +4,7 @@ export interface Plant {
   image: string;
   description: string;
   price: { integer: number; fraction: number; currency: string };
-  rating: number;
+  rating?: number;
 }
 
 export interface Product {
@@ -14,7 +14,7 @@ export interface Product {
 
 export type PlantsData = Plant[];
 
-export interface ProductProps extends Partial<Plant> {
+export interface ProductProps extends Plant {
   count?: number;
   isInBasket?: boolean;
 }
