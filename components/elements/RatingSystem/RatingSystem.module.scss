@@ -1,18 +1,24 @@
 .ratingContainerHorizontal,
 .ratingContainerVertical {
   position: absolute;
+}
+
+.ratingContainerHorizontal {
   top: 1%;
   left: -1%;
 }
 
-.ratingContainerHorizontal {
-  height: 1rem;
-  width: 8rem;
-}
-
 .ratingContainerVertical {
-  width: 1rem;
-  height: 5rem;
+  top: 15%;
+  left: 7%;
+
+  @media (width < 1250px) {
+    left: 1%;
+  }
+
+  @media (width < 1000px) {
+    left: -1%;
+  }
 }
 
 .rating {
@@ -47,5 +53,13 @@
 
   input:checked ~ label:before {
     color: #f9df4a;
+  }
+}
+
+.ratingContainerVertical {
+  .rating {
+    flex-direction: column;
+    height: (40px * 5) + (2px * (5 - 1));
+    width: 40px;
   }
 }
