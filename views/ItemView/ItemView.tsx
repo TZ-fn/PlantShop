@@ -7,9 +7,10 @@ import { formatCurrency } from 'utils/formatCurrency';
 import addToBasketIcon from 'public/icons/addToBasketIcon.svg';
 import FavouritesButton from 'components/elements/FavouritesButton/FavouritesButton';
 import ItemGallery from 'components/ItemGallery/ItemGallery';
+import RatingSystem from 'components/elements/RatingSystem/RatingSystem';
 import styles from './ItemView.module.scss';
 
-export default function ItemView({ id, name, image, description, price }: Plant) {
+export default function ItemView({ id, name, image, description, price, rating }: Plant) {
   const dispatch = useDispatch();
 
   function addToBasketHandler(e: MouseEvent<HTMLButtonElement>) {
@@ -32,6 +33,7 @@ export default function ItemView({ id, name, image, description, price }: Plant)
               alt=''
               layout='responsive'
             />
+            <RatingSystem id={id} orientation='Vertical' rating={rating!} />
           </div>
           <p>{description}</p>
         </div>
