@@ -44,4 +44,10 @@
 
   // misc.
   --border-radius: 4px;
+
+  // toastify
+  --toastify-color-success: var(--accent-color);
+  --toastify-toast-width: 360px;
+  --toastify-color-light: var(--white);
+  --toastify-text-color-light: var(--black);
 }
