@@ -50,4 +50,8 @@
   --toastify-toast-width: 360px;
   --toastify-color-light: var(--white);
   --toastify-text-color-light: var(--black);
+
+  .Toastify__toast-icon {
+    width: 30px;
+  }
 }

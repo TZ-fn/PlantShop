@@ -6,8 +6,8 @@ import { addToWishlist, removeFromWishlist } from 'features/wishlist/wishlistSli
 import WishlistIcon from 'public/icons/wishlistIcon.svg';
 import WishlistIconEmpty from 'public/icons/wishlistIconEmpty.svg';
 import Button from '../Button/Button';
-import styles from './FavouritesButton.module.scss';
 import { Product } from 'types/types';
+import styles from './FavouritesButton.module.scss';
 
 interface FavouritesButtonProps {
   id: string;
