@@ -15,9 +15,9 @@ const BasketView = () => {
     .reduce(
       (total, plant) => {
         total.integer +=
-          plant.price.integer * basket.find((product) => product.id === plant.id).quantity;
+          plant.price.integer * basket.find((product) => product.id === plant.id)!.quantity;
         total.fraction +=
-          plant.price.fraction * basket.find((product) => product.id === plant.id).quantity;
+          plant.price.fraction * basket.find((product) => product.id === plant.id)!.quantity;
         return total;
       },
       { integer: 0, fraction: 0 },
