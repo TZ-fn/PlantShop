@@ -1,4 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+import Image from 'next/image';
+import BinIcon from 'public/icons/binIcon.svg';
 import { Product } from 'types/types';
 
 export interface WishlistState {
@@ -15,17 +18,28 @@ export const wishlistSlice = createSlice({
   reducers: {
     addToWishlist: (state, action: PayloadAction<Product['id']>) => {
       if (state.products.find((id) => id === action.payload) !== undefined) {
-        throw new Error('Product is already in the wishlist.');
+        toast.error('Product already is in the WishList.', {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
       } else {
         state.products.push(action.payload);
+        toast.success('Product added to the WishList.', {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
       }
     },
 
     removeFromWishlist: (state, action: PayloadAction<Product['id']>) => {
       if (state.products.find((id) => id === action.payload) !== undefined) {
         state.products = state.products.filter((id) => id !== action.payload);
+        toast.error('Product removed from the WishList.', {
+          position: toast.POSITION.BOTTOM_CENTER,
+          icon: <Image src={BinIcon.src} width={'40px'} height={'40px'} alt='' layout='fixed' />,
+        });
       } else {
-        throw new Error('Product not found in the wishlist.');
+        toast.error('Product not found in the WishList.', {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
       }
     },
   },
