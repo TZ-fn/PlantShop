@@ -1,13 +1,14 @@
+import User from '../../models/User';
 import nextConnect from 'next-connect';
-import middleware from '../../db/database';
+import dbConnect from 'db/dbConnect';
 
 const handler = nextConnect();
 
-handler.use(middleware);
-
 handler.get(async (req, res) => {
-  let doc = await req.db.collection('users').findOne();
-  res.json(doc);
+  await dbConnect();
+  const users = await User.find();
+  console.log(users);
+  res.json(users);
 });
 
 export default handler;
