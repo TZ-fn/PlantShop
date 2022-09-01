@@ -7,8 +7,13 @@ const handler = nextConnect();
 handler.get(async (req, res) => {
   await dbConnect();
   const users = await User.find();
-  console.log(users);
   res.json(users);
+});
+
+handler.post(async (req, res) => {
+  await dbConnect();
+  const user = await User.create(req.body);
+  res.status(201).json({ success: true, data: user });
 });
 
 export default handler;
