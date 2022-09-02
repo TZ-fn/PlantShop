@@ -1,12 +1,14 @@
+import { useState, MouseEvent } from 'react';
 import Input from 'components/Input/Input';
-import { useState } from 'react';
 import styles from './LoginView.module.scss';
 
 export default function LoginView() {
   const [isLoginPage, setIsLoginPage] = useState(false);
 
-  function handleTabButtonClick(e) {
-    return e.target.id === 'registerTab' ? setIsLoginPage(false) : setIsLoginPage(true);
+  function handleTabButtonClick(e: MouseEvent<HTMLButtonElement>) {
+    return (e.target as HTMLButtonElement).id === 'registerTab'
+      ? setIsLoginPage(false)
+      : setIsLoginPage(true);
   }
 
   return (
