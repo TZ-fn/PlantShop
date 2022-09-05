@@ -8,7 +8,7 @@ This project is an e-commerce platform for selling plants. Plants' data is fetch
 
 Users can see the products' showcase on the main page of the store. Clicking a product's card redirects to a page with product's details and gallery.
 
-Users can register and then log in using the credentials provided earlier.
+Users can register and then log in using the credentials provided earlier. Users' credentials are saved to a MongoDB database.
 
 Products can be added to the basket or wishlist, notifications-toasts confirming the actions are also displayed.
 
@@ -33,6 +33,10 @@ Redux
 Redux Toolkit
 
 React-Toastify
+
+MongoDB
+
+Mongoose
 
 Jest
 
