@@ -5,6 +5,7 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit): PlantsDa
   const cancelRequest = useRef<boolean>(false);
   const [data, setData] = useState([]);
   cancelRequest.current = false;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,16 +19,19 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit): PlantsDa
         if (cancelRequest.current) {
           return;
         }
+
         setData(data);
       } catch (error) {
         if (cancelRequest.current) {
           return;
         }
+
         if (error instanceof Error) {
           console.log(error);
         }
       }
     };
+
     fetchData();
 
     return () => {
