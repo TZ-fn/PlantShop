@@ -1,4 +1,4 @@
-import { useState, MouseEvent } from 'react';
+import { useState, MouseEvent, ChangeEvent } from 'react';
 import Input from 'components/Input/Input';
 import checkIfPasswordIsValid from 'utils/checkIfPasswordIsValid';
 import styles from './LoginView.module.scss';
@@ -37,19 +37,28 @@ export default function LoginView() {
       </div>
       {!isLoginPage && (
         <div className={styles.registerContainer}>
-          <Input id='email' type='text' placeholder='Enter your email...' label='E-mail' />
+          <Input
+            id='email'
+            type='text'
+            placeholder='Enter your email...'
+            label='E-mail'
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {}}
+          />
           <Input
             id='password'
             type='text'
             placeholder='Enter your password...'
             label='Password'
-            onChange={(e) => setIsPasswordValid(checkIfPasswordIsValid(e.target.value))}
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
+              setIsPasswordValid(checkIfPasswordIsValid(e.target.value))
+            }
           />
           <Input
             id='confirm-password'
             type='text'
             placeholder='Confirm your password...'
             label='Confirm password'
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {}}
           />
           <button type='button' className={styles.loginButton} onClick={() => createUser()}>
             Sign me up!
