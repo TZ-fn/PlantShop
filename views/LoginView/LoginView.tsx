@@ -5,7 +5,7 @@ import styles from './LoginView.module.scss';
 
 export default function LoginView() {
   const [isLoginPage, setIsLoginPage] = useState(false);
-  const [isPasswordValid, setIsPasswordValid] = useState(false);
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
 
   function handleTabButtonClick(e: MouseEvent<HTMLButtonElement>) {
     return (e.target as HTMLButtonElement).id === 'registerTab'
@@ -44,9 +44,10 @@ export default function LoginView() {
             label='E-mail'
             onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {}}
           />
+          {!isPasswordValid && <span>the password is invalid</span>}
           <Input
             id='password'
-            type='text'
+            type='password'
             placeholder='Enter your password...'
             label='Password'
             onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
@@ -55,7 +56,7 @@ export default function LoginView() {
           />
           <Input
             id='confirm-password'
-            type='text'
+            type='password'
             placeholder='Confirm your password...'
             label='Confirm password'
             onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {}}
