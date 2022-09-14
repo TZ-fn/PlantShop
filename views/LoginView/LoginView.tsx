@@ -44,7 +44,7 @@ export default function LoginView() {
             label='E-mail'
             onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {}}
           />
-          {!isPasswordValid && <span>the password is invalid</span>}
+          <FormLabel />
           <Input
             id='password'
             type='password'
@@ -54,6 +54,7 @@ export default function LoginView() {
               setIsPasswordValid(checkIfPasswordIsValid(e.target.value))
             }
           />
+          <FormLabel />
           <Input
             id='confirm-password'
             type='password'
