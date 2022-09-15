@@ -2,6 +2,7 @@ import { useState, MouseEvent, ChangeEvent } from 'react';
 import Input from 'components/Input/Input';
 import checkIfPasswordIsValid from 'utils/checkIfPasswordIsValid';
 import styles from './LoginView.module.scss';
+import FormLabel from 'components/elements/FormLabel/FormLabel';
 
 export default function LoginView() {
   const [isLoginPage, setIsLoginPage] = useState(false);
@@ -37,6 +38,7 @@ export default function LoginView() {
       </div>
       {!isLoginPage && (
         <div className={styles.registerContainer}>
+          <FormLabel type='wrong-email' />
           <Input
             id='email'
             type='text'
@@ -44,7 +46,7 @@ export default function LoginView() {
             label='E-mail'
             onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {}}
           />
-          <FormLabel />
+          <FormLabel type='wrong-password' />
           <Input
             id='password'
             type='password'
@@ -54,7 +56,7 @@ export default function LoginView() {
               setIsPasswordValid(checkIfPasswordIsValid(e.target.value))
             }
           />
-          <FormLabel />
+          <FormLabel type='no-match-password' />
           <Input
             id='confirm-password'
             type='password'
