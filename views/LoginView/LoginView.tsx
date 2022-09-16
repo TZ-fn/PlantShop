@@ -6,6 +6,15 @@ import FormLabel from 'components/elements/FormLabel/FormLabel';
 
 export default function LoginView() {
   const [isLoginPage, setIsLoginPage] = useState(false);
+  const [registerPageValues, setRegisterPageValues] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+  const [loginPageValues, setLoginPageValues] = useState({
+    email: '',
+    password: '',
+  });
   const [isPasswordValid, setIsPasswordValid] = useState(true);
 
   function handleTabButtonClick(e: MouseEvent<HTMLButtonElement>) {
@@ -44,25 +53,34 @@ export default function LoginView() {
             type='text'
             placeholder='Enter your email...'
             label='E-mail'
-            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {}}
+            value={registerPageValues.email}
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
+              setRegisterPageValues({ ...registerPageValues, email: e.target.value })
+            }
           />
+
           <FormLabel type='wrong-password' />
           <Input
             id='password'
             type='password'
             placeholder='Enter your password...'
             label='Password'
+            value={registerPageValues.password}
             onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
               setIsPasswordValid(checkIfPasswordIsValid(e.target.value))
             }
           />
+
           <FormLabel type='no-match-password' />
           <Input
             id='confirm-password'
             type='password'
             placeholder='Confirm your password...'
             label='Confirm password'
-            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {}}
+            value={registerPageValues.confirmPassword}
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
+              setRegisterPageValues({ ...registerPageValues, confirmPassword: e.target.value })
+            }
           />
           <button type='button' className={styles.loginButton} onClick={() => createUser()}>
             Sign me up!
