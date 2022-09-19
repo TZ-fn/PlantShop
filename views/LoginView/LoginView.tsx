@@ -16,6 +16,7 @@ export default function LoginView() {
     password: '',
   });
   const [isPasswordValid, setIsPasswordValid] = useState(true);
+  const [arePasswordsMatching, setArePasswordsMatching] = useState(true);
 
   function handleTabButtonClick(e: MouseEvent<HTMLButtonElement>) {
     return (e.target as HTMLButtonElement).id === 'registerTab'
@@ -67,7 +68,7 @@ export default function LoginView() {
             label='Password'
             value={registerPageValues.password}
             onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
-              setIsPasswordValid(checkIfPasswordIsValid(e.target.value))
+              setRegisterPageValues({ ...registerPageValues, password: e.target.value })
             }
           />
 
@@ -89,8 +90,26 @@ export default function LoginView() {
       )}
       {isLoginPage && (
         <div className={styles.loginContainer}>
-          <Input id='email' type='text' placeholder='Enter your email...' label='E-mail' />
-          <Input id='password' type='text' placeholder='Enter your password...' label='Password' />
+          <Input
+            id='email'
+            type='text'
+            placeholder='Enter your email...'
+            label='E-mail'
+            value={loginPageValues.email}
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
+              setLoginPageValues({ ...loginPageValues, email: e.target.value })
+            }
+          />
+          <Input
+            id='password'
+            type='password'
+            placeholder='Enter your password...'
+            label='Password'
+            value={loginPageValues.password}
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
+              setLoginPageValues({ ...loginPageValues, password: e.target.value })
+            }
+          />
           <button type='button' className={styles.loginButton}>
             Log in!
           </button>
