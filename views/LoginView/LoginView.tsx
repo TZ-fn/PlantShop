@@ -1,6 +1,7 @@
 import { useState, MouseEvent, ChangeEvent } from 'react';
 import Input from 'components/Input/Input';
 import checkIfPasswordIsValid from 'utils/checkIfPasswordIsValid';
+import comparePasswords from 'utils/comparePasswords';
 import styles from './LoginView.module.scss';
 import FormLabel from 'components/elements/FormLabel/FormLabel';
 
@@ -60,28 +61,32 @@ export default function LoginView() {
             }
           />
 
-          <FormLabel type='wrong-password' />
+          {!isPasswordValid && <FormLabel type='wrong-password' />}
           <Input
             id='password'
             type='password'
             placeholder='Enter your password...'
             label='Password'
             value={registerPageValues.password}
-            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
-              setRegisterPageValues({ ...registerPageValues, password: e.target.value })
-            }
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {
+              setRegisterPageValues({ ...registerPageValues, password: e.target.value });
+              setIsPasswordValid(checkIfPasswordIsValid(e.target.value));
+            }}
           />
 
-          <FormLabel type='no-match-password' />
+          {!arePasswordsMatching && <FormLabel type='no-match-password' />}
           <Input
             id='confirm-password'
             type='password'
             placeholder='Confirm your password...'
             label='Confirm password'
             value={registerPageValues.confirmPassword}
-            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
-              setRegisterPageValues({ ...registerPageValues, confirmPassword: e.target.value })
-            }
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {
+              setRegisterPageValues({ ...registerPageValues, confirmPassword: e.target.value });
+              setArePasswordsMatching(
+                comparePasswords(registerPageValues.password, registerPageValues.confirmPassword),
+              );
+            }}
           />
           <button type='button' className={styles.loginButton} onClick={() => createUser()}>
             Sign me up!
