@@ -25,7 +25,11 @@ export default function LoginView() {
       : setIsLoginPage(true);
   }
 
-  function createUser() {}
+  function createUser() {
+    if (!isPasswordValid || !arePasswordsMatching) {
+      return;
+    }
+  }
 
   return (
     <div className={styles.mainContainer}>

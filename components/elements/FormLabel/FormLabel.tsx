@@ -8,9 +8,15 @@ interface FormLabelProps {
 export default function FormLabel({ type }: FormLabelProps): ReactElement {
   return (
     <div className={styles.labelContainer}>
-      {type === 'wrong-email' && <div>wrong email</div>}
-      {type === 'wrong-password' && <div>wrong password</div>}
-      {type === 'no-match-password' && <div>no-match-password</div>}
+      {type === 'wrong-email' && (
+        <div className={styles.labelContainer}>Please enter a valid e-mail address.</div>
+      )}
+      {type === 'wrong-password' && (
+        <div className={styles.labelContainer}>Please enter a valid password.</div>
+      )}
+      {type === 'no-match-password' && (
+        <div className={styles.labelContainer}>Passwords you have entered aren't matching.</div>
+      )}
     </div>
   );
 }
