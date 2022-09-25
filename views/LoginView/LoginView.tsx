@@ -16,6 +16,7 @@ export default function LoginView() {
     email: '',
     password: '',
   });
+  const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [arePasswordsMatching, setArePasswordsMatching] = useState(true);
 
@@ -26,7 +27,7 @@ export default function LoginView() {
   }
 
   function createUser() {
-    if (!isPasswordValid || !arePasswordsMatching) {
+    if (!isPasswordValid || !arePasswordsMatching || !isEmailValid) {
       return;
     }
   }
@@ -53,15 +54,17 @@ export default function LoginView() {
       </div>
       {!isLoginPage && (
         <div className={styles.registerContainer}>
-          <FormLabel type='wrong-email' />
+          {isEmailValid && <FormLabel type='wrong-email' />}
           <Input
             id='email'
             type='text'
             placeholder='Enter your email...'
             label='E-mail'
             value={registerPageValues.email}
-            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {
               setRegisterPageValues({ ...registerPageValues, email: e.target.value })
+              setIsEmailValid(e.target.value);
+            }
             }
           />
 
