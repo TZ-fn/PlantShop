@@ -1,4 +1,4 @@
-import { useState, MouseEvent, ChangeEvent } from 'react';
+import { useState, MouseEvent, ChangeEvent, useEffect } from 'react';
 import Input from 'components/Input/Input';
 import checkIfEmailIsValid from 'utils/checkIfEmailIsValid';
 import checkIfPasswordIsValid from 'utils/checkIfPasswordIsValid';
@@ -20,12 +20,25 @@ export default function LoginView() {
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [arePasswordsMatching, setArePasswordsMatching] = useState(true);
+  const [isFirstRender, setIsFirstRender] = useState(true);
 
   function handleTabButtonClick(e: MouseEvent<HTMLButtonElement>) {
     return (e.target as HTMLButtonElement).id === 'registerTab'
       ? setIsLoginPage(false)
       : setIsLoginPage(true);
   }
+
+  useEffect(()=>{
+    if (!isFirstRender) {
+      setIsEmailValid(checkIfEmailIsValid(registerPageValues.email));
+      setIsPasswordValid(checkIfPasswordIsValid(registerPageValues.password));
+      setArePasswordsMatching(
+        comparePasswords(registerPageValues.password, registerPageValues.confirmPassword),
+      );
+    }
+    console.log('render', isFirstRender)
+    setIsFirstRender(false);
+  },[registerPageValues, loginPageValues])
 
   function createUser() {
     if (!isPasswordValid || !arePasswordsMatching || !isEmailValid) {
@@ -62,10 +75,9 @@ export default function LoginView() {
             placeholder='Enter your email...'
             label='E-mail'
             value={registerPageValues.email}
-            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => 
               setRegisterPageValues({ ...registerPageValues, email: e.target.value })
-              setIsEmailValid(checkIfEmailIsValid(e.target.value));
-            }
+            
             }
           />
 
@@ -76,10 +88,9 @@ export default function LoginView() {
             placeholder='Enter your password...'
             label='Password'
             value={registerPageValues.password}
-            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {
-              setRegisterPageValues({ ...registerPageValues, password: e.target.value });
-              setIsPasswordValid(checkIfPasswordIsValid(e.target.value));
-            }}
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => 
+              setRegisterPageValues({ ...registerPageValues, password: e.target.value })
+            }
           />
 
           {!arePasswordsMatching && <FormLabel type='no-match-password' />}
@@ -89,12 +100,9 @@ export default function LoginView() {
             placeholder='Confirm your password...'
             label='Confirm password'
             value={registerPageValues.confirmPassword}
-            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => {
-              setRegisterPageValues({ ...registerPageValues, confirmPassword: e.target.value });
-              setArePasswordsMatching(
-                comparePasswords(registerPageValues.password, registerPageValues.confirmPassword),
-              );
-            }}
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => 
+              setRegisterPageValues({ ...registerPageValues, confirmPassword: e.target.value })
+            }
           />
           <button type='button' className={styles.loginButton} onClick={() => createUser()}>
             Sign me up!
