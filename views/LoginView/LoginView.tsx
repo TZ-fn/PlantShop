@@ -36,7 +36,6 @@ export default function LoginView() {
         comparePasswords(registerPageValues.password, registerPageValues.confirmPassword),
       );
     }
-    console.log('render', isFirstRender)
     setIsFirstRender(false);
   },[registerPageValues, loginPageValues])
 
