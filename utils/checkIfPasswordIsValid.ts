@@ -4,7 +4,7 @@ export default function checkIfPasswordIsValid(password: string): boolean {
   const upperCaseLetters = /[A-Z]/g;
   const numbers = /[0-9]/g;
 
-  if (passwordSigns.length < 12) {
+  if (passwordSigns.length < 8) {
     return false;
   }
 
