@@ -1,8 +1,16 @@
 .labelContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 1.5rem 0 0.5rem 0;
   padding: 0.5rem 1rem;
   border: 2px solid red;
   border-radius: var(--border-radius);
   text-align: center;
   font-weight: 600;
+}
+
+.iconContainer {
+  margin: 0 0 -2px 0.5vw;
+  cursor: help;
 }

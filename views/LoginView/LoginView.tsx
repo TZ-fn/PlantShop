@@ -28,7 +28,7 @@ export default function LoginView() {
       : setIsLoginPage(true);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     if (!isFirstRender) {
       setIsEmailValid(checkIfEmailIsValid(registerPageValues.email));
       setIsPasswordValid(checkIfPasswordIsValid(registerPageValues.password));
@@ -37,7 +37,7 @@ export default function LoginView() {
       );
     }
     setIsFirstRender(false);
-  },[registerPageValues, loginPageValues])
+  }, [registerPageValues, loginPageValues]);
 
   function createUser() {
     if (!isPasswordValid || !arePasswordsMatching || !isEmailValid) {
@@ -74,9 +74,8 @@ export default function LoginView() {
             placeholder='Enter your email...'
             label='E-mail'
             value={registerPageValues.email}
-            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => 
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
               setRegisterPageValues({ ...registerPageValues, email: e.target.value })
-            
             }
           />
 
@@ -87,7 +86,7 @@ export default function LoginView() {
             placeholder='Enter your password...'
             label='Password'
             value={registerPageValues.password}
-            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => 
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
               setRegisterPageValues({ ...registerPageValues, password: e.target.value })
             }
           />
@@ -99,7 +98,7 @@ export default function LoginView() {
             placeholder='Confirm your password...'
             label='Confirm password'
             value={registerPageValues.confirmPassword}
-            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) => 
+            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
               setRegisterPageValues({ ...registerPageValues, confirmPassword: e.target.value })
             }
           />
