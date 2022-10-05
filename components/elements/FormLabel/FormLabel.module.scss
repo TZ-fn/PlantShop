@@ -1,5 +1,6 @@
 .labelContainer {
   display: flex;
+  max-width: 30rem;
   align-items: center;
   justify-content: center;
   margin: 1.5rem 0 0.5rem 0;
@@ -11,6 +12,9 @@
 }
 
 .iconContainer {
+  position: relative;
+  flex-grow: 2;
+  height: 4rem;
+  width: 2rem;
   margin: 0 0 -2px 0.5vw;
-  cursor: help;
 }

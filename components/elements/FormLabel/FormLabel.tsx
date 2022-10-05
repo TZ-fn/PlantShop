@@ -10,16 +10,33 @@ interface FormLabelProps {
 export default function FormLabel({ type }: FormLabelProps): ReactElement {
   return (
     <div className={styles.labelContainer}>
-      {type === 'wrong-email' && <p>Please enter a valid e-mail address.</p>}
-      {type === 'wrong-password' && (
+      {type === 'wrong-email' && (
         <>
-          <p>Please enter a valid password.</p>
+          <p>Please enter a valid e-mail address.</p>
           <div className={styles.iconContainer}>
-            <Image src={InfoIcon.src} width='30px' height='30px' />
+            <Image src={InfoIcon.src} layout='fill' />
           </div>
         </>
       )}
-      {type === 'no-match-password' && <p>Passwords you have entered aren't matching.</p>}
+      {type === 'wrong-password' && (
+        <>
+          <p>
+            Password must contain at least eight characters, including at least 1 lowercase letter,
+            1 uppercase latter and 1 number.
+          </p>
+          <div className={styles.iconContainer}>
+            <Image src={InfoIcon.src} layout='fill' />
+          </div>
+        </>
+      )}
+      {type === 'no-match-password' && (
+        <>
+          <p>Passwords you have entered aren't matching.</p>
+          <div className={styles.iconContainer}>
+            <Image src={InfoIcon.src} layout='fill' />
+          </div>
+        </>
+      )}
     </div>
   );
 }
