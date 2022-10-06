@@ -1,20 +1,20 @@
 .labelContainer {
   display: flex;
-  max-width: 30rem;
+  max-width: 26rem;
   align-items: center;
   justify-content: center;
   margin: 1.5rem 0 0.5rem 0;
   padding: 0.5rem 1rem;
   border: 2px solid red;
   border-radius: var(--border-radius);
-  text-align: center;
   font-weight: 600;
 }
 
+.invalidPasswordText {
+  font-size: 0.9rem;
+  word-wrap: normal;
+}
+
 .iconContainer {
-  position: relative;
-  flex-grow: 2;
-  height: 4rem;
-  width: 2rem;
-  margin: 0 0 -2px 0.5vw;
+  margin: 7px 0 0 0.5vw;
 }
