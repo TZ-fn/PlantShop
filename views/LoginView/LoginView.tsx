@@ -9,13 +9,13 @@ import FormLabel from 'components/elements/FormLabel/FormLabel';
 export default function LoginView() {
   const [isLoginPage, setIsLoginPage] = useState(false);
   const [registerPageValues, setRegisterPageValues] = useState({
-    email: '',
-    password: '',
-    confirmPassword: '',
+    email: { value: '', wasTouched: false },
+    password: { value: '', wasTouched: false },
+    confirmPassword: { value: '', wasTouched: false },
   });
   const [loginPageValues, setLoginPageValues] = useState({
-    email: '',
-    password: '',
+    email: { value: '', wasTouched: false },
+    password: { value: '', wasTouched: false },
   });
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
@@ -30,11 +30,20 @@ export default function LoginView() {
 
   useEffect(() => {
     if (!isFirstRender) {
-      setIsEmailValid(checkIfEmailIsValid(registerPageValues.email));
-      setIsPasswordValid(checkIfPasswordIsValid(registerPageValues.password));
-      setArePasswordsMatching(
-        comparePasswords(registerPageValues.password, registerPageValues.confirmPassword),
-      );
+      if (registerPageValues.email.wasTouched) {
+        setIsEmailValid(checkIfEmailIsValid(registerPageValues.email.value));
+      }
+      if (registerPageValues.password.wasTouched) {
+        setIsPasswordValid(checkIfPasswordIsValid(registerPageValues.password.value));
+      }
+      if (registerPageValues.confirmPassword.wasTouched) {
+        setArePasswordsMatching(
+          comparePasswords(
+            registerPageValues.password.value,
+            registerPageValues.confirmPassword.value,
+          ),
+        );
+      }
     }
     setIsFirstRender(false);
   }, [registerPageValues, loginPageValues]);
@@ -73,9 +82,12 @@ export default function LoginView() {
             type='text'
             placeholder='Enter your email...'
             label='E-mail'
-            value={registerPageValues.email}
+            value={registerPageValues.email.value}
             onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
-              setRegisterPageValues({ ...registerPageValues, email: e.target.value })
+              setRegisterPageValues({
+                ...registerPageValues,
+                email: { value: e.target.value, wasTouched: true },
+              })
             }
           />
 
@@ -85,9 +97,12 @@ export default function LoginView() {
             type='password'
             placeholder='Enter your password...'
             label='Password'
-            value={registerPageValues.password}
+            value={registerPageValues.password.value}
             onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
-              setRegisterPageValues({ ...registerPageValues, password: e.target.value })
+              setRegisterPageValues({
+                ...registerPageValues,
+                password: { value: e.target.value, wasTouched: true },
+              })
             }
           />
 
@@ -97,9 +112,12 @@ export default function LoginView() {
             type='password'
             placeholder='Confirm your password...'
             label='Confirm password'
-            value={registerPageValues.confirmPassword}
+            value={registerPageValues.confirmPassword.value}
             onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
-              setRegisterPageValues({ ...registerPageValues, confirmPassword: e.target.value })
+              setRegisterPageValues({
+                ...registerPageValues,
+                confirmPassword: { value: e.target.value, wasTouched: true },
+              })
             }
           />
           <button type='button' className={styles.loginButton} onClick={() => createUser()}>
@@ -114,9 +132,12 @@ export default function LoginView() {
             type='text'
             placeholder='Enter your email...'
             label='E-mail'
-            value={loginPageValues.email}
+            value={loginPageValues.email.value}
             onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
-              setLoginPageValues({ ...loginPageValues, email: e.target.value })
+              setLoginPageValues({
+                ...loginPageValues,
+                email: { value: e.target.value, wasTouched: true },
+              })
             }
           />
           <Input
@@ -124,9 +145,12 @@ export default function LoginView() {
             type='password'
             placeholder='Enter your password...'
             label='Password'
-            value={loginPageValues.password}
+            value={loginPageValues.password.value}
             onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
-              setLoginPageValues({ ...loginPageValues, password: e.target.value })
+              setLoginPageValues({
+                ...loginPageValues,
+                password: { value: e.target.value, wasTouched: true },
+              })
             }
           />
           <button type='button' className={styles.loginButton}>
