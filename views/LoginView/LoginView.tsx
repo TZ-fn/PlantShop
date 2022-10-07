@@ -20,7 +20,6 @@ export default function LoginView() {
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [arePasswordsMatching, setArePasswordsMatching] = useState(true);
-  const [isFirstRender, setIsFirstRender] = useState(true);
 
   function handleTabButtonClick(e: MouseEvent<HTMLButtonElement>) {
     return (e.target as HTMLButtonElement).id === 'registerTab'
@@ -29,23 +28,20 @@ export default function LoginView() {
   }
 
   useEffect(() => {
-    if (!isFirstRender) {
-      if (registerPageValues.email.wasTouched) {
-        setIsEmailValid(checkIfEmailIsValid(registerPageValues.email.value));
-      }
-      if (registerPageValues.password.wasTouched) {
-        setIsPasswordValid(checkIfPasswordIsValid(registerPageValues.password.value));
-      }
-      if (registerPageValues.confirmPassword.wasTouched) {
-        setArePasswordsMatching(
-          comparePasswords(
-            registerPageValues.password.value,
-            registerPageValues.confirmPassword.value,
-          ),
-        );
-      }
+    if (registerPageValues.email.wasTouched) {
+      setIsEmailValid(checkIfEmailIsValid(registerPageValues.email.value));
     }
-    setIsFirstRender(false);
+    if (registerPageValues.password.wasTouched) {
+      setIsPasswordValid(checkIfPasswordIsValid(registerPageValues.password.value));
+    }
+    if (registerPageValues.confirmPassword.wasTouched) {
+      setArePasswordsMatching(
+        comparePasswords(
+          registerPageValues.password.value,
+          registerPageValues.confirmPassword.value,
+        ),
+      );
+    }
   }, [registerPageValues, loginPageValues]);
 
   function createUser() {
