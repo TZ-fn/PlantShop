@@ -1,4 +1,5 @@
 .inputContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -7,7 +8,7 @@
 }
 
 .input {
-  max-width: 20rem;
+  width: 20rem;
   padding: 0.4rem 0.7rem;
   margin: 0.2rem 0;
   font-size: 1.3rem;
@@ -21,4 +22,10 @@
 
 .inputLabel {
   font-size: 1.1rem;
+}
+
+.imageContainer {
+  position: absolute;
+  top: 45%;
+  left: 86%;
 }
