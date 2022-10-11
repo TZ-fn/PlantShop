@@ -22,7 +22,11 @@ export default function Input({
   onChangeFunction,
 }: InputProps) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [inputType, setInputType] = useState(type);
+
+  function handleShowPasswordButton() {
+    setIsPasswordVisible(!isPasswordVisible);
+  }
+
   return (
     <div className={styles.inputContainer}>
       <label htmlFor={id} className={styles.inputLabel}>
@@ -31,13 +35,13 @@ export default function Input({
       <input
         id={id}
         className={styles.input}
-        type={inputType}
+        type={isPasswordVisible ? 'text' : 'password'}
         placeholder={placeholder}
         value={value}
         onChange={onChangeFunction}
       />
       {type === 'password' && (
-        <div className={styles.imageContainer}>
+        <div className={styles.imageContainer} onClick={handleShowPasswordButton}>
           <Image
             src={isPasswordVisible ? DisabledEyeIcon.src : EyeIcon.src}
             layout='fixed'
