@@ -43,7 +43,7 @@ export default function Input({
       {type === 'password' && (
         <div className={styles.imageContainer} onClick={handleShowPasswordButton}>
           <Image
-            src={isPasswordVisible ? DisabledEyeIcon.src : EyeIcon.src}
+            src={isPasswordVisible ? EyeIcon.src : DisabledEyeIcon.src}
             layout='fixed'
             height={33}
             width={33}
