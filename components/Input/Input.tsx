@@ -35,7 +35,7 @@ export default function Input({
       <input
         id={id}
         className={styles.input}
-        type={isPasswordVisible ? 'text' : 'password'}
+        type={type === 'password' ? (isPasswordVisible ? 'text' : 'password') : type}
         placeholder={placeholder}
         value={value}
         onChange={onChangeFunction}
