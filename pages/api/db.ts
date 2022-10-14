@@ -5,7 +5,7 @@ import dbConnect from 'db/dbConnect';
 
 const handler = nextConnect();
 
-handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
+handler.get(async (_: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
   const users = await User.find();
   res.json(users);
