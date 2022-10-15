@@ -45,9 +45,27 @@ export default function LoginView() {
   }, [registerPageValues, loginPageValues]);
 
   function createUser() {
-    if (!isPasswordValid || !arePasswordsMatching || !isEmailValid) {
+    if (
+      !isPasswordValid ||
+      !arePasswordsMatching ||
+      !isEmailValid ||
+      !registerPageValues.email.value ||
+      !registerPageValues.password.value ||
+      !registerPageValues.confirmPassword.value
+    ) {
       return;
     }
+
+    fetch('/api/db', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        email: registerPageValues.email.value,
+        password: registerPageValues.password.value,
+      }),
+    }).then((res) => console.log(res));
   }
 
   return (
