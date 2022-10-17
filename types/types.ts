@@ -25,3 +25,8 @@ export interface WishlistProductProps {
   image: string;
   price: { integer: number; fraction: number; currency: string };
 }
+
+export interface UserData {
+  email: string;
+  password: string;
+}
