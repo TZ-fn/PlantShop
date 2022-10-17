@@ -3,8 +3,9 @@ import Input from 'components/Input/Input';
 import checkIfEmailIsValid from 'utils/checkIfEmailIsValid';
 import checkIfPasswordIsValid from 'utils/checkIfPasswordIsValid';
 import comparePasswords from 'utils/comparePasswords';
-import styles from './LoginView.module.scss';
 import FormLabel from 'components/elements/FormLabel/FormLabel';
+import { UserData } from 'types/types';
+import styles from './LoginView.module.scss';
 
 export default function LoginView() {
   const [isLoginPage, setIsLoginPage] = useState(false);
@@ -44,6 +45,23 @@ export default function LoginView() {
     }
   }, [registerPageValues, loginPageValues]);
 
+  async function fetchData(data: UserData) {
+    const fetchSettings = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(data),
+    };
+    try {
+      const response = await fetch('/api/db', fetchSettings);
+      const data = await response.json();
+      return data;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   function createUser() {
     if (
       !isPasswordValid ||
@@ -55,17 +73,10 @@ export default function LoginView() {
     ) {
       return;
     }
-
-    fetch('/api/db', {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify({
-        email: registerPageValues.email.value,
-        password: registerPageValues.password.value,
-      }),
-    }).then((res) => console.log(res));
+    fetchData({
+      email: registerPageValues.email.value,
+      password: registerPageValues.password.value,
+    });
   }
 
   return (
