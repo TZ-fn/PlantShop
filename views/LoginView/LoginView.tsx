@@ -1,4 +1,5 @@
 import { useState, MouseEvent, ChangeEvent, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import Input from 'components/Input/Input';
 import checkIfEmailIsValid from 'utils/checkIfEmailIsValid';
 import checkIfPasswordIsValid from 'utils/checkIfPasswordIsValid';
@@ -56,9 +57,17 @@ export default function LoginView() {
     try {
       const response = await fetch('/api/db', fetchSettings);
       const data = await response.json();
+      // console.log(data);
+      if (response.status === 500) {
+        throw new Error(data.code);
+      }
+
       return data;
     } catch (e) {
       console.log(e);
+      toast.error('Product added to the basket.', {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
     }
   }
 

@@ -13,8 +13,12 @@ handler.get(async (_: NextApiRequest, res: NextApiResponse) => {
 
 handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
-  const user = await User.create(req.body);
-  res.status(201).json({ success: true, data: user });
+  try {
+    const user = await User.create(req.body);
+    res.status(201).json({ success: true, data: user });
+  } catch (e) {
+    res.status(500).json(e);
+  }
 });
 
 export default handler;
