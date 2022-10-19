@@ -57,17 +57,23 @@ export default function LoginView() {
     try {
       const response = await fetch('/api/db', fetchSettings);
       const data = await response.json();
-      // console.log(data);
-      if (response.status === 500) {
-        throw new Error(data.code);
+
+      if (response.status === 500 && data.code === 11000) {
+        throw new Error('Email address already used, please use a different email.');
       }
 
-      return data;
+      if ((data.success = true)) {
+        toast.success('Account successfully created!', {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
     } catch (e) {
-      console.log(e);
-      toast.error('Product added to the basket.', {
-        position: toast.POSITION.BOTTOM_CENTER,
-      });
+      if (e instanceof Error) {
+        toast.error(`${e.message}`, {
+          position: toast.POSITION.BOTTOM_CENTER,
+          autoClose: false,
+        });
+      }
     }
   }
 
@@ -85,6 +91,11 @@ export default function LoginView() {
     fetchData({
       email: registerPageValues.email.value,
       password: registerPageValues.password.value,
+    });
+    setRegisterPageValues({
+      email: { value: '', wasTouched: false },
+      password: { value: '', wasTouched: false },
+      confirmPassword: { value: '', wasTouched: false },
     });
   }
 
