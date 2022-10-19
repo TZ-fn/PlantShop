@@ -39,6 +39,7 @@ export default function Input({
         placeholder={placeholder}
         value={value}
         onChange={onChangeFunction}
+        autoComplete={type === 'password' ? 'off' : 'on'}
       />
       {type === 'password' && (
         <div className={styles.imageContainer} onClick={handleShowPasswordButton}>
