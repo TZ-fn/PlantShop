@@ -1,5 +1,6 @@
 import { useState, MouseEvent, ChangeEvent, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { useFetch } from 'hooks/useFetch';
 import Input from 'components/Input/Input';
 import checkIfEmailIsValid from 'utils/checkIfEmailIsValid';
 import checkIfPasswordIsValid from 'utils/checkIfPasswordIsValid';
@@ -21,7 +22,15 @@ export default function LoginView() {
   });
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
-  const [arePasswordsMatching, setArePasswordsMatching] = useState(true);
+  const [arePasswordsMatching, setArePasswordsMatching] = useState(true);\
+
+  const [data] = useFetch('/api/db', {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
 
   function handleTabButtonClick(e: MouseEvent<HTMLButtonElement>) {
     return (e.target as HTMLButtonElement).id === 'registerTab'
