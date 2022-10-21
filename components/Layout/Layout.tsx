@@ -13,7 +13,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const dispatch = useDispatch();
-  const data = useFetch('/api/plants');
+  const [data, isLoading, error] = useFetch('/api/plants');
   dispatch(updatePlantsData(data));
   return (
     <div className={styles.layoutWrapper}>

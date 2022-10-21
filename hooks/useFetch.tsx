@@ -1,18 +1,25 @@
+import { ApiError } from 'next/dist/server/api-utils';
 import { useState, useEffect, useRef } from 'react';
 import { PlantsData } from 'types/types';
 
-export const useFetch = (APIurl: string, requestOptions?: RequestInit): PlantsData => {
+export const useFetch = (
+  APIurl: string,
+  requestOptions?: RequestInit,
+): [ApiData | null, boolean, ApiError | null] => {
+  const [response, setResponse] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const cancelRequest = useRef<boolean>(false);
-  const [data, setData] = useState([]);
+
   cancelRequest.current = false;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(APIurl, requestOptions);
-        const data = await response.json();
+        const res = await fetch(APIurl, requestOptions);
+        const data = await res.json();
 
-        if (response.status === 404) {
+        if (res.status === 404) {
           throw new Error(data?.message);
         }
 
@@ -20,7 +27,7 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit): PlantsDa
           return;
         }
 
-        setData(data);
+        setResponse(data);
       } catch (error) {
         if (cancelRequest.current) {
           return;
@@ -39,5 +46,5 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit): PlantsDa
     };
   }, [APIurl]);
 
-  return data;
+  return [response, isLoading, error];
 };
