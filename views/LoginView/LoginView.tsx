@@ -22,7 +22,7 @@ export default function LoginView() {
   });
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
-  const [arePasswordsMatching, setArePasswordsMatching] = useState(true);\
+  const [arePasswordsMatching, setArePasswordsMatching] = useState(true);
 
   const [data] = useFetch('/api/db', {
     headers: {
