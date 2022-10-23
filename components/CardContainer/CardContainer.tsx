@@ -11,7 +11,7 @@ export default function CardContainer(): ReactElement {
 
   return (
     <div className={styles.cardContainer}>
-      {plants.length > 0 ? (
+      {plants ? (
         plants.map(({ id, name, image, description, price, rating }: Plant) => {
           return (
             <Card
