@@ -6,7 +6,6 @@ import checkIfEmailIsValid from 'utils/checkIfEmailIsValid';
 import checkIfPasswordIsValid from 'utils/checkIfPasswordIsValid';
 import comparePasswords from 'utils/comparePasswords';
 import FormLabel from 'components/elements/FormLabel/FormLabel';
-import { UserData } from 'types/types';
 import styles from './LoginView.module.scss';
 
 export default function LoginView() {
@@ -23,14 +22,6 @@ export default function LoginView() {
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [arePasswordsMatching, setArePasswordsMatching] = useState(true);
-
-  const [data] = useFetch('/api/db', {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-    body: JSON.stringify(data),
-  });
 
   function handleTabButtonClick(e: MouseEvent<HTMLButtonElement>) {
     return (e.target as HTMLButtonElement).id === 'registerTab'
@@ -55,37 +46,6 @@ export default function LoginView() {
     }
   }, [registerPageValues, loginPageValues]);
 
-  async function fetchData(data: UserData) {
-    const fetchSettings = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify(data),
-    };
-    try {
-      const response = await fetch('/api/db', fetchSettings);
-      const data = await response.json();
-
-      if (response.status === 500 && data.code === 11000) {
-        throw new Error('Email address already used, please use a different email.');
-      }
-
-      if ((data.success = true)) {
-        toast.success('Account successfully created!', {
-          position: toast.POSITION.BOTTOM_CENTER,
-        });
-      }
-    } catch (e) {
-      if (e instanceof Error) {
-        toast.error(`${e.message}`, {
-          position: toast.POSITION.BOTTOM_CENTER,
-          autoClose: false,
-        });
-      }
-    }
-  }
-
   function createUser() {
     if (
       !isPasswordValid ||
@@ -97,15 +57,47 @@ export default function LoginView() {
     ) {
       return;
     }
-    fetchData({
-      email: registerPageValues.email.value,
-      password: registerPageValues.password.value,
-    });
-    setRegisterPageValues({
-      email: { value: '', wasTouched: false },
-      password: { value: '', wasTouched: false },
-      confirmPassword: { value: '', wasTouched: false },
-    });
+
+    try {
+      const userData = {
+        email: registerPageValues.email.value,
+        password: registerPageValues.password.value,
+      };
+      const fetchSettings = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify(userData),
+      };
+
+      const [response] = useFetch('/api/db', fetchSettings);
+
+      console.log(response);
+
+      if (response.status === 500 && response.code === 11000) {
+        throw new Error('Email address already used, please use a different email.');
+      }
+
+      if ((response.success = true)) {
+        toast.success('Account successfully created!', {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
+
+      setRegisterPageValues({
+        email: { value: '', wasTouched: false },
+        password: { value: '', wasTouched: false },
+        confirmPassword: { value: '', wasTouched: false },
+      });
+    } catch (e) {
+      if (e instanceof Error) {
+        toast.error(`${e.message}`, {
+          position: toast.POSITION.BOTTOM_CENTER,
+          autoClose: false,
+        });
+      }
+    }
   }
 
   return (
