@@ -1,11 +1,6 @@
-import { ApiError } from 'next/dist/server/api-utils';
 import { useState, useEffect, useRef } from 'react';
-import { PlantsData } from 'types/types';
 
-export const useFetch = (
-  APIurl: string,
-  requestOptions?: RequestInit,
-): [ApiData | null, boolean, ApiError | null] => {
+export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
   const [response, setResponse] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -46,5 +41,5 @@ export const useFetch = (
     };
   }, [APIurl]);
 
-  return [response, isLoading, error];
+  return [response, isLoading, error] as const;
 };
