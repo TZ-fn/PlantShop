@@ -1,45 +1,52 @@
-import { useState, useEffect, useRef } from 'react';
+import { NextApiResponse } from 'next';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
-  const [response, setResponse] = useState(null);
+  const [response, setResponse] = useState<NextApiResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
   const cancelRequest = useRef<boolean>(false);
 
   cancelRequest.current = false;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(APIurl, requestOptions);
-        const data = await res.json();
+  const fetchData = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const res = await fetch(APIurl, requestOptions);
+      const data = await res.json();
 
-        if (res.status === 404) {
-          throw new Error(data?.message);
-        }
-
-        if (cancelRequest.current) {
-          return;
-        }
-
-        setResponse(data);
-      } catch (error) {
-        if (cancelRequest.current) {
-          return;
-        }
-
-        if (error instanceof Error) {
-          console.log(error);
-        }
+      if (res.status === 404) {
+        throw new Error(data?.message);
+        setIsLoading(false);
       }
-    };
 
+      if (cancelRequest.current) {
+        return;
+      }
+
+      setResponse(data);
+      setIsLoading(false);
+    } catch (error) {
+      if (cancelRequest.current) {
+        return;
+      }
+      if (error instanceof Error) {
+        setError(error);
+        console.log(error);
+      }
+      setIsLoading(false);
+    }
+  }, [APIurl, requestOptions]);
+
+  useEffect(() => {
+    //  if () {
     fetchData();
+    // }
 
     return () => {
       cancelRequest.current = true;
     };
   }, [APIurl]);
 
-  return [response, isLoading, error] as const;
+  return [response, isLoading, error, fetchData] as const;
 };
