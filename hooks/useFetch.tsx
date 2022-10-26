@@ -38,15 +38,16 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
     }
   }, [APIurl, requestOptions]);
 
+  const refresh = () => fetchData();
+
   useEffect(() => {
-    //  if () {
+    // if () {
     fetchData();
     // }
-
     return () => {
       cancelRequest.current = true;
     };
   }, [APIurl]);
 
-  return [response, isLoading, error, fetchData] as const;
+  return [response, isLoading, error, refresh] as const;
 };

@@ -36,7 +36,7 @@ export default function LoginView() {
     body: JSON.stringify(userData),
   };
 
-  const [response, isLoading, error, fetchData] = useFetch('/api/db', fetchSettings);
+  const [response, isLoading, error, refresh] = useFetch('/api/db', fetchSettings);
 
   function handleTabButtonClick(e: MouseEvent<HTMLButtonElement>) {
     return (e.target as HTMLButtonElement).id === 'registerTab'
@@ -73,8 +73,7 @@ export default function LoginView() {
       return;
     }
 
-    // try {
-    fetchData();
+    refresh();
     console.log(response);
 
     if (response.status === 500 && response.code === 11000) {
@@ -92,14 +91,6 @@ export default function LoginView() {
       password: { value: '', wasTouched: false },
       confirmPassword: { value: '', wasTouched: false },
     });
-    // } catch (e) {
-    //   if (e instanceof Error) {
-    //     toast.error(`${e.message}`, {
-    //       position: toast.POSITION.BOTTOM_CENTER,
-    //       autoClose: false,
-    //     });
-    //   }
-    // }
   }
 
   return (
