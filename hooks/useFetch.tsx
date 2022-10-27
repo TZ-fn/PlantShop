@@ -41,9 +41,10 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
   const refresh = () => fetchData();
 
   useEffect(() => {
-    // if () {
-    fetchData();
-    // }
+    if (requestOptions && requestOptions.method !== 'POST') {
+      fetchData();
+    }
+
     return () => {
       cancelRequest.current = true;
     };
