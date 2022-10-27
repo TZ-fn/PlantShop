@@ -41,7 +41,7 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
   const refresh = () => fetchData();
 
   useEffect(() => {
-    if (requestOptions && requestOptions.method !== 'POST') {
+    if (!requestOptions || requestOptions.method === 'GET') {
       fetchData();
     }
 
