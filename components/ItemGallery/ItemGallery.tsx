@@ -12,7 +12,7 @@ interface ItemGalleryProps {
 export default function ItemGallery({ name }: ItemGalleryProps) {
   const [isGalleryOpened, setIsGalleryOpened] = useState(false);
   const [imageID, setImageID] = useState('');
-  const accessKey = 'xB0jj6DN5ni0u40GPbqafQ07iJv9j7Ef2uilvntw1eM';
+  const accessKey = process.env.NEXT_PUBLIC_UNSPLASH_KEY;
   const [galleryData] = useFetch(
     ` https://api.unsplash.com//search/photos?client_id=${accessKey}&query=${name}`,
   );
