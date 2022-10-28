@@ -13,7 +13,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
   const [isGalleryOpened, setIsGalleryOpened] = useState(false);
   const [imageID, setImageID] = useState('');
   const accessKey = 'xB0jj6DN5ni0u40GPbqafQ07iJv9j7Ef2uilvntw1eM';
-  const galleryData = useFetch(
+  const [galleryData] = useFetch(
     ` https://api.unsplash.com//search/photos?client_id=${accessKey}&query=${name}`,
   );
 
@@ -27,7 +27,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
   function modalImageChanger(direction: string, currentPhotoURL: string) {
     const indexChange = direction === 'left' ? -1 : 1;
     let currentIndex;
-    if (galleryData.results) {
+    if (galleryData) {
       currentIndex = galleryData.results.findIndex(
         (photo) => photo.urls.regular === currentPhotoURL,
       );
@@ -47,7 +47,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
           modalImageChanger={modalImageChanger}
         />
       )}
-      {galleryData.results ? (
+      {galleryData ? (
         ((galleryData.results.length = 9),
         galleryData.results.map(({ id, urls }) => {
           return (
