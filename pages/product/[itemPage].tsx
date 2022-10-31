@@ -10,11 +10,14 @@ const ItemPage: NextPage = () => {
   const router = useRouter();
   const product = router.query.itemPage;
   const plants = useSelector((state: RootState) => state.plants.plantsData);
-  const currentPlant = plants.filter((plant) => {
-    if (product !== undefined && typeof product !== 'object') {
-      return plant.name === capitalize(product);
-    }
-  })[0];
+  let currentPlant;
+  if (plants !== null) {
+    currentPlant = plants.filter((plant) => {
+      if (product !== undefined && typeof product !== 'object') {
+        return plant.name === capitalize(product);
+      }
+    })[0];
+  }
 
   return currentPlant ? <ItemView {...currentPlant} /> : <LoadingSpinner />;
 };
