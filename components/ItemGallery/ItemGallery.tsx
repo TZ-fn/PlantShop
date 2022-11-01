@@ -12,6 +12,7 @@ interface ItemGalleryProps {
 export default function ItemGallery({ name }: ItemGalleryProps) {
   const [isGalleryOpened, setIsGalleryOpened] = useState(false);
   const [imageID, setImageID] = useState('');
+  const [imageIndex, setImageIndex] = useState(0);
   const accessKey = process.env.NEXT_PUBLIC_UNSPLASH_KEY;
   const [galleryData] = useFetch(
     ` https://api.unsplash.com//search/photos?client_id=${accessKey}&query=${name}`,
@@ -34,6 +35,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
     }
     let newIndex = currentIndex + indexChange;
     if (newIndex >= 0 && newIndex <= galleryData?.results?.length - 1) {
+      setImageIndex(newIndex);
       setImageID(galleryData.results[newIndex].urls.regular);
     }
   }
@@ -45,6 +47,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
           imageID={imageID}
           clickHandler={galleryOpeningHandler}
           modalImageChanger={modalImageChanger}
+          whichButtonToDisable={imageIndex}
         />
       )}
       {galleryData ? (

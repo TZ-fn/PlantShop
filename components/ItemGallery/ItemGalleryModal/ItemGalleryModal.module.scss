@@ -63,7 +63,8 @@
   overflow: hidden;
 }
 
-.navButton {
+.navButton,
+.navButtonDisabled {
   @include button-standard;
   height: 100%;
   font-size: 1.5rem;
@@ -79,5 +80,18 @@
   @media (width < 800px) {
     width: 1rem;
     font-size: 0.8rem;
+  }
+}
+
+.navButtonDisabled {
+  background-color: var(--border-color);
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: var(--border-color);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }

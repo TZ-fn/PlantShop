@@ -6,13 +6,17 @@ interface ItemGalleryModalProps {
   imageID: string;
   clickHandler: (e: MouseEvent<HTMLButtonElement>) => void;
   modalImageChanger: Function;
+  whichButtonToDisable: number;
 }
 
 export default function ItemGalleryModal({
   imageID,
   clickHandler,
   modalImageChanger,
+  whichButtonToDisable,
 }: ItemGalleryModalProps) {
+  const shouldDisableNextButton = whichButtonToDisable === 8 ? true : false;
+  const shouldDisablePrevButton = whichButtonToDisable === 0 ? true : false;
   return (
     <>
       <div className={styles.modalBackground}></div>
@@ -27,8 +31,9 @@ export default function ItemGalleryModal({
         </button>
         <button
           type='button'
-          className={styles.navButton}
+          className={shouldDisablePrevButton ? styles.navButtonDisabled : styles.navButton}
           onClick={() => modalImageChanger('left', imageID)}
+          disabled={shouldDisablePrevButton}
         >
           &lt;&lt;
         </button>
@@ -44,8 +49,9 @@ export default function ItemGalleryModal({
         </div>
         <button
           type='button'
-          className={styles.navButton}
+          className={shouldDisableNextButton ? styles.navButtonDisabled : styles.navButton}
           onClick={() => modalImageChanger('right', imageID)}
+          disabled={shouldDisableNextButton}
         >
           &gt;&gt;
         </button>
