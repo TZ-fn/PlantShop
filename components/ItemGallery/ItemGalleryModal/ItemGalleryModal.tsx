@@ -17,6 +17,7 @@ export default function ItemGalleryModal({
 }: ItemGalleryModalProps) {
   const shouldDisableNextButton = whichButtonToDisable === 8 ? true : false;
   const shouldDisablePrevButton = whichButtonToDisable === 0 ? true : false;
+  console.log(whichButtonToDisable);
   return (
     <>
       <div className={styles.modalBackground}></div>

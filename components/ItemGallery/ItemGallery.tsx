@@ -1,9 +1,10 @@
-import { useState, MouseEvent } from 'react';
+import { useState, MouseEvent, useEffect } from 'react';
 import { useFetch } from 'hooks/useFetch';
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import ItemGalleryElement from './ItemGalleryElement/ItemGalleryElement';
 import ItemGalleryModal from './ItemGalleryModal/ItemGalleryModal';
 import styles from './ItemGallery.module.scss';
+import { current } from '@reduxjs/toolkit';
 
 interface ItemGalleryProps {
   name: string;
@@ -27,15 +28,15 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
 
   function modalImageChanger(direction: string, currentPhotoURL: string) {
     const indexChange = direction === 'left' ? -1 : 1;
-    let currentIndex;
+    let currentIndex = 0;
     if (galleryData) {
       currentIndex = galleryData.results.findIndex(
         (photo) => photo.urls.regular === currentPhotoURL,
       );
+      setImageIndex(currentIndex);
     }
     let newIndex = currentIndex + indexChange;
     if (newIndex >= 0 && newIndex <= galleryData?.results?.length - 1) {
-      setImageIndex(newIndex);
       setImageID(galleryData.results[newIndex].urls.regular);
     }
   }
