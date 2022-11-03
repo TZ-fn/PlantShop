@@ -4,7 +4,6 @@ import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import ItemGalleryElement from './ItemGalleryElement/ItemGalleryElement';
 import ItemGalleryModal from './ItemGalleryModal/ItemGalleryModal';
 import styles from './ItemGallery.module.scss';
-import { current } from '@reduxjs/toolkit';
 
 interface ItemGalleryProps {
   name: string;
@@ -22,6 +21,13 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
   function galleryOpeningHandler(e: MouseEvent<HTMLButtonElement | HTMLImageElement>) {
     if (e.currentTarget.dataset.fullimage) {
       setImageID(e.currentTarget.dataset.fullimage);
+      if (galleryData) {
+        setImageIndex(
+          galleryData.results.findIndex(
+            (element) => element.urls.regular === e.currentTarget.dataset.fullimage,
+          ),
+        );
+      }
     }
     return setIsGalleryOpened(!isGalleryOpened);
   }
@@ -33,9 +39,9 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
       currentIndex = galleryData.results.findIndex(
         (photo) => photo.urls.regular === currentPhotoURL,
       );
-      setImageIndex(currentIndex);
     }
     let newIndex = currentIndex + indexChange;
+    setImageIndex(newIndex);
     if (newIndex >= 0 && newIndex <= galleryData?.results?.length - 1) {
       setImageID(galleryData.results[newIndex].urls.regular);
     }
