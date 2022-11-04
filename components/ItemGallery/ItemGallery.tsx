@@ -5,6 +5,18 @@ import ItemGalleryElement from './ItemGalleryElement/ItemGalleryElement';
 import ItemGalleryModal from './ItemGalleryModal/ItemGalleryModal';
 import styles from './ItemGallery.module.scss';
 
+type UnsplashPhoto = {
+  id: number;
+  width: number;
+  height: number;
+  urls: { large: string; regular: string; raw: string; small: string; thumb: string };
+  color: string | null;
+  user: {
+    username: string;
+    name: string;
+  };
+};
+
 interface ItemGalleryProps {
   name: string;
 }
@@ -15,7 +27,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
   const [imageIndex, setImageIndex] = useState(0);
   const accessKey = process.env.NEXT_PUBLIC_UNSPLASH_KEY;
   const [galleryData] = useFetch(
-    ` https://api.unsplash.com//search/photos?client_id=${accessKey}&query=${name}`,
+    `https://api.unsplash.com//search/photos?client_id=${accessKey}&query=${name}`,
   );
 
   function galleryOpeningHandler(e: MouseEvent<HTMLButtonElement | HTMLImageElement>) {
@@ -24,7 +36,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
       if (galleryData) {
         setImageIndex(
           galleryData.results.findIndex(
-            (element) => element.urls.regular === e.currentTarget.dataset.fullimage,
+            (element: UnsplashPhoto) => element.urls.regular === e.currentTarget.dataset.fullimage,
           ),
         );
       }
@@ -37,7 +49,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
     let currentIndex = 0;
     if (galleryData) {
       currentIndex = galleryData.results.findIndex(
-        (photo) => photo.urls.regular === currentPhotoURL,
+        (photo: UnsplashPhoto) => photo.urls.regular === currentPhotoURL,
       );
     }
     let newIndex = currentIndex + indexChange;
@@ -59,7 +71,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
       )}
       {galleryData ? (
         ((galleryData.results.length = 9),
-        galleryData.results.map(({ id, urls }) => {
+        galleryData.results.map(({ id, urls }: UnsplashPhoto) => {
           return (
             <ItemGalleryElement
               key={id}
