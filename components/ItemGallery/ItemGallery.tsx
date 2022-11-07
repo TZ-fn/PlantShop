@@ -1,21 +1,10 @@
-import { useState, MouseEvent, useEffect } from 'react';
+import { useState, MouseEvent } from 'react';
 import { useFetch } from 'hooks/useFetch';
+import { UnsplashPhoto } from 'types/types';
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import ItemGalleryElement from './ItemGalleryElement/ItemGalleryElement';
 import ItemGalleryModal from './ItemGalleryModal/ItemGalleryModal';
 import styles from './ItemGallery.module.scss';
-
-type UnsplashPhoto = {
-  id: number;
-  width: number;
-  height: number;
-  urls: { large: string; regular: string; raw: string; small: string; thumb: string };
-  color: string | null;
-  user: {
-    username: string;
-    name: string;
-  };
-};
 
 interface ItemGalleryProps {
   name: string;
