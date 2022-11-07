@@ -1,8 +1,7 @@
-import { NextApiResponse } from 'next';
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
-  const [response, setResponse] = useState<NextApiResponse | null>(null);
+  const [response, setResponse] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
   const cancelRequest = useRef<boolean>(false);
