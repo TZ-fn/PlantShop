@@ -42,3 +42,7 @@ export interface UnsplashPhoto {
     name: string;
   };
 }
+
+export type UnsplashPhotoResults = {
+  results: UnsplashPhoto[];
+};
