@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { PlantsData, UnsplashPhotoResults } from 'types/types';
+
+type APIData = UnsplashPhotoResults | PlantsData;
 
 export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
-  const [response, setResponse] = useState<any>(null);
+  const [response, setResponse] = useState<APIData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
   const cancelRequest = useRef<boolean>(false);
@@ -15,8 +18,8 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
       const data = await res.json();
 
       if (res.status === 404) {
-        throw new Error(data?.message);
         setIsLoading(false);
+        throw new Error(data?.message);
       }
 
       if (cancelRequest.current) {
