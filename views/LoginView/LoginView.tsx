@@ -80,7 +80,7 @@ export default function LoginView() {
         throw new Error('Email address already used, please use a different email.');
       }
 
-      if ((response.success = true)) {
+      if (response.success === true) {
         toast.success('Account successfully created!', {
           position: toast.POSITION.BOTTOM_CENTER,
         });
