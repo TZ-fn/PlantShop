@@ -74,16 +74,17 @@ export default function LoginView() {
     }
 
     refresh();
-    console.log(response);
 
-    if (response.status === 500 && response.code === 11000) {
-      throw new Error('Email address already used, please use a different email.');
-    }
+    if (response !== null) {
+      if (response.status === 500 && response.code === 11000) {
+        throw new Error('Email address already used, please use a different email.');
+      }
 
-    if ((response.success = true)) {
-      toast.success('Account successfully created!', {
-        position: toast.POSITION.BOTTOM_CENTER,
-      });
+      if ((response.success = true)) {
+        toast.success('Account successfully created!', {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
     }
 
     setRegisterPageValues({
