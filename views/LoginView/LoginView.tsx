@@ -94,6 +94,17 @@ export default function LoginView() {
     });
   }
 
+  function authenthicateUser() {
+    if (!loginPageValues.email.value || !loginPageValues.password.value) {
+      return;
+    }
+
+    // setLoginPageValues({
+    //   email: { value: '', wasTouched: false },
+    //   password: { value: '', wasTouched: false },
+    // });
+  }
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.tabsContainer}>
@@ -193,7 +204,7 @@ export default function LoginView() {
               })
             }
           />
-          <button type='button' className={styles.loginButton}>
+          <button type='button' className={styles.loginButton} onClick={() => authenthicateUser()}>
             Log in!
           </button>
         </div>
