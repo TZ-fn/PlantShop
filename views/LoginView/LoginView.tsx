@@ -94,7 +94,7 @@ export default function LoginView() {
     });
   }
 
-  function authenthicateUser() {
+  function authenticateUser() {
     if (!loginPageValues.email.value || !loginPageValues.password.value) {
       return;
     }
@@ -204,7 +204,7 @@ export default function LoginView() {
               })
             }
           />
-          <button type='button' className={styles.loginButton} onClick={() => authenthicateUser()}>
+          <button type='button' className={styles.loginButton} onClick={() => authenticateUser()}>
             Log in!
           </button>
         </div>
