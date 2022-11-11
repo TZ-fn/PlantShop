@@ -98,11 +98,6 @@ export default function LoginView() {
     if (!loginPageValues.email.value || !loginPageValues.password.value) {
       return;
     }
-
-    // setLoginPageValues({
-    //   email: { value: '', wasTouched: false },
-    //   password: { value: '', wasTouched: false },
-    // });
   }
 
   return (
