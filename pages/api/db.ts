@@ -17,6 +17,7 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
     const user = await User.create(req.body);
     res.status(201).json({ success: true, data: user });
   } catch (e) {
+    console.log(e);
     res.status(500).json(e);
   }
 });

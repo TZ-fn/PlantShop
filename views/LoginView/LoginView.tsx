@@ -62,18 +62,19 @@ export default function LoginView() {
   }, [registerPageValues, loginPageValues]);
 
   function createUser() {
-    if (
-      !isPasswordValid ||
-      !arePasswordsMatching ||
-      !isEmailValid ||
-      !registerPageValues.email.value ||
-      !registerPageValues.password.value ||
-      !registerPageValues.confirmPassword.value
-    ) {
-      return;
-    }
+    // if (
+    //   !isPasswordValid ||
+    //   !arePasswordsMatching ||
+    //   !isEmailValid ||
+    //   !registerPageValues.email.value ||
+    //   !registerPageValues.password.value ||
+    //   !registerPageValues.confirmPassword.value
+    // ) {
+    //   return;
+    // }
 
     refresh();
+    console.log('Component state', response);
 
     if (response !== null) {
       if (response.status === 500 && response.code === 11000) {
