@@ -74,7 +74,7 @@ export default function LoginView() {
     // }
 
     refresh();
-    console.log('Component state', response);
+    console.log('Component state', response, isLoading);
 
     if (response !== null) {
       if (response.status === 500 && response.code === 11000) {

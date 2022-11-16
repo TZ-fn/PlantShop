@@ -11,7 +11,11 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
 
   cancelRequest.current = false;
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
+    if (isLoading) {
+      return;
+    }
+
     try {
       setIsLoading(true);
       const res = await fetch(APIurl, requestOptions);
@@ -39,16 +43,14 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
       }
       setIsLoading(false);
     }
-  };
-
-  // useCallback(, [APIurl, requestOptions]);
+  }, [APIurl, isLoading, requestOptions]);
 
   const refresh = () => fetchData();
 
   useEffect(() => {
-    if (!requestOptions || requestOptions.method === 'GET') {
-      fetchData();
-    }
+    // if (!requestOptions || requestOptions.method === 'GET') {
+    //   fetchData();
+    // }
 
     return () => {
       cancelRequest.current = true;
