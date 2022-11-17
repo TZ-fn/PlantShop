@@ -48,9 +48,9 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
   const refresh = () => fetchData();
 
   useEffect(() => {
-    // if (!requestOptions || requestOptions.method === 'GET') {
-    //   fetchData();
-    // }
+    if (!requestOptions || requestOptions.method === 'GET') {
+      fetchData();
+    }
 
     return () => {
       cancelRequest.current = true;
