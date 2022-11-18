@@ -59,7 +59,7 @@ export default function LoginView() {
         ),
       );
     }
-  }, [registerPageValues, loginPageValues]);
+  }, [registerPageValues, loginPageValues, response]);
 
   function createUser() {
     // if (
@@ -74,7 +74,7 @@ export default function LoginView() {
     // }
 
     refresh();
-    console.log('Component state', response, isLoading);
+    console.log('Component state', response);
 
     if (response !== null) {
       if (response.status === 500 && response.code === 11000) {
