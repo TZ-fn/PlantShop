@@ -59,7 +59,23 @@ export default function LoginView() {
         ),
       );
     }
-  }, [registerPageValues, loginPageValues, response]);
+  }, [registerPageValues, loginPageValues]);
+
+  useEffect(() => {
+    if (response !== null) {
+      if (response.code === 11000) {
+        toast.error('Email address already used, please use a different email.', {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
+
+      if (response.success === true) {
+        toast.success('Account successfully created!', {
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
+    }
+  }, [response]);
 
   function createUser() {
     // if (
@@ -74,19 +90,6 @@ export default function LoginView() {
     // }
 
     refresh();
-    console.log('Component state', response);
-
-    if (response !== null) {
-      if (response.status === 500 && response.code === 11000) {
-        throw new Error('Email address already used, please use a different email.');
-      }
-
-      if (response.success === true) {
-        toast.success('Account successfully created!', {
-          position: toast.POSITION.BOTTOM_CENTER,
-        });
-      }
-    }
 
     setRegisterPageValues({
       email: { value: '', wasTouched: false },
