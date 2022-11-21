@@ -11,7 +11,7 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
 
   cancelRequest.current = false;
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     if (isLoading) {
       return;
     }
@@ -29,7 +29,6 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
       if (cancelRequest.current) {
         return;
       }
-      console.log('Hook data', data);
       setIsLoading(false);
     } catch (error) {
       if (cancelRequest.current) {
@@ -41,7 +40,7 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
       }
       setIsLoading(false);
     }
-  };
+  }, [APIurl, requestOptions?.body]);
 
   const refresh = () => fetchData();
 
