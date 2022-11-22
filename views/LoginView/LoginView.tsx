@@ -65,29 +65,34 @@ export default function LoginView() {
     if (response !== null) {
       if (response.code === 11000) {
         toast.error('Email address already used, please use a different email.', {
-          position: toast.POSITION.BOTTOM_CENTER,
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: false,
         });
       }
 
       if (response.success === true) {
         toast.success('Account successfully created!', {
-          position: toast.POSITION.BOTTOM_CENTER,
+          position: toast.POSITION.TOP_RIGHT,
         });
       }
     }
   }, [response]);
 
+  useEffect(() => {
+    console.log(error);
+  }, [error]);
+
   function createUser() {
-    // if (
-    //   !isPasswordValid ||
-    //   !arePasswordsMatching ||
-    //   !isEmailValid ||
-    //   !registerPageValues.email.value ||
-    //   !registerPageValues.password.value ||
-    //   !registerPageValues.confirmPassword.value
-    // ) {
-    //   return;
-    // }
+    if (
+      !isPasswordValid ||
+      !arePasswordsMatching ||
+      !isEmailValid ||
+      !registerPageValues.email.value ||
+      !registerPageValues.password.value ||
+      !registerPageValues.confirmPassword.value
+    ) {
+      return;
+    }
 
     refresh();
 
