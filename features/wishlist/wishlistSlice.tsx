@@ -19,12 +19,12 @@ export const wishlistSlice = createSlice({
     addToWishlist: (state, action: PayloadAction<Product['id']>) => {
       if (state.products.find((id) => id === action.payload) !== undefined) {
         toast.error('Product already is in the WishList.', {
-          position: toast.POSITION.BOTTOM_CENTER,
+          position: toast.POSITION.TOP_RIGHT,
         });
       } else {
         state.products.push(action.payload);
         toast.success('Product added to the WishList.', {
-          position: toast.POSITION.BOTTOM_CENTER,
+          position: toast.POSITION.TOP_RIGHT,
         });
       }
     },
@@ -33,12 +33,12 @@ export const wishlistSlice = createSlice({
       if (state.products.find((id) => id === action.payload) !== undefined) {
         state.products = state.products.filter((id) => id !== action.payload);
         toast.error('Product removed from the WishList.', {
-          position: toast.POSITION.BOTTOM_CENTER,
+          position: toast.POSITION.TOP_RIGHT,
           icon: <Image src={BinIcon.src} width={'40px'} height={'40px'} alt='' layout='fixed' />,
         });
       } else {
         toast.error('Product not found in the WishList.', {
-          position: toast.POSITION.BOTTOM_CENTER,
+          position: toast.POSITION.TOP_RIGHT,
         });
       }
     },

@@ -20,12 +20,12 @@ export const basketSlice = createSlice({
       if (state.products.find((product) => product.id === action.payload) !== undefined) {
         state.products.filter((product) => product.id === action.payload)[0].quantity++;
         toast.success('Product added to the basket.', {
-          position: toast.POSITION.BOTTOM_CENTER,
+          position: toast.POSITION.TOP_RIGHT,
         });
       } else {
         state.products.push({ id: action.payload, quantity: 1 });
         toast.success('Product added to the basket.', {
-          position: toast.POSITION.BOTTOM_CENTER,
+          position: toast.POSITION.TOP_RIGHT,
         });
       }
     },
@@ -34,12 +34,12 @@ export const basketSlice = createSlice({
       if (state.products.find((product) => product.id === action.payload) !== undefined) {
         state.products = state.products.filter((product) => product.id !== action.payload);
         toast.error('Product removed from the basket.', {
-          position: toast.POSITION.BOTTOM_CENTER,
+          position: toast.POSITION.TOP_RIGHT,
           icon: <Image src={BinIcon.src} width={'40px'} height={'40px'} alt='' layout='fixed' />,
         });
       } else {
         toast.error('Product not found in the basket.', {
-          position: toast.POSITION.BOTTOM_CENTER,
+          position: toast.POSITION.TOP_RIGHT,
         });
       }
     },
@@ -52,7 +52,7 @@ export const basketSlice = createSlice({
         productToChange!.quantity = action.payload.count;
       } else {
         toast.error('Product not found in the basket.', {
-          position: toast.POSITION.BOTTOM_CENTER,
+          position: toast.POSITION.TOP_RIGHT,
         });
       }
     },
