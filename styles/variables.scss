@@ -54,4 +54,13 @@
   .Toastify__toast-icon {
     width: 30px;
   }
+
+  .Toastify__toast {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+  }
+
+  .Toastify__toast-container--top-right {
+    top: 7em;
+  }
 }
