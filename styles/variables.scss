@@ -61,6 +61,11 @@
   }
 
   .Toastify__toast-container--top-right {
-    top: 7em;
+    top: max(160px, 8vw);
+
+    @media (width < 1300px) {
+      top: unset;
+      bottom: 100px;
+    }
   }
 }
