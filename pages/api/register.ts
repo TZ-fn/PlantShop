@@ -3,13 +3,11 @@ import nextConnect from 'next-connect';
 import User from '../../models/User';
 import dbConnect from 'db/dbConnect';
 
-const handler = nextConnect();
+import bcrypt from 'bcrypt';
 
-handler.get(async (_: NextApiRequest, res: NextApiResponse) => {
-  await dbConnect();
-  const users = await User.find();
-  res.json(users);
-});
+const SALT_WORK_FACTOR = 10;
+
+const handler = nextConnect();
 
 handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();

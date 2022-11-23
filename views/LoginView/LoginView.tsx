@@ -36,7 +36,7 @@ export default function LoginView() {
     body: JSON.stringify(userData),
   };
 
-  const [response, isLoading, error, refresh] = useFetch('/api/db', fetchSettings);
+  const [response, isLoading, error, refresh] = useFetch('/api/register', fetchSettings);
 
   function handleTabButtonClick(e: MouseEvent<HTMLButtonElement>) {
     return (e.target as HTMLButtonElement).id === 'registerTab'
