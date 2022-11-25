@@ -11,7 +11,7 @@ const handler = nextConnect();
 handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
   try {
-    const user = await User.create(req.body);
+    const user = await User.findOne(req.body.email);
     res.status(201).json({ success: true, data: user });
   } catch (e) {
     res.status(500).json(e);

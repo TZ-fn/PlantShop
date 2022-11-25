@@ -36,7 +36,11 @@ export default function LoginView() {
     body: JSON.stringify(userData),
   };
 
-  const [response, isLoading, error, refresh] = useFetch('/api/register', fetchSettings);
+  const [registerResponse, isLoading, error, registerRefresh] = useFetch(
+    '/api/register',
+    fetchSettings,
+  );
+  const [loginResponse, isLoading, error, loginRefresh] = useFetch('/api/register', fetchSettings);
 
   function handleTabButtonClick(e: MouseEvent<HTMLButtonElement>) {
     return (e.target as HTMLButtonElement).id === 'registerTab'
@@ -62,8 +66,8 @@ export default function LoginView() {
   }, [registerPageValues, loginPageValues]);
 
   useEffect(() => {
-    if (response !== null) {
-      if (response.code === 11000) {
+    if (registerResponse !== null) {
+      if (registerResponse.code === 11000) {
         toast.error('Email address already used, please use a different email.', {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: false,
