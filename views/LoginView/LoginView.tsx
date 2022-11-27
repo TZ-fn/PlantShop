@@ -40,7 +40,6 @@ export default function LoginView() {
     '/api/register',
     fetchSettings,
   );
-  const [loginResponse, isLoading, error, loginRefresh] = useFetch('/api/register', fetchSettings);
 
   function handleTabButtonClick(e: MouseEvent<HTMLButtonElement>) {
     return (e.target as HTMLButtonElement).id === 'registerTab'
@@ -105,12 +104,6 @@ export default function LoginView() {
       password: { value: '', wasTouched: false },
       confirmPassword: { value: '', wasTouched: false },
     });
-  }
-
-  function authenticateUser() {
-    if (!loginPageValues.email.value || !loginPageValues.password.value) {
-      return;
-    }
   }
 
   return (
@@ -184,39 +177,7 @@ export default function LoginView() {
           </button>
         </div>
       )}
-      {isLoginPage && (
-        <div className={styles.loginContainer}>
-          <Input
-            id='email'
-            type='text'
-            placeholder='Enter your email...'
-            label='E-mail'
-            value={loginPageValues.email.value}
-            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
-              setLoginPageValues({
-                ...loginPageValues,
-                email: { value: e.target.value, wasTouched: true },
-              })
-            }
-          />
-          <Input
-            id='password'
-            type='password'
-            placeholder='Enter your password...'
-            label='Password'
-            value={loginPageValues.password.value}
-            onChangeFunction={(e: ChangeEvent<HTMLInputElement>) =>
-              setLoginPageValues({
-                ...loginPageValues,
-                password: { value: e.target.value, wasTouched: true },
-              })
-            }
-          />
-          <button type='button' className={styles.loginButton} onClick={() => authenticateUser()}>
-            Log in!
-          </button>
-        </div>
-      )}
+      {isLoginPage && <LoginForm />}
     </div>
   );
 }
