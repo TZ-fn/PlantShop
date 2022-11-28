@@ -26,7 +26,7 @@ export default function LoginForm(): ReactElement {
     body: JSON.stringify(userData),
   };
 
-  const [loginResponse, isLoading, error, loginRefresh] = useFetch('/api/register', fetchSettings);
+  const [response, isLoading, error, refresh] = useFetch('/api/register', fetchSettings);
 
   function authenticateUser() {
     if (!loginPageValues.email.value || !loginPageValues.password.value) {
