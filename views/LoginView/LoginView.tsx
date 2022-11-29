@@ -16,43 +16,43 @@ export default function LoginView() {
       : setIsLoginPage(true);
   }
 
-  useEffect(() => {
-    if (registerPageValues.email.wasTouched) {
-      setIsEmailValid(checkIfEmailIsValid(registerPageValues.email.value));
-    }
-    if (registerPageValues.password.wasTouched) {
-      setIsPasswordValid(checkIfPasswordIsValid(registerPageValues.password.value));
-    }
-    if (registerPageValues.confirmPassword.wasTouched) {
-      setArePasswordsMatching(
-        comparePasswords(
-          registerPageValues.password.value,
-          registerPageValues.confirmPassword.value,
-        ),
-      );
-    }
-  }, [registerPageValues, loginPageValues]);
+  // useEffect(() => {
+  //   if (registerPageValues.email.wasTouched) {
+  //     setIsEmailValid(checkIfEmailIsValid(registerPageValues.email.value));
+  //   }
+  //   if (registerPageValues.password.wasTouched) {
+  //     setIsPasswordValid(checkIfPasswordIsValid(registerPageValues.password.value));
+  //   }
+  //   if (registerPageValues.confirmPassword.wasTouched) {
+  //     setArePasswordsMatching(
+  //       comparePasswords(
+  //         registerPageValues.password.value,
+  //         registerPageValues.confirmPassword.value,
+  //       ),
+  //     );
+  //   }
+  // }, [registerPageValues, loginPageValues]);
 
-  useEffect(() => {
-    if (registerResponse !== null) {
-      if (registerResponse.code === 11000) {
-        toast.error('Email address already used, please use a different email.', {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: false,
-        });
-      }
+  // useEffect(() => {
+  //   if (registerResponse !== null) {
+  //     if (registerResponse.code === 11000) {
+  //       toast.error('Email address already used, please use a different email.', {
+  //         position: toast.POSITION.TOP_RIGHT,
+  //         autoClose: false,
+  //       });
+  //     }
 
-      if (response.success === true) {
-        toast.success('Account successfully created!', {
-          position: toast.POSITION.TOP_RIGHT,
-        });
-      }
-    }
-  }, [response]);
+  //     if (response.success === true) {
+  //       toast.success('Account successfully created!', {
+  //         position: toast.POSITION.TOP_RIGHT,
+  //       });
+  //     }
+  //   }
+  // }, [response]);
 
-  useEffect(() => {
-    console.log(error);
-  }, [error]);
+  // useEffect(() => {
+  //   console.log(error);
+  // }, [error]);
 
   return (
     <div className={styles.mainContainer}>

@@ -1,7 +1,7 @@
 import { ChangeEvent, ReactElement, useState } from 'react';
 import Input from 'components/Input/Input';
-import styles from './LoginForm.module.scss';
 import { useFetch } from 'hooks/useFetch';
+import styles from './LoginForm.module.scss';
 
 interface LoginFormProps {
   children: JSX.IntrinsicElements['li'];

@@ -2,13 +2,13 @@ import { ChangeEvent, ReactElement, useState } from 'react';
 import Input from 'components/Input/Input';
 import FormLabel from 'components/elements/FormLabel/FormLabel';
 import { useFetch } from 'hooks/useFetch';
-import styles from './LoginForm.module.scss';
+import styles from './RegisterForm.module.scss';
 
-interface LoginFormProps {
+interface RegisterFormProps {
   children: JSX.IntrinsicElements['li'];
 }
 
-export default function LoginForm(): ReactElement {
+export default function RegisterForm(): ReactElement {
   const [registerPageValues, setRegisterPageValues] = useState({
     email: { value: '', wasTouched: false },
     password: { value: '', wasTouched: false },
@@ -31,7 +31,7 @@ export default function LoginForm(): ReactElement {
     body: JSON.stringify(userData),
   };
 
-  const [response, isLoading, error, refresh] = useFetch('/api/login', fetchSettings);
+  const [response, isLoading, error, refresh] = useFetch('/api/register', fetchSettings);
 
   function createUser() {
     if (
@@ -101,7 +101,7 @@ export default function LoginForm(): ReactElement {
         }
       />
       <button type='button' className={styles.loginButton} onClick={() => createUser()}>
-        Sign me up!
+        Log in!
       </button>
     </div>
   );
