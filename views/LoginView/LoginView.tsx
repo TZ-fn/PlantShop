@@ -1,8 +1,4 @@
-import { useState, MouseEvent, useEffect } from 'react';
-import { toast } from 'react-toastify';
-import checkIfEmailIsValid from 'utils/checkIfEmailIsValid';
-import checkIfPasswordIsValid from 'utils/checkIfPasswordIsValid';
-import comparePasswords from 'utils/comparePasswords';
+import { useState, MouseEvent } from 'react';
 import RegisterForm from './RegisterForm/RegisterForm';
 import LoginForm from './LoginForm/LoginForm';
 import styles from './LoginView.module.scss';
@@ -15,44 +11,6 @@ export default function LoginView() {
       ? setIsLoginPage(false)
       : setIsLoginPage(true);
   }
-
-  // useEffect(() => {
-  //   if (registerPageValues.email.wasTouched) {
-  //     setIsEmailValid(checkIfEmailIsValid(registerPageValues.email.value));
-  //   }
-  //   if (registerPageValues.password.wasTouched) {
-  //     setIsPasswordValid(checkIfPasswordIsValid(registerPageValues.password.value));
-  //   }
-  //   if (registerPageValues.confirmPassword.wasTouched) {
-  //     setArePasswordsMatching(
-  //       comparePasswords(
-  //         registerPageValues.password.value,
-  //         registerPageValues.confirmPassword.value,
-  //       ),
-  //     );
-  //   }
-  // }, [registerPageValues, loginPageValues]);
-
-  // useEffect(() => {
-  //   if (registerResponse !== null) {
-  //     if (registerResponse.code === 11000) {
-  //       toast.error('Email address already used, please use a different email.', {
-  //         position: toast.POSITION.TOP_RIGHT,
-  //         autoClose: false,
-  //       });
-  //     }
-
-  //     if (response.success === true) {
-  //       toast.success('Account successfully created!', {
-  //         position: toast.POSITION.TOP_RIGHT,
-  //       });
-  //     }
-  //   }
-  // }, [response]);
-
-  // useEffect(() => {
-  //   console.log(error);
-  // }, [error]);
 
   return (
     <div className={styles.mainContainer}>

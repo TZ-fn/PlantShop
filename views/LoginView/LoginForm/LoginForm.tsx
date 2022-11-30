@@ -1,17 +1,26 @@
-import { ChangeEvent, ReactElement, useState } from 'react';
+import { ChangeEvent, ReactElement, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import Input from 'components/Input/Input';
 import { useFetch } from 'hooks/useFetch';
 import styles from './LoginForm.module.scss';
-
-interface LoginFormProps {
-  children: JSX.IntrinsicElements['li'];
-}
 
 export default function LoginForm(): ReactElement {
   const [loginPageValues, setLoginPageValues] = useState({
     email: { value: '', wasTouched: false },
     password: { value: '', wasTouched: false },
   });
+
+  useEffect(() => {}, [loginPageValues.email, loginPageValues.password]);
+
+  useEffect(() => {
+    if (response !== null) {
+      if (response.success === true) {
+        toast.success('Login successful!', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
+    }
+  }, [response]);
 
   const userData = {
     email: loginPageValues.email.value,
@@ -27,6 +36,10 @@ export default function LoginForm(): ReactElement {
   };
 
   const [response, isLoading, error, refresh] = useFetch('/api/register', fetchSettings);
+
+  useEffect(() => {
+    console.log(error);
+  }, [isLoading, error]);
 
   function authenticateUser() {
     if (!loginPageValues.email.value || !loginPageValues.password.value) {

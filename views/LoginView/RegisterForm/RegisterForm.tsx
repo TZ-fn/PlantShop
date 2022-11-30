@@ -1,12 +1,12 @@
-import { ChangeEvent, ReactElement, useState } from 'react';
+import { ChangeEvent, ReactElement, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import Input from 'components/Input/Input';
 import FormLabel from 'components/elements/FormLabel/FormLabel';
 import { useFetch } from 'hooks/useFetch';
+import comparePasswords from 'utils/comparePasswords';
+import checkIfPasswordIsValid from 'utils/checkIfPasswordIsValid';
+import checkIfEmailIsValid from 'utils/checkIfEmailIsValid';
 import styles from './RegisterForm.module.scss';
-
-interface RegisterFormProps {
-  children: JSX.IntrinsicElements['li'];
-}
 
 export default function RegisterForm(): ReactElement {
   const [registerPageValues, setRegisterPageValues] = useState({
@@ -32,6 +32,44 @@ export default function RegisterForm(): ReactElement {
   };
 
   const [response, isLoading, error, refresh] = useFetch('/api/register', fetchSettings);
+
+  useEffect(() => {
+    if (registerPageValues.email.wasTouched) {
+      setIsEmailValid(checkIfEmailIsValid(registerPageValues.email.value));
+    }
+    if (registerPageValues.password.wasTouched) {
+      setIsPasswordValid(checkIfPasswordIsValid(registerPageValues.password.value));
+    }
+    if (registerPageValues.confirmPassword.wasTouched) {
+      setArePasswordsMatching(
+        comparePasswords(
+          registerPageValues.password.value,
+          registerPageValues.confirmPassword.value,
+        ),
+      );
+    }
+  }, [registerPageValues.email, registerPageValues.password, registerPageValues.confirmPassword]);
+
+  useEffect(() => {
+    if (response !== null) {
+      if (response.code === 11000) {
+        toast.error('Email address already used, please use a different email.', {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: false,
+        });
+      }
+
+      if (response.success === true) {
+        toast.success('Account successfully created!', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
+    }
+  }, [response]);
+
+  useEffect(() => {
+    console.log(error);
+  }, [isLoading, error]);
 
   function createUser() {
     if (
