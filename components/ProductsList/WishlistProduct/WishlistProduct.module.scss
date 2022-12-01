@@ -26,6 +26,15 @@
   }
 }
 
+.productName {
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--accent-color);
+  }
+}
+
 .removeButton {
   @include button-standard;
   height: 3rem;

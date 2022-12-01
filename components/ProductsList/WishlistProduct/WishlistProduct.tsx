@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
-import { useDispatch } from 'react-redux';
+import Link from 'next/link';
 import Image from 'next/image';
+import { useDispatch } from 'react-redux';
 import { removeFromWishlist } from 'features/wishlist/wishlistSlice';
 import BinIcon from 'public/icons/binIcon.svg';
 import ProductMiniature from 'components/elements/ProductMiniature/ProductMiniature';
@@ -24,7 +25,9 @@ export default function WishlistProduct({
   return (
     <li className={styles.productContainer}>
       <ProductMiniature source={image} />
-      <p className={styles.productName}>{name}</p>
+      <Link href={`product/${name.toLocaleLowerCase()}`}>
+        <p className={styles.productName}>{name}</p>
+      </Link>
       <p className={styles.price}>Price: {formatCurrency(price)}</p>
       <button
         type='button'
