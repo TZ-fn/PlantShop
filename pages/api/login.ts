@@ -12,7 +12,10 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
   try {
     const user = await User.findOne(req.body.email);
-    res.status(201).json({ success: true, data: user });
+    const isPasswordCorrect = user.password === req.body.password;
+    isPasswordCorrect
+      ? res.status(200).json('Password correct')
+      : res.status(401).json('Password incorrect');
   } catch (e) {
     res.status(500).json(e);
   }
