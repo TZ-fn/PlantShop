@@ -6,6 +6,7 @@ import { useFetch } from 'hooks/useFetch';
 import comparePasswords from 'utils/comparePasswords';
 import checkIfPasswordIsValid from 'utils/checkIfPasswordIsValid';
 import checkIfEmailIsValid from 'utils/checkIfEmailIsValid';
+import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import styles from './RegisterForm.module.scss';
 
 export default function RegisterForm(): ReactElement {
@@ -68,7 +69,6 @@ export default function RegisterForm(): ReactElement {
   }, [response]);
 
   useEffect(() => {
-    console.log('isLoading', isLoading);
     if (error !== null) {
       toast.error(`${error}`, {
         position: toast.POSITION.TOP_RIGHT,
@@ -144,9 +144,15 @@ export default function RegisterForm(): ReactElement {
           })
         }
       />
-      <button type='button' className={styles.loginButton} onClick={() => createUser()}>
-        Sign up!
-      </button>
+      {isLoading ? (
+        <div className={styles.loadingSpinnerContainer}>
+          <LoadingSpinner />
+        </div>
+      ) : (
+        <button type='button' className={styles.loginButton} onClick={() => createUser()}>
+          Sign up!
+        </button>
+      )}
     </div>
   );
 }
