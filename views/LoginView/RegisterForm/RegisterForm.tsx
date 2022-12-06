@@ -68,7 +68,13 @@ export default function RegisterForm(): ReactElement {
   }, [response]);
 
   useEffect(() => {
-    console.log(error);
+    console.log('isLoading', isLoading);
+    if (error !== null) {
+      toast.error(`${error}`, {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: false,
+      });
+    }
   }, [isLoading, error]);
 
   function createUser() {
