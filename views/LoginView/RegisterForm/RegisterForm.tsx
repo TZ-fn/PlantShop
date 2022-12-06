@@ -139,7 +139,7 @@ export default function RegisterForm(): ReactElement {
         }
       />
       <button type='button' className={styles.loginButton} onClick={() => createUser()}>
-        Log in!
+        Sign up!
       </button>
     </div>
   );
