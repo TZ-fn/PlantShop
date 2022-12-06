@@ -13,6 +13,7 @@ export default function LoginForm(): ReactElement {
   useEffect(() => {}, [loginPageValues.email, loginPageValues.password]);
 
   useEffect(() => {
+    console.log(response);
     if (response !== null) {
       if (response.success === true) {
         toast.success('Login successful!', {
@@ -35,7 +36,7 @@ export default function LoginForm(): ReactElement {
     body: JSON.stringify(userData),
   };
 
-  const [response, isLoading, error, refresh] = useFetch('/api/register', fetchSettings);
+  const [response, isLoading, error, refresh] = useFetch('/api/login', fetchSettings);
 
   useEffect(() => {
     console.log(error);
@@ -45,6 +46,7 @@ export default function LoginForm(): ReactElement {
     if (!loginPageValues.email.value || !loginPageValues.password.value) {
       return;
     }
+    refresh();
   }
 
   return (
