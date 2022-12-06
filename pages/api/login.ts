@@ -16,11 +16,12 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
 
   try {
-    const user = await User.findOne(req.body.email);
+    const user = await User.findOne({ email: req.body.email });
+
     const isPasswordCorrect = user.password === saltedPassword;
     isPasswordCorrect
-      ? res.status(200).json('Password correct')
-      : res.status(401).json('Password incorrect');
+      ? res.status(200).json('Password is correct')
+      : res.status(401).json('Password is incorrect');
   } catch (e) {
     res.status(500).json(e);
   }
