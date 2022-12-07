@@ -17,7 +17,9 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
 
   try {
     const user = await User.create({ ...req.body, password: saltedPassword });
-    res.status(201).json({ success: true, data: user });
+    if (user) {
+      res.status(201).json({ success: true, message: 'User successfully created' });
+    }
   } catch (e) {
     res.status(500).json(e);
   }
