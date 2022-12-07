@@ -4,24 +4,25 @@ import User from '../../models/User';
 import dbConnect from 'db/dbConnect';
 import bcrypt from 'bcrypt';
 
-const SALT_WORK_FACTOR = 10;
-
 const handler = nextConnect();
 
 handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
-  const salt = await bcrypt.genSalt(SALT_WORK_FACTOR);
   const password = req.body.password;
-  const saltedPassword = await bcrypt.hash(password, salt);
 
   await dbConnect();
 
   try {
     const user = await User.findOne({ email: req.body.email });
 
-    const isPasswordCorrect = user.password === saltedPassword;
+    if (!user) {
+      return res.status(400).json({ success: false, message: 'User does not exist' });
+    }
+
+    const isPasswordCorrect = await bcrypt.compare(password, user.password);
+
     isPasswordCorrect
-      ? res.status(200).json('Password is correct')
-      : res.status(401).json('Password is incorrect');
+      ? res.status(200).json({ success: true, message: 'Password is correct' })
+      : res.status(401).json({ success: false, message: 'Password is incorrect' });
   } catch (e) {
     res.status(500).json(e);
   }
