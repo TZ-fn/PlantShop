@@ -27,8 +27,8 @@ export interface WishlistProductProps {
 }
 
 export interface UserData {
-  email: string;
-  password: string;
+  success: boolean;
+  message: string;
 }
 
 export interface UnsplashPhoto {

@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { PlantsData, UnsplashPhotoResults } from 'types/types';
+import { PlantsData, UnsplashPhotoResults, UserData } from 'types/types';
 
-type APIData = UnsplashPhotoResults | PlantsData;
+type APIData = UnsplashPhotoResults | PlantsData | UserData;
 
 export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
   const [response, setResponse] = useState<APIData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
+
   const cancelRequest = useRef<boolean>(false);
 
   cancelRequest.current = false;
@@ -54,5 +55,5 @@ export const useFetch = (APIurl: string, requestOptions?: RequestInit) => {
     };
   }, [APIurl]);
 
-  return [response, isLoading, error, refresh];
+  return [response, isLoading, error, refresh] as const;
 };
