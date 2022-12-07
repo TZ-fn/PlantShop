@@ -2,6 +2,7 @@ import { ChangeEvent, ReactElement, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Input from 'components/Input/Input';
 import { useFetch } from 'hooks/useFetch';
+import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import styles from './LoginForm.module.scss';
 
 export default function LoginForm(): ReactElement {
@@ -11,17 +12,6 @@ export default function LoginForm(): ReactElement {
   });
 
   useEffect(() => {}, [loginPageValues.email, loginPageValues.password]);
-
-  useEffect(() => {
-    console.log(response);
-    if (response !== null) {
-      if (response.success === true) {
-        toast.success('Login successful!', {
-          position: toast.POSITION.TOP_RIGHT,
-        });
-      }
-    }
-  }, [response]);
 
   const userData = {
     email: loginPageValues.email.value,
@@ -39,6 +29,21 @@ export default function LoginForm(): ReactElement {
   const [response, isLoading, error, refresh] = useFetch('/api/login', fetchSettings);
 
   useEffect(() => {
+    console.log(response);
+    if (response !== null) {
+      if (response.success === true) {
+        toast.success('Login successful!', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      } else {
+        toast.error(response.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
+    }
+  }, [response]);
+
+  useEffect(() => {
     console.log(error);
   }, [isLoading, error]);
 
@@ -46,7 +51,13 @@ export default function LoginForm(): ReactElement {
     if (!loginPageValues.email.value || !loginPageValues.password.value) {
       return;
     }
+
     refresh();
+
+    setLoginPageValues({
+      email: { value: '', wasTouched: false },
+      password: { value: '', wasTouched: false },
+    });
   }
 
   return (
@@ -77,9 +88,16 @@ export default function LoginForm(): ReactElement {
           })
         }
       />
-      <button type='button' className={styles.loginButton} onClick={() => authenticateUser()}>
-        Log in!
-      </button>
+
+      {isLoading ? (
+        <div className={styles.loadingSpinnerContainer}>
+          <LoadingSpinner />
+        </div>
+      ) : (
+        <button type='button' className={styles.loginButton} onClick={() => authenticateUser()}>
+          Log in!
+        </button>
+      )}
     </div>
   );
 }
