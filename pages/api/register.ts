@@ -21,7 +21,7 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
       res.status(201).json({ success: true, message: 'User successfully created' });
     }
   } catch (e) {
-    res.status(500).json(e);
+    res.status(500).json({ success: false, message: e });
   }
 });
 
