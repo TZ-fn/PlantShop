@@ -28,7 +28,7 @@ export interface WishlistProductProps {
 
 export interface UserData {
   success: boolean;
-  message: string;
+  message: string | { code?: number };
 }
 
 export interface UnsplashPhoto {
