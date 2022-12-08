@@ -29,17 +29,17 @@ export default function LoginForm(): ReactElement {
   const [response, isLoading, error, refresh] = useFetch('/api/login', fetchSettings);
 
   useEffect(() => {
-    console.log(response);
-    if (response !== null) {
-      if (response.success === true) {
-        toast.success('Login successful!', {
-          position: toast.POSITION.TOP_RIGHT,
-        });
-      } else {
-        toast.error(response.message, {
-          position: toast.POSITION.TOP_RIGHT,
-        });
-      }
+    if (response !== null && 'success' in response) {
+      if (response.success)
+        if (response.success === true) {
+          toast.success('Login successful!', {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        } else {
+          toast.error(response.message, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
     }
   }, [response]);
 

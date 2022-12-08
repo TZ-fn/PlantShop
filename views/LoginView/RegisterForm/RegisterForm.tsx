@@ -52,8 +52,8 @@ export default function RegisterForm(): ReactElement {
   }, [registerPageValues.email, registerPageValues.password, registerPageValues.confirmPassword]);
 
   useEffect(() => {
-    if (response !== null) {
-      if (response.code === 11000) {
+    if (response !== null && 'success' in response) {
+      if (typeof response.message === 'object' && response.message.code === 11000) {
         toast.error('Email address already used, please use a different email.', {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: false,
