@@ -2,12 +2,14 @@ import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import basketReducer from '../features/basket/basketSlice';
 import plantsReducer from '../features/plants/plantsSlice';
 import wishlistReducer from '../features/wishlist/wishlistSlice';
+import authorisationReducer from '../features/authorisation/authorisationSlice';
 
 export const store = configureStore({
   reducer: {
     basket: basketReducer,
     plants: plantsReducer,
     wishlist: wishlistReducer,
+    authorisation: authorisationReducer,
   },
 });
 
