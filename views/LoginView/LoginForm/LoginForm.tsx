@@ -1,4 +1,6 @@
 import { ChangeEvent, ReactElement, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateAuthorisationStatus } from 'features/authorisation/authorisationSlice';
 import { toast } from 'react-toastify';
 import Input from 'components/Input/Input';
 import { useFetch } from 'hooks/useFetch';
@@ -10,6 +12,8 @@ export default function LoginForm(): ReactElement {
     email: { value: '', wasTouched: false },
     password: { value: '', wasTouched: false },
   });
+
+  const dispatch = useDispatch();
 
   useEffect(() => {}, [loginPageValues.email, loginPageValues.password]);
 
@@ -30,16 +34,17 @@ export default function LoginForm(): ReactElement {
 
   useEffect(() => {
     if (response !== null && 'success' in response) {
-      if (response.success)
-        if (response.success === true) {
-          toast.success('Login successful!', {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-        } else {
-          toast.error(response.message, {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-        }
+      console.log(response);
+      if (response.success === true) {
+        toast.success('Login successful!', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        dispatch(updateAuthorisationStatus(true));
+      } else {
+        toast.error(response.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
     }
   }, [response]);
 
