@@ -49,7 +49,7 @@ const BasketView = () => {
                 );
               })
           ) : (
-            <p className={styles.emptyBasket}>Your basket is empty. ☹️</p>
+            <li className={styles.emptyBasket}>Your basket is empty. ☹️</li>
           )}
         </ProductsList>
         <BasketAside basketTotal={basketTotal} />

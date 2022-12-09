@@ -19,7 +19,7 @@ export default function WishlistView() {
               return <WishlistProduct key={product.id} {...product} />;
             })
         ) : (
-          <p className={styles.emptyWishlist}>Your wishlist is empty. ☹️</p>
+          <li className={styles.emptyWishlist}>Your wishlist is empty. ☹️</li>
         )}
       </ProductsList>
     </div>
