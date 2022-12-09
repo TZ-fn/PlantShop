@@ -34,7 +34,6 @@ export default function LoginForm(): ReactElement {
 
   useEffect(() => {
     if (response !== null && 'success' in response) {
-      console.log(response);
       if (response.success === true) {
         toast.success('Login successful!', {
           position: toast.POSITION.TOP_RIGHT,
