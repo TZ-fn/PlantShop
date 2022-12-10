@@ -7,6 +7,7 @@ import MainLogo from 'public/mainLogo.svg';
 import NavBar from './NavBar/NavBar';
 import SearchBar from './SearchBar/SearchBar';
 import LoginIcon from 'public/icons/loginIcon.svg';
+import AccountIcon from 'public/icons/accountIcon.svg';
 import EmptyBasketIcon from 'public/icons/emptyBasketIcon.svg';
 import FullBasketIcon from 'public/icons/fullBasketIcon.svg';
 import WishlistIcon from 'public/icons/wishlistIcon.svg';
@@ -19,6 +20,7 @@ export default function Header(): ReactElement {
   const wishlist = useSelector((state: RootState) => state.wishlist.products);
   const productsInBasket = basket.reduce((count, product) => (count += product.quantity), 0);
   const productsInWishlist = wishlist.length;
+  const isUserAuthorised = useSelector((state: RootState) => state.authorisation.isUserAuthorised);
 
   return (
     <header>
@@ -63,12 +65,21 @@ export default function Header(): ReactElement {
               Basket
             </a>
           </Link>
-          <Link href={'/login'}>
-            <a className={styles.controlItem}>
-              <Image src={LoginIcon.src} width={40} height={40} />
-              Login
-            </a>
-          </Link>
+          {isUserAuthorised ? (
+            <Link href={'/account'}>
+              <a className={styles.controlItem}>
+                <Image src={AccountIcon.src} width={40} height={40} />
+                Account
+              </a>
+            </Link>
+          ) : (
+            <Link href={'/login'}>
+              <a className={styles.controlItem}>
+                <Image src={LoginIcon.src} width={40} height={40} />
+                Login
+              </a>
+            </Link>
+          )}
         </div>
       </div>
     </header>
