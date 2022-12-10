@@ -6,6 +6,7 @@ import Input from 'components/Input/Input';
 import { useFetch } from 'hooks/useFetch';
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import styles from './LoginForm.module.scss';
+import { useRouter } from 'next/router';
 
 export default function LoginForm(): ReactElement {
   const [loginPageValues, setLoginPageValues] = useState({
@@ -14,6 +15,7 @@ export default function LoginForm(): ReactElement {
   });
 
   const dispatch = useDispatch();
+  const router = useRouter();
 
   useEffect(() => {}, [loginPageValues.email, loginPageValues.password]);
 
@@ -39,6 +41,7 @@ export default function LoginForm(): ReactElement {
           position: toast.POSITION.TOP_RIGHT,
         });
         dispatch(updateAuthorisationStatus(true));
+        router.push('/');
       } else {
         toast.error(response.message, {
           position: toast.POSITION.TOP_RIGHT,
