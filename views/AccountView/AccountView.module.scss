@@ -1,6 +1,6 @@
 .accountContainer {
-  width: 38rem;
-  min-height: 35rem;
+  width: 45rem;
+  min-height: 38rem;
   display: flex;
   flex-direction: column;
   display: flex;
@@ -20,4 +20,10 @@
 .accountHeader {
   @include section-header;
   width: 126%;
+}
+
+.notLoggedIn {
+  margin: auto;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
