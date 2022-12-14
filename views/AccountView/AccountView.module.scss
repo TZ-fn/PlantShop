@@ -19,6 +19,14 @@
 .accountHeader {
   @include section-header;
   width: 126%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    font-size: 2rem;
+    margin-left: 1rem;
+  }
 }
 
 .notLoggedIn {
