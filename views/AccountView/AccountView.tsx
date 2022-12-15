@@ -2,6 +2,7 @@ import { RootState } from 'store/store';
 import { useSelector } from 'react-redux';
 import Image from 'next/image';
 import AccountIcon from 'public/icons/loginIcon.svg';
+import AccountDetails from 'components/AccountDetails/AccountDetails';
 import styles from './AccountView.module.scss';
 
 export default function AccountView() {
@@ -13,7 +14,11 @@ export default function AccountView() {
         <Image src={AccountIcon.src} width={80} height={80} />
         <h2>Account</h2>
       </div>
-      {isUserAuthorised ? '' : <p className={styles.notLoggedIn}>Please log in first.</p>}
+      {isUserAuthorised ? (
+        <AccountDetails />
+      ) : (
+        <p className={styles.notLoggedIn}>Please log in first.</p>
+      )}
     </div>
   );
 }
