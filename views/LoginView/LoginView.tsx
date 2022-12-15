@@ -16,7 +16,6 @@ export default function LoginView() {
       ? setIsLoginPage(false)
       : setIsLoginPage(true);
   }
-  console.log(isUserAuthorised);
 
   return isUserAuthorised ? (
     <div className={styles.loggedIn}>
