@@ -41,10 +41,18 @@ export default function LoginForm(): ReactElement {
           position: toast.POSITION.TOP_RIGHT,
         });
         dispatch(updateAuthorisationStatus(true));
+        setLoginPageValues({
+          email: { value: '', wasTouched: false },
+          password: { value: '', wasTouched: false },
+        });
         router.push('/');
       } else {
         toast.error(response.message, {
           position: toast.POSITION.TOP_RIGHT,
+        });
+        setLoginPageValues({
+          email: loginPageValues.email,
+          password: { value: '', wasTouched: false },
         });
       }
     }
@@ -60,11 +68,6 @@ export default function LoginForm(): ReactElement {
     }
 
     refresh();
-
-    setLoginPageValues({
-      email: { value: '', wasTouched: false },
-      password: { value: '', wasTouched: false },
-    });
   }
 
   return (
