@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import { RootState } from 'store/store';
 import { useSelector } from 'react-redux';
-import Image from 'next/image';
 import AccountIcon from 'public/icons/loginIcon.svg';
 import AccountDetails from 'views/AccountView/AccountDetails/AccountDetails';
 import styles from './AccountView.module.scss';

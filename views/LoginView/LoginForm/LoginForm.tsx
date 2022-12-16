@@ -1,6 +1,6 @@
 import { ChangeEvent, ReactElement, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateAuthorisationStatus } from 'features/authorisation/authorisationSlice';
+import { getUsername, updateAuthorisationStatus } from 'features/authorisation/authorisationSlice';
 import { toast } from 'react-toastify';
 import Input from 'components/Input/Input';
 import { useFetch } from 'hooks/useFetch';
@@ -41,6 +41,7 @@ export default function LoginForm(): ReactElement {
           position: toast.POSITION.TOP_RIGHT,
         });
         dispatch(updateAuthorisationStatus(true));
+        dispatch(getUsername(loginPageValues.email.value));
         setLoginPageValues({
           email: { value: '', wasTouched: false },
           password: { value: '', wasTouched: false },
@@ -52,6 +53,30 @@ export default function LoginForm(): ReactElement {
         });
         setLoginPageValues({
           email: loginPageValues.email,
+          password: { value: '', wasTouched: false },
+        });
+      }
+    }
+  }, [response]);
+
+  useEffect(() => {
+    if (response !== null && 'success' in response) {
+      if (response.success === true) {
+        toast.success('Login successful!', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        dispatch(updateAuthorisationStatus(true));
+        setLoginPageValues({
+          email: { value: '', wasTouched: false },
+          password: { value: '', wasTouched: false },
+        });
+        router.push('/');
+      } else {
+        toast.error(response.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        setLoginPageValues({
+          email: { value: loginPageValues.email.value, wasTouched: true },
           password: { value: '', wasTouched: false },
         });
       }
