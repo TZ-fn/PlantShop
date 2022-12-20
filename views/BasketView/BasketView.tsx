@@ -24,7 +24,7 @@ const BasketView = () => {
             },
             { integer: 0, fraction: 0 },
           )
-      : 0;
+      : { integer: 0, fraction: 0 };
 
   return (
     <div className={styles.basketViewContainer}>

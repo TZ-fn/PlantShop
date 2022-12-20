@@ -4,7 +4,7 @@ import { formatCurrency } from 'utils/formatCurrency';
 import styles from './BasketAside.module.scss';
 
 interface BasketAsideProps {
-  basketTotal: 0 | { integer: number; fraction: number; currency?: string };
+  basketTotal: { integer: number; fraction: number; currency?: string };
 }
 
 export default function BasketAside({ basketTotal }: BasketAsideProps): ReactElement {
