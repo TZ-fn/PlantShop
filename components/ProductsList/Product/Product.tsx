@@ -22,8 +22,10 @@ export default function Product({
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.stopPropagation();
-    setCountValue(e.target.value);
-    dispatch(changeQuantity({ productId: id, count: Number(e.target.value) }));
+    if (Number(e.target.value) < 10000) {
+      setCountValue(String(parseInt(e.target.value, 10)));
+      dispatch(changeQuantity({ productId: id, count: Number(e.target.value) }));
+    }
   };
 
   const handleCountButtons = (operationType: string, e: MouseEvent) => {
@@ -70,6 +72,7 @@ export default function Product({
               value={countValue}
               onChange={(e) => handleInputChange(e)}
               className={styles.count}
+              maxLength={4}
             />
           </label>
           <button
