@@ -51,7 +51,7 @@ export default function FavouritesButton({
             <span className={isBlockButton ? '' : 'visually-hidden'}>
               Remove this item from the wishlist
             </span>
-            <div className={styles.wishlistIconContaner}>
+            <div className={styles.wishlistIconContainer}>
               <Image src={WishlistIcon.src} width={50} height={50} />
             </div>
           </span>
@@ -60,7 +60,7 @@ export default function FavouritesButton({
             <span className={isBlockButton ? styles.textContent : 'visually-hidden'}>
               Add this item to the wishlist
             </span>
-            <div className={styles.wishlistIconContaner}>
+            <div className={styles.wishlistIconContainer}>
               <Image src={WishlistIconEmpty.src} width={50} height={50} />
             </div>
           </span>
