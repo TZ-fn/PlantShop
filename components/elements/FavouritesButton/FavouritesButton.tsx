@@ -24,7 +24,7 @@ export default function FavouritesButton({
   const isWishlisted =
     wishlistItems.find((productID: Product['id']) => productID === id) !== undefined;
 
-  function handleAddingToFavourites(e: MouseEvent<HTMLButtonElement>) {
+  function handleAddingToFavourites(e: MouseEvent<HTMLDivElement>) {
     e.stopPropagation();
     if (e.currentTarget.dataset.id) {
       if (!isWishlisted) {
