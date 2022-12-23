@@ -42,4 +42,6 @@ Jest
 
 React Testing Library
 
+Bcrypt
+
 ## What problems I had encountered
