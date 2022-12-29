@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { store } from 'store/store';
 import Layout from 'components/Layout/Layout';
