@@ -3,15 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { RootState } from 'store/store';
 import { useSelector } from 'react-redux';
-import MainLogo from 'public/mainLogo.svg';
 import NavBar from './NavBar/NavBar';
 import SearchBar from './SearchBar/SearchBar';
-import LoginIcon from 'public/icons/loginIcon.svg';
-import AccountIcon from 'public/icons/accountIcon.svg';
-import EmptyBasketIcon from 'public/icons/emptyBasketIcon.svg';
-import FullBasketIcon from 'public/icons/fullBasketIcon.svg';
-import WishlistIcon from 'public/icons/wishlistIcon.svg';
-import WishlistIconEmpty from 'public/icons/wishlistIconEmpty.svg';
 import styles from './Header.module.scss';
 import ProductCountBadge from 'components/elements/ProductCountBadge/ProductCountBadge';
 
@@ -28,7 +21,7 @@ export default function Header(): ReactElement {
         <Link href={'/'}>
           <div className={styles.logoContainer}>
             <div className={styles.innerLogoContainer}>
-              <Image src={MainLogo.src} width={100} height={100} layout='responsive' />
+              <Image src='/mainLogo.svg' width={100} height={100} layout='responsive' />
             </div>
             <h1 className={styles.logoText}>PlantShop</h1>
           </div>
@@ -45,9 +38,9 @@ export default function Header(): ReactElement {
                 <ProductCountBadge quantity={productsInWishlist} type='wishlist' />
               )}
               {wishlist.length === 0 ? (
-                <Image src={WishlistIconEmpty.src} width={40} height={40} />
+                <Image src='/icons/wishlistIconEmpty.svg' width={40} height={40} />
               ) : (
-                <Image src={WishlistIcon.src} width={40} height={40} />
+                <Image src='/icons/wishlistIcon.svg' width={40} height={40} />
               )}
               WishList
             </a>
@@ -58,9 +51,9 @@ export default function Header(): ReactElement {
                 <ProductCountBadge quantity={productsInBasket} type='basket' />
               )}
               {basket.length === 0 ? (
-                <Image src={EmptyBasketIcon.src} width={40} height={40} />
+                <Image src='/icons/emptyBasketIcon.svg' width={40} height={40} />
               ) : (
-                <Image src={FullBasketIcon.src} width={40} height={40} />
+                <Image src='/icons/fullBasketIcon.svg' width={40} height={40} />
               )}
               Basket
             </a>
@@ -68,14 +61,14 @@ export default function Header(): ReactElement {
           {isUserAuthorised ? (
             <Link href={'/account'}>
               <a className={styles.controlItem}>
-                <Image src={AccountIcon.src} width={40} height={40} />
+                <Image src='/icons/accountIcon.svg' width={40} height={40} />
                 Account
               </a>
             </Link>
           ) : (
             <Link href={'/login'}>
               <a className={styles.controlItem}>
-                <Image src={LoginIcon.src} width={40} height={40} />
+                <Image src='/icons/loginIcon.svg' width={40} height={40} />
                 Login
               </a>
             </Link>
