@@ -4,7 +4,7 @@ import MainLogo from 'public/mainLogo.svg';
 import styles from './Footer.module.scss';
 import SocialIcons from 'components/SocialIcons/SocialIcons';
 
-export default function Header() {
+export default function Footer() {
   return (
     <footer>
       <div className={styles.footerContainer}>
