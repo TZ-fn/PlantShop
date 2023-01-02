@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import MainLogo from 'public/mainLogo.svg';
 import styles from './Footer.module.scss';
 import SocialIcons from 'components/SocialIcons/SocialIcons';
 
@@ -11,7 +10,7 @@ export default function Footer() {
         <Link href={'/'}>
           <div className={styles.logoContainer}>
             <div className={styles.logoInnerContainer}>
-              <Image src={MainLogo.src} width={50} height={50} layout='responsive' />
+              <Image src='/mainLogo.svg' width={50} height={50} layout='responsive' />
             </div>
             <h1 className={styles.logoText}>PlantShop</h1>
           </div>
