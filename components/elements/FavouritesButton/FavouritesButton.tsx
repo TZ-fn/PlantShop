@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
 import { RootState } from 'store/store';
 import { addToWishlist, removeFromWishlist } from 'features/wishlist/wishlistSlice';
-import WishlistIcon from 'public/icons/wishlistIcon.svg';
-import WishlistIconEmpty from 'public/icons/wishlistIconEmpty.svg';
 import Button from '../Button/Button';
 import { Product } from 'types/types';
 import styles from './FavouritesButton.module.scss';
@@ -52,7 +50,7 @@ export default function FavouritesButton({
               Remove this item from the wishlist
             </span>
             <div className={styles.wishlistIconContainer}>
-              <Image src={WishlistIcon.src} width={50} height={50} />
+              <Image src='/icons/wishlistIcon.svg' width={50} height={50} />
             </div>
           </span>
         ) : (
@@ -61,7 +59,7 @@ export default function FavouritesButton({
               Add this item to the wishlist
             </span>
             <div className={styles.wishlistIconContainer}>
-              <Image src={WishlistIconEmpty.src} width={50} height={50} />
+              <Image src='/icons/wishlistIconEmpty.svg' width={50} height={50} />
             </div>
           </span>
         )}
