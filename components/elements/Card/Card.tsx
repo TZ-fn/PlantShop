@@ -3,8 +3,6 @@ import { useDispatch } from 'react-redux';
 import Image from 'next/image';
 import Link from 'next/link';
 import { addToBasket } from 'features/basket/basketSlice';
-import turnAroundIcon from 'public/icons/turnAroundArrowIcon.svg';
-import addToBasketIcon from 'public/icons/addToBasketIcon.svg';
 import { formatCurrency } from 'utils/formatCurrency';
 import FavouritesButton from '../FavouritesButton/FavouritesButton';
 import RatingSystem from '../RatingSystem/RatingSystem';
@@ -36,7 +34,7 @@ export default function Card({
             <p className={styles.name}>{name}</p>
             <Image className={styles.image} src={image} alt='' layout='fill' />
             <div className={styles.turnIconContainer}>
-              <Image src={turnAroundIcon.src} width={35} height={35} alt='' />
+              <Image src='/icons/turnAroundArrowIcon.svg' width={35} height={35} alt='' />
             </div>
           </div>
           <div className={styles.cardBack}>
@@ -54,7 +52,7 @@ export default function Card({
               >
                 <div className={styles.imageContainer}>
                   <Image
-                    src={addToBasketIcon.src}
+                    src='/icons/addToBasketIcon.svg'
                     width={50}
                     height={50}
                     alt=''
