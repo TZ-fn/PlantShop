@@ -4,21 +4,21 @@ import { Provider } from 'react-redux';
 import { store } from 'store/store';
 import { updatePlantsData } from 'features/plants/plantsSlice';
 import plantsData from 'public/data/plantsData';
-import CardContainer from 'components/CardContainer/CardContainer';
+import Product from 'components/ProductsList/Product/Product';
 
-describe('test the CardContainer component', () => {
+describe('test the Product component', () => {
   const plants = plantsData;
-  const plantsCount = plantsData.length;
+  const { id, name, image, price, description } = plants[0];
 
   store.dispatch(updatePlantsData(plants));
 
   render(
     <Provider store={store}>
-      <CardContainer />
+      <Product id={id} name={name} image={image} price={price} description={description} />
     </Provider>,
   );
 
-  it('renders all the plants from the data', () => {
-    expect(screen.getAllByText('About this plant:')).toHaveLength(plantsCount);
+  it('renders correctly', () => {
+    expect(screen.getByText(name)).toBeInTheDocument();
   });
 });
