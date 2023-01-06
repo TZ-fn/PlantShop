@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import { changeQuantity, removeFromBasket } from 'features/basket/basketSlice';
 import { ProductProps } from 'types/types';
 import ProductMiniature from 'components/elements/ProductMiniature/ProductMiniature';
-import BinIcon from 'public/icons/binIcon.svg';
 import { formatCurrency } from 'utils/formatCurrency';
 import styles from './Product.module.scss';
 
@@ -90,7 +89,7 @@ export default function Product({
       {isInBasket && (
         <button type='button' className={styles.removeButton} onClick={handleRemovingFromBasket}>
           <span className='visually-hidden'>Remove item from the basket</span>
-          <Image src={BinIcon.src} width={'40px'} height={'40px'} alt='' layout='fixed' />
+          <Image src='/icons/binIcon.svg' width={'40px'} height={'40px'} alt='' layout='fixed' />
         </button>
       )}
     </li>
