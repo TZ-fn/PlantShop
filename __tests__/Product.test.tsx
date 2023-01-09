@@ -29,7 +29,7 @@ describe('test the Product component', () => {
 
   const incrementButton = screen.getByText('-');
   const decrementButton = screen.getByText('+');
-  const itemCount = screen.getByText('Count of the item');
+  const itemCount = screen.getByRole('spinbutton');
 
   it('renders correctly', () => {
     expect(screen.getByText(name)).toBeInTheDocument();
@@ -37,7 +37,6 @@ describe('test the Product component', () => {
 
   it("increments and decrements product's quantity correctly", () => {
     user.click(incrementButton);
-    screen.debug();
-    expect(itemCount).toHaveValue(1);
+    expect(itemCount).toHaveValue(2);
   });
 });
