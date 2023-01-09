@@ -27,16 +27,16 @@ describe('test the Product component', () => {
     </Provider>,
   );
 
-  const incrementButton = screen.getByText('-');
-  const decrementButton = screen.getByText('+');
+  const incrementButton = screen.getByText('+');
+  const decrementButton = screen.getByText('-');
   const itemCount = screen.getByRole('spinbutton');
 
   it('renders correctly', () => {
     expect(screen.getByText(name)).toBeInTheDocument();
   });
 
-  it("increments and decrements product's quantity correctly", () => {
-    user.click(incrementButton);
+  it("increments and decrements product's quantity correctly", async () => {
+    await user.click(incrementButton);
     expect(itemCount).toHaveValue(2);
   });
 });
