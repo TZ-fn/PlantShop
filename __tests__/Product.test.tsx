@@ -14,29 +14,42 @@ describe('test the Product component', () => {
 
   store.dispatch(updatePlantsData(plants));
 
-  render(
-    <Provider store={store}>
-      <Product
-        id={id}
-        name={name}
-        image={image}
-        price={price}
-        description={description}
-        isInBasket
-      />
-    </Provider>,
-  );
+  let incrementButton: HTMLElement, decrementButton: HTMLElement, itemCount: HTMLElement;
 
-  const incrementButton = screen.getByText('+');
-  const decrementButton = screen.getByText('-');
-  const itemCount = screen.getByRole('spinbutton');
+  function renderProduct() {
+    render(
+      <Provider store={store}>
+        <Product
+          id={id}
+          name={name}
+          image={image}
+          price={price}
+          description={description}
+          isInBasket
+        />
+      </Provider>,
+    );
+    incrementButton = screen.getByText('+');
+    decrementButton = screen.getByText('-');
+    itemCount = screen.getByRole('spinbutton');
+  }
 
   it('renders correctly', () => {
+    renderProduct();
     expect(screen.getByText(name)).toBeInTheDocument();
+    expect(itemCount).toHaveValue(1);
   });
 
-  it("increments and decrements product's quantity correctly", async () => {
+  it("increments product's quantity correctly", async () => {
+    renderProduct();
     await user.click(incrementButton);
-    expect(itemCount).toHaveValue(2);
+    await user.click(incrementButton);
+    expect(itemCount).toHaveValue(3);
+  });
+
+  it("decrements product's quantity correctly", async () => {
+    renderProduct();
+    await user.click(decrementButton);
+    expect(itemCount).toHaveValue(0);
   });
 });
