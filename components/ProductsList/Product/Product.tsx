@@ -89,7 +89,13 @@ export default function Product({
       {isInBasket && (
         <button type='button' className={styles.removeButton} onClick={handleRemovingFromBasket}>
           <span className='visually-hidden'>Remove item from the basket</span>
-          <Image src='/icons/binIcon.svg' width={'40px'} height={'40px'} alt='' layout='fixed' />
+          <Image
+            src='/icons/binIcon.svg'
+            width={'40px'}
+            height={'40px'}
+            alt='Bin icon'
+            layout='fixed'
+          />
         </button>
       )}
     </li>
