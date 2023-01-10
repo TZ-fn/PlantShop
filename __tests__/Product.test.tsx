@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 import { store } from 'store/store';
@@ -14,7 +14,10 @@ describe('test the Product component', () => {
 
   store.dispatch(updatePlantsData(plants));
 
-  let incrementButton: HTMLElement, decrementButton: HTMLElement, itemCount: HTMLElement;
+  let incrementButton: HTMLButtonElement,
+    decrementButton: HTMLButtonElement,
+    itemCount: HTMLButtonElement,
+    deleteButton: HTMLButtonElement;
 
   function renderProduct() {
     render(
@@ -32,6 +35,7 @@ describe('test the Product component', () => {
     incrementButton = screen.getByText('+');
     decrementButton = screen.getByText('-');
     itemCount = screen.getByRole('spinbutton');
+    deleteButton = screen.getByText('Remove item from the basket');
   }
 
   it('renders correctly', () => {
@@ -51,5 +55,18 @@ describe('test the Product component', () => {
     renderProduct();
     await user.click(decrementButton);
     expect(itemCount).toHaveValue(0);
+  });
+
+  it("changes product's quantity correctly", async () => {
+    renderProduct();
+    await user.click(itemCount);
+    await user.keyboard('2');
+    expect(itemCount).toHaveValue(12);
+  });
+
+  it('deletes the product correctly', async () => {
+    renderProduct();
+    await user.click(deleteButton);
+    waitFor(() => expect(screen.getByText('Your basket is empty.')).toBeInTheDocument());
   });
 });
