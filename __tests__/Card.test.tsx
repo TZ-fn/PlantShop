@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import userEvent from '@testing-library/user-event';
 import { store } from 'store/store';
@@ -23,6 +23,10 @@ function getBasketProduct() {
   return store.getState().basket.products[0];
 }
 
+function getWishlistProduct() {
+  return store.getState().wishlist.products[0];
+}
+
 describe('', () => {
   it('renders the Card component correctly', () => {
     renderCard();
@@ -42,5 +46,17 @@ describe('', () => {
 
     expect(basketProduct.id).toBe(id);
     expect(basketProduct.quantity).toBe(2);
+  });
+
+  it('adds product to the wishlist correctly', async () => {
+    renderCard();
+
+    const addToWishlistBtn = screen.getByText('Add this item to the wishlist');
+
+    await user.click(addToWishlistBtn);
+
+    const wishlistProduct = getWishlistProduct();
+
+    expect(wishlistProduct).toBe(id);
   });
 });
