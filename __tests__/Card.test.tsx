@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import userEvent from '@testing-library/user-event';
 import { store } from 'store/store';
@@ -8,8 +8,6 @@ import Card from 'components/elements/Card/Card';
 
 const plants = plantsData;
 const { id, name, image, price, description } = plants[0];
-
-const basket = store.getState().basket.products;
 
 const user = userEvent.setup();
 
@@ -21,6 +19,10 @@ function renderCard() {
   );
 }
 
+function getBasketProduct() {
+  return store.getState().basket.products[0];
+}
+
 describe('', () => {
   it('renders the Card component correctly', () => {
     renderCard();
@@ -28,11 +30,17 @@ describe('', () => {
     expect(screen.getByText(name)).toBeInTheDocument();
   });
 
-  it('adds product to the basket correctly', () => {
+  it('adds product to the basket correctly', async () => {
     renderCard();
 
-    const addToBasketBtn = screen.getByTestId('basket');
+    const addToBasketBtn = screen.getByText('Add to basket');
 
-    user.click(addToBasketBtn);
+    await user.click(addToBasketBtn);
+    await user.click(addToBasketBtn);
+
+    const basketProduct = getBasketProduct();
+
+    expect(basketProduct.id).toBe(id);
+    expect(basketProduct.quantity).toBe(2);
   });
 });
