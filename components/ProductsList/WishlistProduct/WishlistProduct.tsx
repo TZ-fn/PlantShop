@@ -16,7 +16,7 @@ export default function WishlistProduct({
   price,
 }: WishlistProductProps): ReactElement {
   const dispatch = useDispatch();
-  const handleRemovingFromFavourites = (id: string | undefined) => {
+  const handleRemovingFromWishlist = (id: string | undefined) => {
     if (id !== undefined) {
       dispatch(removeFromWishlist(id));
     }
@@ -33,7 +33,7 @@ export default function WishlistProduct({
         type='button'
         className={styles.removeButton}
         data-id={id}
-        onClick={(e) => handleRemovingFromFavourites(e.currentTarget.dataset.id)}
+        onClick={(e) => handleRemovingFromWishlist(e.currentTarget.dataset.id)}
       >
         <span className='visually-hidden'>Remove item from the wishlist</span>
         <Image src={BinIcon.src} width={'40px'} height={'40px'} alt='' layout='fixed' />

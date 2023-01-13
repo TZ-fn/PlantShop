@@ -5,24 +5,21 @@ import { RootState } from 'store/store';
 import { addToWishlist, removeFromWishlist } from 'features/wishlist/wishlistSlice';
 import Button from '../Button/Button';
 import { Product } from 'types/types';
-import styles from './FavouritesButton.module.scss';
+import styles from './WishlistButton.module.scss';
 
-interface FavouritesButtonProps {
+interface WishlistButtonProps {
   id: string;
   isBlockButton: boolean;
 }
 
-export default function FavouritesButton({
-  id,
-  isBlockButton,
-}: FavouritesButtonProps): ReactElement {
+export default function WishlistButton({ id, isBlockButton }: WishlistButtonProps): ReactElement {
   const dispatch = useDispatch();
   const wishlistItems = useSelector((state: RootState) => state.wishlist.products);
 
   const isWishlisted =
     wishlistItems.find((productID: Product['id']) => productID === id) !== undefined;
 
-  function handleAddingToFavourites(e: MouseEvent<HTMLDivElement>) {
+  function handleAddingToWishlist(e: MouseEvent<HTMLDivElement>) {
     e.stopPropagation();
     if (e.currentTarget.dataset.id) {
       if (!isWishlisted) {
@@ -34,14 +31,10 @@ export default function FavouritesButton({
   }
 
   return (
-    <div
-      className={styles.buttonContainer}
-      data-id={id}
-      onClick={(e) => handleAddingToFavourites(e)}
-    >
+    <div className={styles.buttonContainer} data-id={id} onClick={(e) => handleAddingToWishlist(e)}>
       <Button
         className={isBlockButton === false ? styles.innerButtonIcon : styles.innerButtonBlock}
-        aria-label='Add this product to favourites'
+        aria-label='Add this product to wishlist'
         type='button'
       >
         {isWishlisted ? (

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { addToBasket } from 'features/basket/basketSlice';
 import { formatCurrency } from 'utils/formatCurrency';
-import FavouritesButton from '../FavouritesButton/FavouritesButton';
+import WishlistButton from '../WishlistButton/WishlistButton';
 import RatingSystem from '../RatingSystem/RatingSystem';
 import { Plant } from 'types/types';
 import styles from './Card.module.scss';
@@ -39,7 +39,7 @@ export default function Card({
           </div>
           <div className={styles.cardBack}>
             <RatingSystem id={id} orientation='Horizontal' rating={rating} />
-            <FavouritesButton id={id} isBlockButton={false} />
+            <WishlistButton id={id} isBlockButton={false} />
             <h3 className={styles.descriptionHeader}>About this plant:</h3>
             <p className={styles.description}>{description}</p>
             <p className={styles.priceContainer}>Price: {formatCurrency(price)}</p>
