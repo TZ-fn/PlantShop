@@ -42,7 +42,7 @@ export default function Header(): ReactElement {
               ) : (
                 <Image src='/icons/wishlistIcon.svg' width={40} height={40} />
               )}
-              WishList
+              Wishlist
             </a>
           </Link>
           <Link href={'/basket'}>
