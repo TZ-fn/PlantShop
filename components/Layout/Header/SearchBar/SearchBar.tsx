@@ -2,7 +2,7 @@ import { ChangeEvent, MouseEvent, ReactElement, useState } from 'react';
 import styles from './SearchBar.module.scss';
 
 export default function SearchBar(): ReactElement {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState<string>('');
 
   function handleSearchBar(e: ChangeEvent<HTMLInputElement>) {
     setSearchValue(e.target.value);
