@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { changeQuantity, removeFromBasket } from 'features/basket/basketSlice';
 import { ProductProps } from 'types/types';
 import ProductMiniature from 'components/elements/ProductMiniature/ProductMiniature';
-import { formatCurrency } from 'utils/formatCurrency';
+import formatCurrency from 'utils/formatCurrency';
 import styles from './Product.module.scss';
 
 export default function Product({

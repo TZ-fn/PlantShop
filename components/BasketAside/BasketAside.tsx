@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import Link from 'next/link';
-import { formatCurrency } from 'utils/formatCurrency';
+import formatCurrency from 'utils/formatCurrency';
 import styles from './BasketAside.module.scss';
 
 interface BasketAsideProps {

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { removeFromWishlist } from 'features/wishlist/wishlistSlice';
 import BinIcon from 'public/icons/binIcon.svg';
 import ProductMiniature from 'components/elements/ProductMiniature/ProductMiniature';
-import { formatCurrency } from 'utils/formatCurrency';
+import formatCurrency from 'utils/formatCurrency';
 import { WishlistProductProps } from 'types/types';
 import styles from './WishlistProduct.module.scss';
 

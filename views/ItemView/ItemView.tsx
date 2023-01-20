@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import Image from 'next/image';
 import { addToBasket } from 'features/basket/basketSlice';
 import { Plant } from 'types/types';
-import { formatCurrency } from 'utils/formatCurrency';
+import formatCurrency from 'utils/formatCurrency';
 import addToBasketIcon from 'public/icons/addToBasketIcon.svg';
 import WishlistButton from 'components/elements/WishlistButton/WishlistButton';
 import ItemGallery from 'components/ItemGallery/ItemGallery';
