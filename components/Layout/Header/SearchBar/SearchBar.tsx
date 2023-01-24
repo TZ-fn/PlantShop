@@ -1,5 +1,6 @@
 import { ChangeEvent, MouseEvent, KeyboardEvent, ReactElement, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
+import Link from 'next/link';
 import { RootState } from 'store/store';
 import { PlantsData } from 'types/types';
 import styles from './SearchBar.module.scss';
@@ -21,7 +22,7 @@ export default function SearchBar(): ReactElement {
 
   function handleSearchBar(e: ChangeEvent<HTMLInputElement>) {
     setSearchValue(e.target.value);
-    console.log(searchPlans(plants, e.target.value));
+    setFilteredSuggestions(searchPlans(plants, e.target.value));
   }
 
   const resetTheSearch = () => {
@@ -38,7 +39,7 @@ export default function SearchBar(): ReactElement {
     setSearchValue('');
     setShowSuggestions(false);
     setWasArrowDownPressedAlready(false);
-    // router.push(`/country/${searchValue}`);
+    // router.push(`/product/${searchValue}`);
   };
 
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -80,7 +81,7 @@ export default function SearchBar(): ReactElement {
       setSearchValue('');
       setShowSuggestions(false);
       setWasArrowDownPressedAlready(false);
-      // router.push(`/country/${searchValue}`);
+      // router.push(`/product/${searchValue}`);
     }
   };
 
@@ -93,7 +94,7 @@ export default function SearchBar(): ReactElement {
         onChange={handleSearchBar}
         value={searchValue}
         onKeyDown={(e) => handleKeyPress(e)}
-        onBlur={() => setTimeout(() => setShowSuggestions(false), 300)}
+        // onBlur={() => setTimeout(() => setShowSuggestions(false), 300)}
         onFocus={() => setShowSuggestions(true)}
         autoComplete='off'
       />
@@ -101,34 +102,36 @@ export default function SearchBar(): ReactElement {
         Search
       </button>
       {searchValue?.length > 0 && showSuggestions === true ? (
-        <ul className='styles.autoSuggestionsContainer'>
+        <ul className={styles.autoSuggestionsContainer}>
           {(() => {
             switch (true) {
               case searchValue.length === 1:
                 return (
-                  <li className={styles.autoSuggestionItem} key='inputValueTooShort' isActive>
+                  <li className={styles.autoSuggestionItemActive} key='inputValueTooShort'>
                     Please enter at least 2 letters...
                   </li>
                 );
               case filteredSuggestions.length === 0:
                 return (
-                  <li className={styles.autoSuggestionItem} key='NoResults' isActive>
+                  <li className={styles.autoSuggestionItemActive} key='NoResults'>
                     No results found...
                   </li>
                 );
               default:
-                return filteredSuggestions.map((country: string, index) => {
+                return filteredSuggestions.map((plant: string, index) => {
                   let isActive = false;
                   if (index === activeSuggestionIndex) {
                     isActive = true;
                   }
                   return (
                     <li
-                      className={styles.autoSuggestionItem}
+                      className={
+                        isActive ? styles.autoSuggestionItemActive : styles.autoSuggestionItem
+                      }
                       onClick={() => resetTheSearch()}
-                      key={country}
+                      key={plant}
                     >
-                      <Link href={`/country/${country.toLocaleLowerCase()}`}>{country}</Link>
+                      <Link href={`/product/${plant.toLocaleLowerCase()}`}>{plant}</Link>
                     </li>
                   );
                 });
