@@ -1,4 +1,5 @@
 .searchContainer {
+  position: relative;
   width: 25%;
   min-width: 18.5rem;
   display: flex;
@@ -36,4 +37,33 @@
   @media (width < 430px) {
     padding: 0.25rem 0.5rem;
   }
+}
+
+.autoSuggestionsContainer {
+  position: absolute;
+  width: calc(100% - 5.25rem);
+  left: 0;
+  top: 101%;
+  z-index: 2;
+  padding: 0;
+  list-style: none;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+@mixin autoSuggestionItem {
+  padding: 0.3rem 0.6rem;
+  font-size: 1.3rem;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+}
+
+.autoSuggestionItem {
+  @include autoSuggestionItem();
+}
+
+.autoSuggestionItemActive {
+  @include autoSuggestionItem();
+  border: 2px solid var(--accent-color);
 }
