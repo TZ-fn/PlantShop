@@ -22,6 +22,7 @@ export default function SearchBar(): ReactElement {
 
   function handleSearchBar(e: ChangeEvent<HTMLInputElement>) {
     setSearchValue(e.target.value);
+    savedSearchValue.current = e.target.value;
     setFilteredSuggestions(searchPlans(plants, e.target.value));
   }
 
