@@ -8,7 +8,7 @@ import styles from './SearchBar.module.scss';
 export default function SearchBar(): ReactElement {
   const plants = useSelector((state: RootState) => state.plants.plantsData);
   const [searchValue, setSearchValue] = useState<string>('');
-  const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
+  const [activeSuggestionIndex, setActiveSuggestionIndex] = useState<null | number>(null);
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [wasArrowDownPressedAlready, setWasArrowDownPressedAlready] = useState(false);
@@ -86,6 +86,12 @@ export default function SearchBar(): ReactElement {
     }
   };
 
+  const handleSuggestionHover = (e: MouseEvent<HTMLAnchorElement>) => {
+    setActiveSuggestionIndex(
+      filteredSuggestions.indexOf((e.target as HTMLAnchorElement).innerHTML),
+    );
+  };
+
   return (
     <div className={styles.searchContainer}>
       <input
@@ -95,7 +101,7 @@ export default function SearchBar(): ReactElement {
         onChange={handleSearchBar}
         value={searchValue}
         onKeyDown={(e) => handleKeyPress(e)}
-        // onBlur={() => setTimeout(() => setShowSuggestions(false), 300)}
+        onBlur={() => setTimeout(() => setShowSuggestions(false), 500)}
         onFocus={() => setShowSuggestions(true)}
         autoComplete='off'
       />
@@ -108,13 +114,13 @@ export default function SearchBar(): ReactElement {
             switch (true) {
               case searchValue.length === 1:
                 return (
-                  <li className={styles.autoSuggestionItemActive} key='inputValueTooShort'>
+                  <li className={styles.autoSuggestionItemError} key='inputValueTooShort'>
                     Please enter at least 2 letters...
                   </li>
                 );
               case filteredSuggestions.length === 0:
                 return (
-                  <li className={styles.autoSuggestionItemActive} key='NoResults'>
+                  <li className={styles.autoSuggestionItemError} key='NoResults'>
                     No results found...
                   </li>
                 );
@@ -129,10 +135,14 @@ export default function SearchBar(): ReactElement {
                       className={
                         isActive ? styles.autoSuggestionItemActive : styles.autoSuggestionItem
                       }
-                      onClick={() => resetTheSearch()}
+                      onClick={resetTheSearch}
                       key={plant}
                     >
-                      <Link href={`/product/${plant.toLocaleLowerCase()}`}>{plant}</Link>
+                      <Link href={`/product/${plant.toLocaleLowerCase()}`}>
+                        <a className={styles.innerLink} href='' onMouseOver={handleSuggestionHover}>
+                          {plant}
+                        </a>
+                      </Link>
                     </li>
                   );
                 });
