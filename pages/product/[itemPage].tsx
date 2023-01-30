@@ -16,10 +16,18 @@ const ItemPage: NextPage = () => {
       if (product !== undefined && typeof product !== 'object') {
         return plant.name === capitalize(product);
       }
-    })[0];
+    });
   }
 
-  return currentPlant ? <ItemView {...currentPlant} /> : <LoadingSpinner />;
+  if (currentPlant && currentPlant?.length === 0) {
+    return <p>Product not found...</p>;
+  }
+
+  return currentPlant && currentPlant[0] !== undefined ? (
+    <ItemView {...currentPlant[0]} />
+  ) : (
+    <LoadingSpinner />
+  );
 };
 
 export default ItemPage;
