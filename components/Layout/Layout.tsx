@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updatePlantsData } from 'features/plants/plantsSlice';
 import { PlantsData } from 'types/types';
@@ -13,9 +13,13 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const dispatch = useDispatch();
   const [data, isLoading, error] = useFetch('/api/plants');
-  dispatch(updatePlantsData(data as PlantsData));
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updatePlantsData(data as PlantsData));
+  }, [data]);
+
   return (
     <div className={styles.layoutWrapper}>
       <HeadElement />
