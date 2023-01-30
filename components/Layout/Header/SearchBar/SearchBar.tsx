@@ -1,5 +1,6 @@
 import { ChangeEvent, MouseEvent, KeyboardEvent, ReactElement, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { RootState } from 'store/store';
 import { PlantsData } from 'types/types';
@@ -13,6 +14,7 @@ export default function SearchBar(): ReactElement {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [wasArrowDownPressedAlready, setWasArrowDownPressedAlready] = useState(false);
   const savedSearchValue = useRef(searchValue);
+  const router = useRouter();
 
   function searchPlans(plants: PlantsData, query: string) {
     return plants
@@ -40,7 +42,7 @@ export default function SearchBar(): ReactElement {
     setSearchValue('');
     setShowSuggestions(false);
     setWasArrowDownPressedAlready(false);
-    // router.push(`/product/${searchValue}`);
+    router.push(`/product/${searchValue}`);
   };
 
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -82,7 +84,7 @@ export default function SearchBar(): ReactElement {
       setSearchValue('');
       setShowSuggestions(false);
       setWasArrowDownPressedAlready(false);
-      // router.push(`/product/${searchValue}`);
+      router.push(`/product/${searchValue}`);
     }
   };
 
