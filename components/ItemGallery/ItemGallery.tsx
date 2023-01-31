@@ -41,7 +41,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
         (photo: UnsplashPhoto) => photo.urls.regular === currentPhotoURL,
       );
     }
-    let newIndex = currentIndex + indexChange;
+    const newIndex = currentIndex + indexChange;
     setImageIndex(newIndex);
     if (newIndex >= 0 && newIndex <= (galleryData as UnsplashPhotoResults)?.results?.length - 1) {
       setImageID((galleryData as UnsplashPhotoResults).results[newIndex].urls.regular);
