@@ -57,7 +57,7 @@ export default function SearchBar(): ReactElement {
       if (!wasArrowDownPressedAlready) {
         setSearchValue(filteredSuggestions[0]);
         setWasArrowDownPressedAlready(true);
-      } else {
+      } else if (activeSuggestionIndex !== null) {
         setActiveSuggestionIndex(activeSuggestionIndex + 1);
         setSearchValue(filteredSuggestions[activeSuggestionIndex + 1]);
       }
@@ -70,8 +70,10 @@ export default function SearchBar(): ReactElement {
         setWasArrowDownPressedAlready(false);
         return;
       }
-      setActiveSuggestionIndex(activeSuggestionIndex - 1);
-      setSearchValue(filteredSuggestions[activeSuggestionIndex - 1]);
+      if (activeSuggestionIndex !== null) {
+        setActiveSuggestionIndex(activeSuggestionIndex - 1);
+        setSearchValue(filteredSuggestions[activeSuggestionIndex - 1]);
+      }
     }
 
     if (e.key === 'Enter') {
