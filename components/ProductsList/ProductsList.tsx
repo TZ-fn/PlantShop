@@ -1,8 +1,8 @@
-import { ReactElement } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import styles from './ProductsList.module.scss';
 
 interface ProductsListProps {
-  children: JSX.IntrinsicElements['li'] | Array<JSX.IntrinsicElements['li']>;
+  children: ReactNode;
 }
 
 export default function ProductsList({ children }: ProductsListProps): ReactElement {
