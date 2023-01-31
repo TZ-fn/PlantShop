@@ -48,7 +48,7 @@ export default function LoginForm(): ReactElement {
         });
         router.push('/');
       } else {
-        toast.error(response.message, {
+        toast.error(`${response.message}`, {
           position: toast.POSITION.TOP_RIGHT,
         });
         setLoginPageValues({
