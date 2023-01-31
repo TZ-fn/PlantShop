@@ -52,30 +52,6 @@ export default function LoginForm(): ReactElement {
           position: toast.POSITION.TOP_RIGHT,
         });
         setLoginPageValues({
-          email: loginPageValues.email,
-          password: { value: '', wasTouched: false },
-        });
-      }
-    }
-  }, [response]);
-
-  useEffect(() => {
-    if (response !== null && 'success' in response) {
-      if (response.success === true) {
-        toast.success('Login successful!', {
-          position: toast.POSITION.TOP_RIGHT,
-        });
-        dispatch(updateAuthorisationStatus(true));
-        setLoginPageValues({
-          email: { value: '', wasTouched: false },
-          password: { value: '', wasTouched: false },
-        });
-        router.push('/');
-      } else {
-        toast.error(response.message, {
-          position: toast.POSITION.TOP_RIGHT,
-        });
-        setLoginPageValues({
           email: { value: loginPageValues.email.value, wasTouched: true },
           password: { value: '', wasTouched: false },
         });
