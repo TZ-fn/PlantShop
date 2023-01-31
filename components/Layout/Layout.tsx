@@ -13,7 +13,7 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const [data, isLoading, error] = useFetch('/api/plants');
+  const [data] = useFetch('/api/plants');
   const dispatch = useDispatch();
 
   useEffect(() => {
