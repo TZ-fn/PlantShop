@@ -31,7 +31,7 @@ export default function FormLabel({ type }: FormLabelProps): ReactElement {
       )}
       {type === 'no-match-password' && (
         <>
-          <p>Passwords you have entered aren't matching.</p>
+          <p>Passwords you have entered aren&apos;t matching.</p>
           <div className={styles.iconContainer}>
             <Image src={InfoIcon.src} layout='fixed' height={40} width={40} />
           </div>
