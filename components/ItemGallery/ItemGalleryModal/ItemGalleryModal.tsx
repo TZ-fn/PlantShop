@@ -5,7 +5,7 @@ import styles from './ItemGalleryModal.module.scss';
 interface ItemGalleryModalProps {
   imageID: string;
   clickHandler: (e: MouseEvent<HTMLButtonElement>) => void;
-  modalImageChanger: Function;
+  modalImageChanger: (direction: string, currentPhotoURL: string) => void;
   whichButtonToDisable: number;
 }
 
