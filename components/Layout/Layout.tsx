@@ -18,7 +18,7 @@ export default function Layout({ children }: LayoutProps) {
 
   useEffect(() => {
     dispatch(updatePlantsData(data as PlantsData));
-  }, [data]);
+  }, [dispatch, data]);
 
   return (
     <div className={styles.layoutWrapper}>
