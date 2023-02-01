@@ -14,7 +14,7 @@ export default function FormLabel({ type }: FormLabelProps): ReactElement {
         <>
           <p>Please enter a valid e-mail address.</p>
           <div className={styles.iconContainer}>
-            <Image src={InfoIcon.src} layout='fixed' height={40} width={40} />
+            <Image src={InfoIcon.src} layout='fixed' height={40} width={40} alt='' />
           </div>
         </>
       )}
@@ -25,7 +25,7 @@ export default function FormLabel({ type }: FormLabelProps): ReactElement {
             1 uppercase latter and 1 number.
           </p>
           <div className={styles.iconContainer}>
-            <Image src={InfoIcon.src} layout='fixed' height={40} width={40} />
+            <Image src={InfoIcon.src} layout='fixed' height={40} width={40} alt='' />
           </div>
         </>
       )}
@@ -33,7 +33,7 @@ export default function FormLabel({ type }: FormLabelProps): ReactElement {
         <>
           <p>Passwords you have entered aren&apos;t matching.</p>
           <div className={styles.iconContainer}>
-            <Image src={InfoIcon.src} layout='fixed' height={40} width={40} />
+            <Image src={InfoIcon.src} layout='fixed' height={40} width={40} alt='' />
           </div>
         </>
       )}

@@ -48,6 +48,7 @@ export default function Input({
             layout='fixed'
             height={33}
             width={33}
+            alt=''
           />
         </div>
       )}

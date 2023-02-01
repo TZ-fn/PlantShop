@@ -10,7 +10,13 @@ export default function Footer() {
         <Link href={'/'}>
           <div className={styles.logoContainer}>
             <div className={styles.logoInnerContainer}>
-              <Image src='/mainLogo.svg' width={50} height={50} layout='responsive' />
+              <Image
+                src='/mainLogo.svg'
+                width={50}
+                height={50}
+                layout='responsive'
+                alt='PlantShop logo'
+              />
             </div>
             <h1 className={styles.logoText}>PlantShop</h1>
           </div>

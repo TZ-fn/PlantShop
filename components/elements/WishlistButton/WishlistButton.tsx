@@ -43,7 +43,7 @@ export default function WishlistButton({ id, isBlockButton }: WishlistButtonProp
               Remove this item from the wishlist
             </span>
             <div className={styles.wishlistIconContainer}>
-              <Image src='/icons/wishlistIcon.svg' width={50} height={50} />
+              <Image src='/icons/wishlistIcon.svg' width={50} height={50} alt='' />
             </div>
           </span>
         ) : (
@@ -52,7 +52,7 @@ export default function WishlistButton({ id, isBlockButton }: WishlistButtonProp
               Add this item to the wishlist
             </span>
             <div className={styles.wishlistIconContainer}>
-              <Image src='/icons/wishlistIconEmpty.svg' width={50} height={50} />
+              <Image src='/icons/wishlistIconEmpty.svg' width={50} height={50} alt='' />
             </div>
           </span>
         )}

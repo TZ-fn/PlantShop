@@ -21,7 +21,13 @@ export default function Header(): ReactElement {
         <Link href={'/'}>
           <div className={styles.logoContainer}>
             <div className={styles.innerLogoContainer}>
-              <Image src='/mainLogo.svg' width={100} height={100} layout='responsive' />
+              <Image
+                src='/mainLogo.svg'
+                width={100}
+                height={100}
+                layout='responsive'
+                alt='PlantShop logo'
+              />
             </div>
             <h1 className={styles.logoText}>PlantShop</h1>
           </div>
@@ -38,9 +44,9 @@ export default function Header(): ReactElement {
                 <ProductCountBadge quantity={productsInWishlist} type='wishlist' />
               )}
               {wishlist.length === 0 ? (
-                <Image src='/icons/wishlistIconEmpty.svg' width={40} height={40} />
+                <Image src='/icons/wishlistIconEmpty.svg' width={40} height={40} alt='' />
               ) : (
-                <Image src='/icons/wishlistIcon.svg' width={40} height={40} />
+                <Image src='/icons/wishlistIcon.svg' width={40} height={40} alt='' />
               )}
               Wishlist
             </a>
@@ -51,9 +57,9 @@ export default function Header(): ReactElement {
                 <ProductCountBadge quantity={productsInBasket} type='basket' />
               )}
               {basket.length === 0 ? (
-                <Image src='/icons/emptyBasketIcon.svg' width={40} height={40} />
+                <Image src='/icons/emptyBasketIcon.svg' width={40} height={40} alt='' />
               ) : (
-                <Image src='/icons/fullBasketIcon.svg' width={40} height={40} />
+                <Image src='/icons/fullBasketIcon.svg' width={40} height={40} alt='' />
               )}
               Basket
             </a>
@@ -61,14 +67,14 @@ export default function Header(): ReactElement {
           {isUserAuthorised ? (
             <Link href={'/account'}>
               <a className={styles.controlItem}>
-                <Image src='/icons/accountIcon.svg' width={40} height={40} />
+                <Image src='/icons/accountIcon.svg' width={40} height={40} alt='' />
                 Account
               </a>
             </Link>
           ) : (
             <Link href={'/login'}>
               <a className={styles.controlItem}>
-                <Image src='/icons/loginIcon.svg' width={40} height={40} />
+                <Image src='/icons/loginIcon.svg' width={40} height={40} alt='' />
                 Login
               </a>
             </Link>

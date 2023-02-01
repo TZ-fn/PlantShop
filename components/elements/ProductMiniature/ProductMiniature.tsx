@@ -9,7 +9,7 @@ interface ProductMiniatureProps {
 export default function ProductMiniature({ source }: ProductMiniatureProps): ReactElement {
   return (
     <div className={styles.miniatureContainer}>
-      <Image src={source} height={96} width={80} />
+      <Image src={source} height={96} width={80} alt='Miniature image of the plant' />
     </div>
   );
 }
