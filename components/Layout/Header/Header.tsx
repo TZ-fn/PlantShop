@@ -18,7 +18,7 @@ export default function Header(): ReactElement {
   return (
     <header>
       <div className={styles.headerContainer}>
-        <Link href={'/'}>
+        <Link href={'/'} passHref>
           <div className={styles.logoContainer}>
             <div className={styles.innerLogoContainer}>
               <Image

@@ -16,7 +16,7 @@ export default function BasketAside({ basketTotal }: BasketAsideProps): ReactEle
       <button type='button' className={styles.checkoutButton}>
         Checkout and pay
       </button>
-      <Link href={'/products'}>
+      <Link href={'/products'} passHref>
         <button type='button' className={styles.continueButton}>
           Continue shopping
         </button>

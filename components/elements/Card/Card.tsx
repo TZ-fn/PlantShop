@@ -28,7 +28,7 @@ export default function Card({
 
   return (
     <div className={styles.cardWrapper}>
-      <Link href={`product/${name.toLocaleLowerCase()}`}>
+      <Link href={`product/${name.toLocaleLowerCase()}`} passHref>
         <div className={styles.cardContent}>
           <div className={styles.cardFront}>
             <p className={styles.name}>{name}</p>

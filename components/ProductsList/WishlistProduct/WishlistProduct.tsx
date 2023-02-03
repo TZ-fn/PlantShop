@@ -25,7 +25,7 @@ export default function WishlistProduct({
   return (
     <li className={styles.productContainer}>
       <ProductMiniature source={image} />
-      <Link href={`product/${name.toLocaleLowerCase()}`}>
+      <Link href={`product/${name.toLocaleLowerCase()}`} passHref>
         <p className={styles.productName}>{name}</p>
       </Link>
       <p className={styles.price}>Price: {formatCurrency(price)}</p>

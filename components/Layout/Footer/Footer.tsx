@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer>
       <div className={styles.footerContainer}>
-        <Link href={'/'}>
+        <Link href={'/'} passHref>
           <div className={styles.logoContainer}>
             <div className={styles.logoInnerContainer}>
               <Image

@@ -49,7 +49,7 @@ export default function Product({
   return (
     <li className={isInBasket ? styles.basketProductContainer : styles.productContainer}>
       <ProductMiniature source={image} />
-      <Link href={`product/${name.toLocaleLowerCase()}`}>
+      <Link href={`product/${name.toLocaleLowerCase()}`} passHref>
         <p className={styles.productName}>{name}</p>
       </Link>
       {isInBasket && (
