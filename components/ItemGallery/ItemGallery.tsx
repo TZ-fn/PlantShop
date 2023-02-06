@@ -30,6 +30,10 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
         );
       }
     }
+
+    document.body.classList.toggle('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     return setIsGalleryOpened(!isGalleryOpened);
   }
 
