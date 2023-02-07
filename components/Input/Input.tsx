@@ -42,15 +42,15 @@ export default function Input({
         autoComplete={type === 'password' ? 'off' : 'on'}
       />
       {type === 'password' && (
-        <div className={styles.imageContainer} onClick={handleShowPasswordButton}>
+        <button className={styles.imageButton} onClick={handleShowPasswordButton}>
           <Image
             src={isPasswordVisible ? EyeIcon.src : DisabledEyeIcon.src}
             layout='fixed'
             height={33}
             width={33}
-            alt=''
+            alt={isPasswordVisible ? 'Hide password icon' : 'Show password icon'}
           />
-        </div>
+        </button>
       )}
     </div>
   );
