@@ -18,23 +18,23 @@ describe('test the ItemGallery component', () => {
     }),
   ) as jest.Mock;
 
-  async function renderItemGallery() {
+  function renderItemGallery() {
     render(
       <Provider store={store}>
         <ItemGallery name={name} />
       </Provider>,
     );
+  }
 
+  async function openGalleryModal(imageToBeClicked) {
     const allImages = await screen.findAllByRole('img');
-    const firstImage = allImages[0];
-    const lastImage = allImages.at(-1);
 
-    await user.click(firstImage);
+    await user.click(allImages[imageToBeClicked]);
 
     const nextPhotoBtn = await screen.findByRole('button', { name: />>/i });
     const prevPhotoBtn = await screen.findByRole('button', { name: /<</i });
 
-    return { firstImage, lastImage, nextPhotoBtn, prevPhotoBtn };
+    return { nextPhotoBtn, prevPhotoBtn };
   }
 
   // replace the window.scrollTo() function by a mock to remove Jest errors
@@ -46,7 +46,8 @@ describe('test the ItemGallery component', () => {
   });
 
   it('modal works correctly', async () => {
-    const { firstImage, nextPhotoBtn, prevPhotoBtn } = await renderItemGallery();
+    renderItemGallery();
+    const { nextPhotoBtn, prevPhotoBtn } = await openGalleryModal(0);
 
     // look for modal navigation's buttons
     expect(nextPhotoBtn).toBeInTheDocument();
@@ -57,10 +58,10 @@ describe('test the ItemGallery component', () => {
   });
 
   it('disables the "Next image" button if the last image was clicked', async () => {
-    const { lastImage, nextPhotoBtn } = await renderItemGallery();
+    renderItemGallery();
+    const { nextPhotoBtn } = await openGalleryModal(8);
 
-    await user.click(lastImage!);
-
+    // check if the "Next image" button is disabled, as the last image was clicked"
     expect(nextPhotoBtn).toBeDisabled();
   });
 });
