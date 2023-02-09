@@ -3,7 +3,7 @@ import styles from './ProductCountBadge.module.scss';
 
 interface ProductCountBadgeProps {
   quantity: number;
-  type: string;
+  type: 'wishlist' | 'basket';
 }
 
 export default function ProductCountBadge({
