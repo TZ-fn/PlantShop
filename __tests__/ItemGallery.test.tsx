@@ -33,8 +33,9 @@ describe('test the ItemGallery component', () => {
 
     const nextPhotoBtn = await screen.findByRole('button', { name: />>/i });
     const prevPhotoBtn = await screen.findByRole('button', { name: /<</i });
+    const closeModalBtn = await screen.findByText(/×/i);
 
-    return { nextPhotoBtn, prevPhotoBtn };
+    return { nextPhotoBtn, prevPhotoBtn, closeModalBtn };
   }
 
   // replace the window.scrollTo() function by a mock to remove Jest errors
@@ -49,7 +50,7 @@ describe('test the ItemGallery component', () => {
     renderItemGallery();
     const { nextPhotoBtn, prevPhotoBtn } = await openGalleryModal(0);
 
-    // look for modal navigation's buttons
+    // look for modal navigation's buttons to check if the modal is open
     expect(nextPhotoBtn).toBeInTheDocument();
     expect(prevPhotoBtn).toBeInTheDocument();
 
@@ -63,5 +64,14 @@ describe('test the ItemGallery component', () => {
 
     // check if the "Next image" button is disabled, as the last image was clicked"
     expect(nextPhotoBtn).toBeDisabled();
+  });
+
+  it('closes the modal correctly', async () => {
+    renderItemGallery();
+    const { nextPhotoBtn, closeModalBtn } = await openGalleryModal(0);
+    user.click(closeModalBtn);
+
+    // check if the "Next image" button is not in the document, as the modal should be closed"
+    expect(nextPhotoBtn).not.toBeInTheDocument;
   });
 });
