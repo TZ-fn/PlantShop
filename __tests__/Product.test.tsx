@@ -44,27 +44,27 @@ describe('test the Product component', () => {
     expect(itemCount).toHaveValue(1);
   });
 
-  it("increments product's quantity correctly", async () => {
+  it("increments product's quantity in the basket correctly", async () => {
     renderProduct();
     await user.click(incrementButton);
     await user.click(incrementButton);
     expect(itemCount).toHaveValue(3);
   });
 
-  it("decrements product's quantity correctly", async () => {
+  it("decrements product's quantity in the basket correctly", async () => {
     renderProduct();
     await user.click(decrementButton);
     expect(itemCount).toHaveValue(0);
   });
 
-  it("changes product's quantity correctly", async () => {
+  it("changes product's quantity in the basket correctly", async () => {
     renderProduct();
     await user.click(itemCount);
     await user.keyboard('2');
     expect(itemCount).toHaveValue(12);
   });
 
-  it('deletes the product correctly', async () => {
+  it('deletes the product from the basket correctly', async () => {
     renderProduct();
     await user.click(deleteButton);
     waitFor(() => expect(screen.getByText('Your basket is empty.')).toBeInTheDocument());
