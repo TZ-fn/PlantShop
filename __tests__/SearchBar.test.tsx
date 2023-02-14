@@ -57,4 +57,18 @@ describe('test SearchBar', () => {
     // look for "no items found" error
     expect(await screen.findByText(/No results found.../)).toBeInTheDocument();
   });
+
+  it('handles key presses correctly', async () => {
+    const { searchInput } = renderSearchBar();
+
+    await user.type(searchInput, 'ca');
+
+    // pressing arrow down should set the input value to the first autocomplete option
+    await user.type(searchInput, '{arrowDown}');
+    expect(searchInput).toHaveValue('Zamioculcas');
+
+    // pressing arrow down second time should set the input value to the second autocomplete option
+    await user.type(searchInput, '{arrowDown}');
+    expect(searchInput).toHaveValue('Dracaena');
+  });
 });
