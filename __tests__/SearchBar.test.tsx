@@ -70,5 +70,10 @@ describe('test SearchBar', () => {
     // pressing arrow down second time should set the input value to the second autocomplete option
     await user.type(searchInput, '{arrowDown}');
     expect(searchInput).toHaveValue('Dracaena');
+
+    // pressing arrow up two times should set the input value to the original inputted text
+    await user.type(searchInput, '{arrowUp}');
+    await user.type(searchInput, '{arrowUp}');
+    expect(searchInput).toHaveValue('ca');
   });
 });
