@@ -47,15 +47,16 @@ export default function SearchBar(): ReactElement {
 
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'ArrowDown') {
+      e.preventDefault();
       if (!searchValue.trim()) {
         return;
       }
-      e.preventDefault();
       if (wasArrowDownPressedAlready && activeSuggestionIndex === filteredSuggestions.length - 1) {
         return;
       }
       if (!wasArrowDownPressedAlready) {
         setSearchValue(filteredSuggestions[0]);
+        setActiveSuggestionIndex(0);
         setWasArrowDownPressedAlready(true);
       } else if (activeSuggestionIndex !== null) {
         setActiveSuggestionIndex(activeSuggestionIndex + 1);
