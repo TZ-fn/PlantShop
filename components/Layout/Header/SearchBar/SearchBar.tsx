@@ -42,7 +42,7 @@ export default function SearchBar(): ReactElement {
     setSearchValue('');
     setShowSuggestions(false);
     setWasArrowDownPressedAlready(false);
-    router.push(`/product/${searchValue}`);
+    router.push(`/product/${searchValue.toLocaleLowerCase()}`);
   };
 
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
