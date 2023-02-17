@@ -51,7 +51,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
       setImageID((galleryData as UnsplashPhotoResults).results[newIndex].urls.regular);
     }
   }
-
+  console.log(galleryData);
   return (
     <div className={styles.itemGalleryContainer}>
       {isGalleryOpened && (
@@ -62,9 +62,10 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
           whichButtonToDisable={imageIndex}
         />
       )}
-      {galleryData ? (
-        (((galleryData as UnsplashPhotoResults).results.length = 9),
-        (galleryData as UnsplashPhotoResults).results.map(({ id, urls }: UnsplashPhoto) => {
+
+      {galleryData && 'results' in galleryData && galleryData.results ? (
+        ((galleryData.results.length = 9),
+        galleryData.results.map(({ id, urls }: UnsplashPhoto) => {
           return (
             <ItemGalleryElement
               key={id}
