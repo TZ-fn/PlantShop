@@ -53,6 +53,7 @@
 
 .galleryContainer {
   align-self: stretch;
+  flex-grow: 1;
 
   @media (width < 1010px) {
     align-self: unset;
