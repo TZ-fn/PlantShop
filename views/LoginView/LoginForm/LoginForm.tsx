@@ -7,6 +7,7 @@ import { useFetch } from 'hooks/useFetch';
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import styles from './LoginForm.module.scss';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 
 export default function LoginForm(): ReactElement {
   const [loginPageValues, setLoginPageValues] = useState({
@@ -16,6 +17,7 @@ export default function LoginForm(): ReactElement {
 
   const dispatch = useDispatch();
   const router = useRouter();
+  const { data: session, status } = useSession();
 
   useEffect(() => {}, [loginPageValues.email, loginPageValues.password]);
 
