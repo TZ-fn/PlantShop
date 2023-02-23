@@ -59,10 +59,6 @@ export default function LoginForm(): ReactElement {
     }
   }, [response]);
 
-  // useEffect(() => {
-  //   console.log(error);
-  // }, [isLoading, error]);
-
   function authenticateUser() {
     if (!loginPageValues.email.value || !loginPageValues.password.value) {
       return;
