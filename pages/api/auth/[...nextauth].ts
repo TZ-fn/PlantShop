@@ -15,12 +15,12 @@ export const authOptions = {
 
       async authorize(credentials, req) {
         const password = req.body.password;
-        console.log(req);
-
         await dbConnect();
 
         const user = await User.findOne({ email: req.body.email });
+
         const isPasswordCorrect = await bcrypt.compare(password, user.password);
+
         if (isPasswordCorrect) {
           return user;
         }
@@ -30,7 +30,7 @@ export const authOptions = {
     }),
   ],
   pages: {
-    signIn: '/login',
+    signIn: '/account',
   },
 };
 

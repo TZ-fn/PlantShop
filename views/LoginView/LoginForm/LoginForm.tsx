@@ -26,6 +26,8 @@ export default function LoginForm(): ReactElement {
     password: loginPageValues.password.value,
   };
 
+  console.log(session, status);
+
   const fetchSettings = {
     headers: {
       'Content-Type': 'application/json',
