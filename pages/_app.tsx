@@ -11,11 +11,7 @@ import 'styles/variables.scss';
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <SessionProvider
-        // Provider options are not required but can be useful in situations where
-        // you have a short session maxAge time. Shown here with default values.
-        session={pageProps.session}
-      >
+      <SessionProvider session={pageProps.session}>
         <ToastContainer />
         <Layout>
           <Component {...pageProps} />
