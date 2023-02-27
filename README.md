@@ -30,6 +30,8 @@ React
 
 Next.js
 
+NextAuth
+
 TypeScript
 
 Sass
