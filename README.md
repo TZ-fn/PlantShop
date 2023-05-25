@@ -14,7 +14,7 @@ Products can be added to the basket or wishlist, notifications-toasts confirming
 
 ## Live version
 
-The live version can be found [here]('https://plant-shop-phi.vercel.app/').
+The live version can be found [here](https://plant-shop-phi.vercel.app/).
 
 ## Running the project locally
 
@@ -59,4 +59,4 @@ Bcrypt
 Photos by <a href="https://unsplash.com/@feeypflanzen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Severin Candrian</a>,
 <a href="https://unsplash.com/@rumanamin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Rumman Amin</a>,
 <a href="https://unsplash.com/@karishea?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kari Shea</a>,
-<a href="https://unsplash.com/@feeypflanzen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Severin Candrian</a> on <a href="https://unsplash.com/s/photos/monstera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+<a href="https://unsplash.com/@feeypflanzen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Severin Candrian</a> on <a href="https://unsplash.com/s/photos/monstera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>.
