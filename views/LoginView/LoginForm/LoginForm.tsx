@@ -32,7 +32,7 @@ export default function LoginForm(): ReactElement {
     body: JSON.stringify(userData),
   };
 
-  const [response, isLoading, error, refresh] = useFetch('/api/login', fetchSettings);
+  const [response, isLoading, _error, refresh] = useFetch('/api/login', fetchSettings);
 
   useEffect(() => {
     if (response !== null && 'success' in response) {

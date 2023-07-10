@@ -13,11 +13,11 @@ export const authOptions = {
         password: { label: 'Password', type: 'password' },
       },
 
-      async authorize(credentials, req) {
-        const password = req.body.password;
+      async authorize(_credentials, req) {
+        const password = req.body?.password;
         await dbConnect();
 
-        const user = await User.findOne({ email: req.body.email });
+        const user = await User.findOne({ email: req.body?.email });
 
         const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
