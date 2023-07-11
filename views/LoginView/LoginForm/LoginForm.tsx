@@ -61,7 +61,7 @@ export default function LoginForm(): ReactElement {
 
   function authenticateUser() {
     if (!loginPageValues.email.value || !loginPageValues.password.value) {
-      toast.error('Please enter fill all the necessary data.', {
+      toast.error('Please enter all the necessary data.', {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: false,
       });

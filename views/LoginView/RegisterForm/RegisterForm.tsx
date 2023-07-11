@@ -86,7 +86,7 @@ export default function RegisterForm(): ReactElement {
       !registerPageValues.password.value ||
       !registerPageValues.confirmPassword.value
     ) {
-      toast.error('Please enter fill all the necessary data.', {
+      toast.error('Please enter all the necessary data.', {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: false,
       });
