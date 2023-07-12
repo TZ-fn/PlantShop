@@ -1,3 +1,8 @@
-export default function PageNotFound() {
-  return <h1>404 - Page Not Found</h1>;
-}
+import type { NextPage } from 'next';
+import PageNotFoundView from 'views/PageNotFoundView/PageNotFoundView';
+
+const PageNotFound: NextPage = () => {
+  return <PageNotFoundView />;
+};
+
+export default PageNotFound;
