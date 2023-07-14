@@ -1,22 +1,22 @@
 .wishlistContainer {
   display: flex;
-  min-width: 38rem;
+  min-width: 26rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3vw;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-elevation-medium);
   overflow-x: hidden;
 
-  @media (width < 700px) {
-    width: auto;
+  @media (width < 500px) {
+    min-width: 20rem;
   }
 }
 
 .sectionHeader {
   @include section-header;
+  margin: 1.1rem 1.5rem 1.5rem 1.5rem;
   width: 124%;
 }
 
