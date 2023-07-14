@@ -3,8 +3,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  min-height: 25rem;
-  padding: 2rem 3rem;
+  width: 80vw;
+  max-width: 40rem;
+  min-height: 20rem;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-elevation-low);
@@ -12,17 +13,15 @@
 
 .sectionHeader {
   @include section-header;
-  width: 120%;
+  width: 100%;
+  margin: 1.1rem 1.5rem 1.5rem 1.5rem;
   font-size: 2.2rem;
-
-  @media (width < 1030px) {
-    font-size: 1.8rem;
-  }
 }
 
 .message {
   font-size: 1.3rem;
   font-weight: 600;
+  margin: 1.5rem;
 }
 
 .link {
