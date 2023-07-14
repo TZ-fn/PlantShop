@@ -16,7 +16,7 @@
     margin-bottom: 0.5rem;
   }
 
-  @media (width < 520px) {
+  @media (width < 550px) {
     min-width: unset;
   }
 }
@@ -30,7 +30,7 @@
   font-weight: 700;
   text-align: center;
 
-  @media (width < 520px) {
+  @media (width < 550px) {
     font-size: 1.3rem;
   }
 }
@@ -38,7 +38,7 @@
 .basketTotal {
   font-size: 1.6rem;
 
-  @media (width < 520px) {
+  @media (width < 550px) {
     font-size: 1.1rem;
   }
 }
