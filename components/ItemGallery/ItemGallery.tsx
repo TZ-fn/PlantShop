@@ -51,7 +51,7 @@ export default function ItemGallery({ name }: ItemGalleryProps) {
       setImageID((galleryData as UnsplashPhotoResults).results[newIndex].urls.regular);
     }
   }
-  console.log(galleryData);
+
   return (
     <div className={styles.itemGalleryContainer}>
       {isGalleryOpened && (
