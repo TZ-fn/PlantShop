@@ -1,37 +1,38 @@
 import NextAuth from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
-import dbConnect from 'db/dbConnect';
-import User from 'models/User';
-import bcrypt from 'bcrypt';
+import EmailProvider from 'next-auth/providers/email';
 
-export const authOptions = {
+const options = {
+  site: process.env.NEXTAUTH_URL,
   providers: [
-    CredentialsProvider({
-      name: 'Credentials',
-      credentials: {
-        username: { label: 'Username', type: 'text', placeholder: '' },
-        password: { label: 'Password', type: 'password' },
+    EmailProvider({
+      server: {
+        port: 465,
+        host: 'smtp.gmail.com',
+        secure: true,
+        auth: {
+          user: process.env.EMAIL_USERNAME,
+          pass: process.env.EMAIL_PASSWORD,
+        },
+        tls: {
+          rejectUnauthorized: false,
+        },
       },
-
-      async authorize(_credentials, req) {
-        const password = req.body?.password;
-        await dbConnect();
-
-        const user = await User.findOne({ email: req.body?.email });
-
-        const isPasswordCorrect = await bcrypt.compare(password, user.password);
-
-        if (isPasswordCorrect) {
-          return user;
-        }
-
-        return null;
-      },
+      from: process.env.EMAIL_FROM,
     }),
   ],
-  pages: {
-    signIn: '/login',
+  session: {
+    jwt: true,
+    maxAge: 30 * 24 * 60 * 60,
+  },
+  database: process.env.DATABASE_URL,
+  callbacks: {
+    redirect: async (url, _) => {
+      if (url === '/api/auth/signin') {
+        return Promise.resolve('/profile');
+      }
+      return Promise.resolve('/api/auth/signin');
+    },
   },
 };
 
-export default NextAuth(authOptions);
+export default (req, res) => NextAuth(req, res, options);
