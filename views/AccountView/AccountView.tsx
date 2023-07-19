@@ -1,14 +1,12 @@
-import { lazy, Suspense } from 'react';
 import Image from 'next/image';
 import { RootState } from 'store/store';
 import { useSelector } from 'react-redux';
 import AccountIcon from 'public/icons/loginIcon.svg';
 import styles from './AccountView.module.scss';
+import AccountDetails from 'views/AccountView/AccountDetails/AccountDetails';
 
 export default function AccountView() {
   const isUserAuthorised = useSelector((state: RootState) => state.authorisation.isUserAuthorised);
-
-  const AccountDetails = lazy(() => import('views/AccountView/AccountDetails/AccountDetails'));
 
   return (
     <div className={styles.accountContainer}>
@@ -16,10 +14,10 @@ export default function AccountView() {
         <Image src={AccountIcon.src} width={80} height={80} />
         <h2>Account</h2>
       </div>
-      {isUserAuthorised && (
-        <Suspense fallback={<p className={styles.notLoggedIn}>Please log in first.</p>}>
-          <AccountDetails />
-        </Suspense>
+      {isUserAuthorised ? (
+        <AccountDetails />
+      ) : (
+        <p className={styles.notLoggedIn}>Please log in first.</p>
       )}
     </div>
   );
