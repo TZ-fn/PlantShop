@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { store } from 'store/store';
 import { Provider } from 'react-redux';
 import userEvent from '@testing-library/user-event';
@@ -29,10 +29,10 @@ describe('test WishlistButton', () => {
 
     user.click(continueShoppingBtn);
 
-    screen.debug();
+    const productsPage = await screen.findByText(/Products/);
 
-    // const productsPage = await screen.findByText(/Products/);
-
-    // expect(productsPage).toBeInTheDocument();
+    await waitFor(() => expect(productsPage).toBeInTheDocument(), {
+      timeout: 3000,
+    });
   });
 });
