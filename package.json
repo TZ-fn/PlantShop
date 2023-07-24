@@ -39,6 +39,7 @@
     "eslint-config-prettier": "^8.6.0",
     "jest": "^29.4.2",
     "jest-environment-jsdom": "^29.4.2",
+    "next-router-mock": "^0.9.7",
     "prettier": "^2.8.4",
     "stylelint": "^14.16.1",
     "stylelint-config-prettier-scss": "0.0.1",
