@@ -1,8 +1,10 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { store } from 'store/store';
 import { Provider } from 'react-redux';
 import userEvent from '@testing-library/user-event';
+import mockRouter from 'next-router-mock';
+import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import BasketView from 'views/BasketView/BasketView';
 
 describe('test WishlistButton', () => {
@@ -13,6 +15,7 @@ describe('test WishlistButton', () => {
       <Provider store={store}>
         <BasketView />
       </Provider>,
+      { wrapper: MemoryRouterProvider },
     );
   }
 
@@ -29,10 +32,7 @@ describe('test WishlistButton', () => {
 
     user.click(continueShoppingBtn);
 
-    const productsPage = await screen.findByText(/Products/);
-
-    await waitFor(() => expect(productsPage).toBeInTheDocument(), {
-      timeout: 3000,
-    });
+    // await waitFor(() => expect(screen.getByText(/Products/)).toBeInTheDocument());
+    expect(mockRouter.asPath).toBe('/products');
   });
 });
