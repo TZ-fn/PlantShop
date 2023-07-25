@@ -26,7 +26,7 @@ describe('test the ItemGallery component', () => {
     );
   }
 
-  async function openGalleryModal(imageToBeClicked) {
+  async function openGalleryModal(imageToBeClicked: number) {
     const allImages = await screen.findAllByRole('img');
 
     await user.click(allImages[imageToBeClicked]);
