@@ -1,21 +1,23 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { store } from 'store/store';
 import { Provider } from 'react-redux';
 import userEvent from '@testing-library/user-event';
-import mockRouter from 'next-router-mock';
-import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
+import { RouterContext } from 'next/dist/shared/lib/router-context';
+import { createRouterMock } from './mocked-data/createRouterMock';
 import BasketView from 'views/BasketView/BasketView';
+
+const router = createRouterMock();
 
 describe('test WishlistButton', () => {
   const user = userEvent.setup();
 
   function renderBasketView() {
     render(
-      <Provider store={store}>
-        <BasketView />
-      </Provider>,
-      { wrapper: MemoryRouterProvider },
+      <RouterContext.Provider value={router}>
+        <Provider store={store}>
+          <BasketView />
+        </Provider>
+      </RouterContext.Provider>,
     );
   }
 
@@ -30,9 +32,9 @@ describe('test WishlistButton', () => {
 
     expect(continueShoppingBtn).toBeInTheDocument();
 
-    user.click(continueShoppingBtn);
+    await user.click(continueShoppingBtn);
 
-    // await waitFor(() => expect(screen.getByText(/Products/)).toBeInTheDocument());
-    expect(mockRouter.asPath).toBe('/products');
+    // 2x expect.anything() is needed to mock additional router arguments
+    expect(router.push).toHaveBeenCalledWith(`/products`, expect.anything(), expect.anything());
   });
 });
