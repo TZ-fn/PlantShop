@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { store } from 'store/store';
 import { Provider } from 'react-redux';
 import userEvent from '@testing-library/user-event';
@@ -23,7 +23,12 @@ describe('test WishlistButton', () => {
 
   it('renders the Basket view correctly', () => {
     renderBasketView();
-    expect(screen.getByText(/Your basket is empty./)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /basket/i })).toBeInTheDocument();
+  });
+
+  it('renders the price correctly', () => {
+    renderBasketView();
+    expect(screen.getByText(/0.00/)).toBeInTheDocument();
   });
 
   it('redirects to the Products page after clicking the Continue Shopping button', async () => {
