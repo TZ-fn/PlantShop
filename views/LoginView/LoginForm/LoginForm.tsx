@@ -17,8 +17,6 @@ export default function LoginForm(): ReactElement {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  useEffect(() => {}, [loginPageValues.email, loginPageValues.password]);
-
   const userData = {
     email: loginPageValues.email.value,
     password: loginPageValues.password.value,
