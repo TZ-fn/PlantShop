@@ -49,7 +49,7 @@ export default function RegisterForm(): ReactElement {
         ),
       );
     }
-  }, [registerPageValues.email, registerPageValues.password, registerPageValues.confirmPassword]);
+  }, [registerPageValues]);
 
   useEffect(() => {
     if (response !== null && 'success' in response) {
