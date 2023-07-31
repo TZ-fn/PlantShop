@@ -31,7 +31,7 @@ const options = {
   },
   database: process.env.DATABASE_URL,
   callbacks: {
-    redirect: async ({ url, baseUrl }: { url: string; baseUrl: string }) => {
+    redirect: async ({ url }: { url: string;}) => {
       if (url === '/api/auth/signin') {
         return Promise.resolve('/account');
       }
