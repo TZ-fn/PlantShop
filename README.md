@@ -20,7 +20,7 @@ The live version can be found [here](https://plant-shop-phi.vercel.app/).
 
 Clone or download this repository.
 
-Run `npm install` then `npm run dev` in the main directory.
+Run `npm install && npm run build && npm start` in the main directory.
 
 Open `http://localhost:3000` to view the app in your browser.
 
@@ -57,6 +57,5 @@ Bcrypt
 ## Images attributions
 
 Photos by <a href="https://unsplash.com/@feeypflanzen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Severin Candrian</a>,
-<a href="https://unsplash.com/@rumanamin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Rumman Amin</a>,
-<a href="https://unsplash.com/@karishea?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kari Shea</a>,
-<a href="https://unsplash.com/@feeypflanzen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Severin Candrian</a> on <a href="https://unsplash.com/s/photos/monstera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>.
+<a href="https://unsplash.com/@rumanamin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Rumman Amin</a> and
+<a href="https://unsplash.com/@karishea?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kari Shea</a> on <a href="https://unsplash.com/s/photos/monstera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>.
